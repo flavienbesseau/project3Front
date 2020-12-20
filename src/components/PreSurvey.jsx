@@ -12,6 +12,9 @@ class PreSurvey extends Component {
       specialties: [],
       experiences: [],
     };
+    this.handleHospital = this.handleHospital.bind(this);
+    this.handleSpecialty = this.handleSpecialty.bind(this);
+    this.handleExperience = this.handleExperience.bind(this);
   }
 
   getHospitals() {
@@ -42,6 +45,18 @@ class PreSurvey extends Component {
       );
   }
 
+  handleHospital(event) {
+    this.setState({ hospitalId: event.target.value });
+  }
+
+  handleSpecialty(event) {
+    this.setState({ specialtyId: event.target.value });
+  }
+
+  handleExperience(event) {
+    this.setState({ experienceId: event.target.value });
+  }
+
   componentDidMount() {
     this.getHospitals();
     this.getSpecialties();
@@ -54,24 +69,40 @@ class PreSurvey extends Component {
       <div>
         <h1>Pré-questionnaire</h1>
 
-        <label for="hospital-select">Choisissez un hopital</label>
-        <select name="hospital" id="hospital-select">
+        <label for="hospital-select">Hopital</label>
+        <select
+          name="hospital"
+          id="hospital-select"
+          onChange={this.handleHospital}
+        >
+          <option value="hospital">Choisissez un hopital</option>
+
           {hospitals.map((hospital) => (
             <option value={hospital.id}>{hospital.name}</option>
           ))}
         </select>
 
-        <label for="specialties-select">Choisissez une spécialité</label>
-        <select name="specialties" id="specialties-select">
+        <label for="specialties-select">Spécialité</label>
+        <select
+          name="specialties"
+          id="specialties-select"
+          onChange={this.handleSpecialty}
+        >
+          <option value="specialty">Choisissez une spécialité</option>
           {specialties.map((specialty) => (
             <option value={specialty.id}>{specialty.name}</option>
           ))}
         </select>
 
-        <label for="experiences-select">
-          Choisissez le type d'hospitalisation
-        </label>
-        <select name="experiences" id="experiences-select">
+        <label for="experiences-select">Type d'hospitalisation</label>
+        <select
+          name="experiences"
+          id="experiences-select"
+          onChange={this.handleExperience}
+        >
+          <option value="experience">
+            Choisissez votre type d'hospitalisation
+          </option>
           {experiences.map((experience) => (
             <option value={experience.id}>{experience.name}</option>
           ))}
