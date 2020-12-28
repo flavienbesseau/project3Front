@@ -1,14 +1,20 @@
 import "./App.css";
-import SignupForm from "./SignupForm";
 import PreSurvey from "./PreSurvey";
+import Survey from "./Survey";
+
+// import Survey from "./Survey";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 function App() {
   return (
-    <div>
-      <div className="App">Wild P3</div>;
-      <SignupForm />
-      <PreSurvey />
-    </div>
+    <Router>
+      <Switch>
+        <Route exact path="/">
+          <PreSurvey />
+        </Route>
+        <Route path="/surveys/:id" component={Survey} />
+      </Switch>
+    </Router>
   );
 }
 

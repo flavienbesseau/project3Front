@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { BrowserRouter as Link } from "react-router-dom";
+
 import axios from "axios";
 
 class PreSurvey extends Component {
@@ -68,46 +70,55 @@ class PreSurvey extends Component {
     return (
       <div>
         <h1>Pré-questionnaire</h1>
-
-        <label for="hospital-select">Hopital</label>
-        <select
-          name="hospital"
-          id="hospital-select"
-          onChange={this.handleHospital}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            width: "20rem",
+            textAlign: "center",
+          }}
         >
-          <option value="hospital">Choisissez un hopital</option>
+          <label for="hospital-select">Hopital</label>
+          <select
+            name="hospital"
+            id="hospital-select"
+            onChange={this.handleHospital}
+          >
+            <option value="hospital">Choisissez un hopital</option>
 
-          {hospitals.map((hospital) => (
-            <option value={hospital.id}>{hospital.name}</option>
-          ))}
-        </select>
+            {hospitals.map((hospital) => (
+              <option value={hospital.id}>{hospital.name}</option>
+            ))}
+          </select>
 
-        <label for="specialties-select">Spécialité</label>
-        <select
-          name="specialties"
-          id="specialties-select"
-          onChange={this.handleSpecialty}
-        >
-          <option value="specialty">Choisissez une spécialité</option>
-          {specialties.map((specialty) => (
-            <option value={specialty.id}>{specialty.name}</option>
-          ))}
-        </select>
+          <label for="specialties-select">Spécialité</label>
+          <select
+            name="specialties"
+            id="specialties-select"
+            onChange={this.handleSpecialty}
+          >
+            <option value="specialty">Choisissez une spécialité</option>
+            {specialties.map((specialty) => (
+              <option value={specialty.id}>{specialty.name}</option>
+            ))}
+          </select>
 
-        <label for="experiences-select">Type d'hospitalisation</label>
-        <select
-          name="experiences"
-          id="experiences-select"
-          onChange={this.handleExperience}
-        >
-          <option value="experience">
-            Choisissez votre type d'hospitalisation
-          </option>
-          {experiences.map((experience) => (
-            <option value={experience.id}>{experience.name}</option>
-          ))}
-        </select>
-        <button type="submit">Envoyer</button>
+          <label for="experiences-select">Type d'hospitalisation</label>
+          <select
+            name="experiences"
+            id="experiences-select"
+            onChange={this.handleExperience}
+          >
+            <option value="experience">
+              Choisissez votre type d'hospitalisation
+            </option>
+            {experiences.map((experience) => (
+              <option value={experience.id}>{experience.name}</option>
+            ))}
+          </select>
+          <Link to="/surveys/:id">Envoyer</Link>
+          <button type="button">Envoyer</button>
+        </div>
       </div>
     );
   }
