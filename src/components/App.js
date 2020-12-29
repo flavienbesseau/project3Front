@@ -10,9 +10,12 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
+          Page d'accueil
+        </Route>
+        <Route exact path="/presurvey">
           <PreSurvey />
         </Route>
-        <Route path="/surveys/:id" component={Survey} />
+        <Route path="/survey/:experienceId" component={Survey} />
       </Switch>
     </Router>
   );

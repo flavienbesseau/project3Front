@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { BrowserRouter as Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import axios from "axios";
 
@@ -20,7 +20,7 @@ class PreSurvey extends Component {
   }
 
   getHospitals() {
-    const url = "http://localhost:5000/api/hospitals";
+    const url = "http://localhost:5002/api/hospitals";
     axios
       .get(url)
       .then((response) => response.data)
@@ -28,7 +28,7 @@ class PreSurvey extends Component {
   }
 
   getSpecialties() {
-    const url = "http://localhost:5000/api/specialties";
+    const url = "http://localhost:5002/api/specialties";
     axios
       .get(url)
       .then((response) => response.data)
@@ -38,7 +38,7 @@ class PreSurvey extends Component {
   }
 
   getExperiences() {
-    const url = "http://localhost:5000/api/experiences";
+    const url = "http://localhost:5002/api/experiences";
     axios
       .get(url)
       .then((response) => response.data)
@@ -66,7 +66,7 @@ class PreSurvey extends Component {
   }
 
   render() {
-    const { hospitals, specialties, experiences } = this.state;
+    const { hospitals, specialties, experiences, experienceId } = this.state;
     return (
       <div>
         <h1>Pré-questionnaire</h1>
@@ -116,8 +116,7 @@ class PreSurvey extends Component {
               <option value={experience.id}>{experience.name}</option>
             ))}
           </select>
-          <Link to="/surveys/:id">Envoyer</Link>
-          <button type="button">Envoyer</button>
+          <Link to={`/survey/${experienceId}`}>Remplir le questionnaire</Link>
         </div>
       </div>
     );
