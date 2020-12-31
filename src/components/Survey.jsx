@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import axios from "axios";
 import Question from "./Question";
+import backPort from "../const";
+import { Formik } from "formik";
+import { formatResponses } from "../utils";
 
 class Survey extends Component {
   constructor(props) {
@@ -16,60 +19,72 @@ class Survey extends Component {
         params: { experienceId },
       },
     } = this.props;
-    const url = `http://localhost:5002/api/survey?experienceId=${experienceId}`;
+    const url = `http://localhost:${backPort}/api/survey?experienceId=${experienceId}`;
     axios
       .get(url)
       .then((res) => res.data)
       .then((questionsArr) => {
-        console.log(questionsArr);
         this.setState({ questions: questionsArr });
       });
   }
 
   submitResponses() {
-    const url = "/api/surveys/responses";
-    axios({
-      method: "post",
-      url: url,
-      data: {
-        fdfdfd: undefined,
-      },
-    }).then(
-      (response) => {
-        console.log(response);
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
+    // const url = "/api/surveys/responses";
+    // axios({
+    //   method: "post",
+    //   url: url,
+    //   data: {
+    //     fdfdfd: undefined,
+    //   },
+    // });
   }
 
   componentDidMount() {
-    console.log(this.props);
     this.getQuestions();
   }
 
   render() {
     const { questions } = this.state;
     return (
-      <div>
-        <form onSubmit={this.submitResponses}>
-          <h1>Titre du questionnaire</h1>
-          {questions.map((item) => (
-            <Question
-              text_rating={item.text_rating}
-              text_comment={item.text_comment}
-            />
-          ))}
-          <button type="submit">Envoyer les réponses</button>
-        </form>
-      </div>
+      <Formik
+        initialValues={{}}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            const results = formatResponses(values);
+            console.log(results);
+            setSubmitting(false);
+          }, 400);
+        }}
+      >
+        {({
+          values,
+          errors,
+          touched,
+          handleChange,
+          handleBlur,
+          handleSubmit,
+          isSubmitting,
+          /* and other goodies */
+        }) => (
+          <form onSubmit={handleSubmit}>
+            <h1>Titre du questionnaire</h1>
+            {questions.map((item) => (
+              <Question
+                id={item.id}
+                text_rating={item.text_rating}
+                text_comment={item.text_comment}
+                // handleChange={handleChange}
+                // handleBlur={handleBlur}
+              />
+            ))}
+            <button type="submit" disabled={isSubmitting}>
+              Envoyer les réponses
+            </button>
+          </form>
+        )}
+      </Formik>
     );
   }
 }
 
 export default Survey;
-
-// .map((item) => (
-//   <LiDetails key={item.id}>{item.name}</LiDetails>
-// ))

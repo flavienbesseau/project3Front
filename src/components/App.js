@@ -4,21 +4,32 @@ import Survey from "./Survey";
 
 // import Survey from "./Survey";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { Component } from "react";
 
-function App() {
-  return (
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          Page d'accueil
-        </Route>
-        <Route exact path="/presurvey">
-          <PreSurvey />
-        </Route>
-        <Route path="/survey/:experienceId" component={Survey} />
-      </Switch>
-    </Router>
-  );
+class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      hospitalId: undefined,
+      specialtyId: undefined,
+      experienceId: undefined,
+    };
+  }
+  render() {
+    return (
+      <Router>
+        <Switch>
+          <Route exact path="/">
+            Page d'accueil
+          </Route>
+          <Route exact path="/presurvey">
+            <PreSurvey />
+          </Route>
+          <Route path="/survey/:experienceId" component={Survey} />
+        </Switch>
+      </Router>
+    );
+  }
 }
 
 export default App;

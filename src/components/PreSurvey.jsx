@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import backPort from "../const";
 
 import axios from "axios";
 
@@ -20,7 +21,7 @@ class PreSurvey extends Component {
   }
 
   getHospitals() {
-    const url = "http://localhost:5002/api/hospitals";
+    const url = `http://localhost:${backPort}/api/hospitals`;
     axios
       .get(url)
       .then((response) => response.data)
@@ -28,7 +29,7 @@ class PreSurvey extends Component {
   }
 
   getSpecialties() {
-    const url = "http://localhost:5002/api/specialties";
+    const url = `http://localhost:${backPort}/api/specialties`;
     axios
       .get(url)
       .then((response) => response.data)
@@ -38,7 +39,7 @@ class PreSurvey extends Component {
   }
 
   getExperiences() {
-    const url = "http://localhost:5002/api/experiences";
+    const url = `http://localhost:${backPort}/api/experiences`;
     axios
       .get(url)
       .then((response) => response.data)
