@@ -25,7 +25,7 @@ class App extends Component {
           <Route exact path="/presurvey">
             <PreSurvey />
           </Route>
-          <Route path="/survey/:experienceId" component={Survey} />
+          <Route path="/survey" component={Survey} />
         </Switch>
       </Router>
     );

@@ -30,7 +30,7 @@ const Question = (props) => (
     <Field
       id={props.id}
       type="input"
-      name={props.id + "-comment"}
+      name={props.id + "-text_answer"}
       placeholder={props.text_comment}
       // onChange={props.handleChange}
       // onBlur={props.handleBlur}

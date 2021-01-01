@@ -1,16 +1,13 @@
+import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
+import { connect } from "react-redux";
 import backPort from "../const";
-
-import axios from "axios";
 
 class PreSurvey extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      hospitalId: undefined,
-      specialtyId: undefined,
-      experienceId: undefined,
       hospitals: [],
       specialties: [],
       experiences: [],
@@ -49,15 +46,21 @@ class PreSurvey extends Component {
   }
 
   handleHospital(event) {
-    this.setState({ hospitalId: event.target.value });
+    //this.setState({ hospitalId: event.target.value });
+    // Dispatch an action to redux
+    this.props.updateHospitalId(event.target.value);
   }
 
   handleSpecialty(event) {
-    this.setState({ specialtyId: event.target.value });
+    //this.setState({ specialtyId: event.target.value });
+    // Dispatch an action to redux
+    this.props.updateSpecialtyId(event.target.value);
   }
 
   handleExperience(event) {
-    this.setState({ experienceId: event.target.value });
+    //this.setState({ experienceId: event.target.value });
+    // Dispatch an action to redux
+    this.props.updateExperienceId(event.target.value);
   }
 
   componentDidMount() {
@@ -67,7 +70,7 @@ class PreSurvey extends Component {
   }
 
   render() {
-    const { hospitals, specialties, experiences, experienceId } = this.state;
+    const { hospitals, specialties, experiences } = this.state;
     return (
       <div>
         <h1>Pré-questionnaire</h1>
@@ -117,11 +120,18 @@ class PreSurvey extends Component {
               <option value={experience.id}>{experience.name}</option>
             ))}
           </select>
-          <Link to={`/survey/${experienceId}`}>Remplir le questionnaire</Link>
+          <Link to={`/survey`}>Remplir le questionnaire</Link>
         </div>
       </div>
     );
   }
 }
 
-export default PreSurvey;
+const mapDispatchToProps = (dispatch) => ({
+  updateExperienceId: (id) =>
+    dispatch({ type: "UPDATE_EXPERIENCE_ID", id: id }),
+  updateHospitalId: (id) => dispatch({ type: "UPDATE_HOSPITAL_ID", id: id }),
+  updateSpecialtyId: (id) => dispatch({ type: "UPDATE_SPECIALTY_ID", id: id }),
+});
+
+export default connect(null, mapDispatchToProps)(PreSurvey);

@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import axios from "axios";
 import Question from "./Question";
 import backPort from "../const";
-import { Formik } from "formik";
+import { Formik, Field } from "formik";
 import { formatResponses } from "../utils";
+import { connect } from "react-redux";
 
 class Survey extends Component {
   constructor(props) {
@@ -14,11 +15,7 @@ class Survey extends Component {
   }
 
   getQuestions() {
-    const {
-      match: {
-        params: { experienceId },
-      },
-    } = this.props;
+    const { experienceId } = this.props;
     const url = `http://localhost:${backPort}/api/survey?experienceId=${experienceId}`;
     axios
       .get(url)
@@ -45,12 +42,18 @@ class Survey extends Component {
 
   render() {
     const { questions } = this.state;
+    const { experienceId, hospitalId, specialtyId } = this.props;
     return (
       <Formik
         initialValues={{}}
         onSubmit={(values, { setSubmitting }) => {
           setTimeout(() => {
-            const results = formatResponses(values);
+            const results = formatResponses(
+              values,
+              hospitalId,
+              experienceId,
+              specialtyId
+            );
             console.log(results);
             setSubmitting(false);
           }, 400);
@@ -77,6 +80,13 @@ class Survey extends Component {
                 // handleBlur={handleBlur}
               />
             ))}
+            <label htmlFor="commentaires"></label>
+            <Field
+              id="pseudo"
+              type="text"
+              name="pseudo"
+              placeholder="Votre pseudo"
+            />
             <button type="submit" disabled={isSubmitting}>
               Envoyer les réponses
             </button>
@@ -87,4 +97,12 @@ class Survey extends Component {
   }
 }
 
-export default Survey;
+const mapStateToProps = (state) => {
+  return {
+    experienceId: state.experienceId,
+    specialtyId: state.specialtyId,
+    hospitalId: state.hospitalId,
+  };
+};
+
+export default connect(mapStateToProps)(Survey);
