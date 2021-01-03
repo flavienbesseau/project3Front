@@ -32,8 +32,6 @@ const Question = (props) => (
       type="input"
       name={props.id + "-text_answer"}
       placeholder={props.text_comment}
-      // onChange={props.handleChange}
-      // onBlur={props.handleBlur}
     ></Field>
   </div>
 );

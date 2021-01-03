@@ -46,20 +46,17 @@ class PreSurvey extends Component {
   }
 
   handleHospital(event) {
-    //this.setState({ hospitalId: event.target.value });
-    // Dispatch an action to redux
+    // Dispatch an action to redux, equivalent to setState presque
     this.props.updateHospitalId(event.target.value);
   }
 
   handleSpecialty(event) {
-    //this.setState({ specialtyId: event.target.value });
-    // Dispatch an action to redux
+    // Dispatch an action to redux, equivalent to setState presque
     this.props.updateSpecialtyId(event.target.value);
   }
 
   handleExperience(event) {
-    //this.setState({ experienceId: event.target.value });
-    // Dispatch an action to redux
+    // Dispatch an action to redux, equivalent to setState presque
     this.props.updateExperienceId(event.target.value);
   }
 

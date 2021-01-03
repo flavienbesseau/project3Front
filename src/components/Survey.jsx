@@ -25,17 +25,6 @@ class Survey extends Component {
       });
   }
 
-  submitResponses() {
-    // const url = "/api/surveys/responses";
-    // axios({
-    //   method: "post",
-    //   url: url,
-    //   data: {
-    //     fdfdfd: undefined,
-    //   },
-    // });
-  }
-
   componentDidMount() {
     this.getQuestions();
   }
@@ -47,6 +36,8 @@ class Survey extends Component {
       <Formik
         initialValues={{}}
         onSubmit={(values, { setSubmitting }) => {
+          console.log(values);
+
           setTimeout(() => {
             const results = formatResponses(
               values,
@@ -54,21 +45,16 @@ class Survey extends Component {
               experienceId,
               specialtyId
             );
-            console.log(results);
-            setSubmitting(false);
-          }, 400);
+            const url = `http://localhost:${backPort}/api/surveys/responses`;
+            axios({
+              method: "post",
+              url: url,
+              data: Object.values(results),
+            }).then(() => setSubmitting(false));
+          }, 500);
         }}
       >
-        {({
-          values,
-          errors,
-          touched,
-          handleChange,
-          handleBlur,
-          handleSubmit,
-          isSubmitting,
-          /* and other goodies */
-        }) => (
+        {({ handleSubmit, isSubmitting }) => (
           <form onSubmit={handleSubmit}>
             <h1>Titre du questionnaire</h1>
             {questions.map((item) => (
@@ -76,17 +62,14 @@ class Survey extends Component {
                 id={item.id}
                 text_rating={item.text_rating}
                 text_comment={item.text_comment}
-                // handleChange={handleChange}
-                // handleBlur={handleBlur}
               />
             ))}
-            <label htmlFor="commentaires"></label>
             <Field
-              id="pseudo"
-              type="text"
+              type="input"
               name="pseudo"
               placeholder="Votre pseudo"
-            />
+            ></Field>
+
             <button type="submit" disabled={isSubmitting}>
               Envoyer les réponses
             </button>
