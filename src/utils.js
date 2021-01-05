@@ -28,6 +28,7 @@
  *              id: "25",
  *              score: "1",
  *              pseudo: "Someone"
+ *              hospitalId: 3
  *           }
  *   }
  *

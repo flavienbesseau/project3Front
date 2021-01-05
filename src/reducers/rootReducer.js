@@ -6,6 +6,7 @@ const initState = {
 
 const hospitalReducer = (state = undefined, action) => {
   if (action.type === "UPDATE_HOSPITAL_ID") {
+    //on check le type
     return action.id;
   } else {
     return state;

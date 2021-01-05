@@ -1,19 +1,12 @@
-import "./App.css";
-import PreSurvey from "./PreSurvey";
-import Survey from "./Survey";
-
-// import Survey from "./Survey";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Component } from "react";
+import PreSurvey from "./PreSurvey";
+import Survey from "./Survey";
 
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      hospitalId: undefined,
-      specialtyId: undefined,
-      experienceId: undefined,
-    };
+    this.state = {};
   }
   render() {
     return (
@@ -25,7 +18,9 @@ class App extends Component {
           <Route exact path="/presurvey">
             <PreSurvey />
           </Route>
-          <Route path="/survey" component={Survey} />
+          <Route path="/survey">
+            <Survey />
+          </Route>
         </Switch>
       </Router>
     );

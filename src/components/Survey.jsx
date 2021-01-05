@@ -36,8 +36,6 @@ class Survey extends Component {
       <Formik
         initialValues={{}}
         onSubmit={(values, { setSubmitting }) => {
-          console.log(values);
-
           setTimeout(() => {
             const results = formatResponses(
               values,
