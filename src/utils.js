@@ -45,7 +45,7 @@ const formatResponses = (
 ) => {
   const results = {};
   Object.keys(formikValues)
-    .filter((key) => key !== "pseudo") // on va faire des opérations ou la clé n'est pas pseudo
+    .filter((key) => key !== "pseudo" && key !== "email") // on va faire des opérations ou la clé n'est pas pseudo
     .forEach((key) => {
       const [id, type] = key.split("-"); // "24-score" devient ["24", "score"], et on stocke 24 dans la var id et score dans type
       const val = formikValues[key]; //on lit la valeur à la clé courante, "2" ici
@@ -56,6 +56,7 @@ const formatResponses = (
       results[id].experienceId = experienceId;
       results[id].specialtyId = specialtyId;
       results[id].pseudo = formikValues.pseudo; //on ajoute à result la clé valeur pseudo
+      results[id].email = formikValues.email;
     });
   return results;
 };

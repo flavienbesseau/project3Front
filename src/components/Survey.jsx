@@ -62,11 +62,8 @@ class Survey extends Component {
                 text_comment={item.text_comment}
               />
             ))}
-            <Field
-              type="input"
-              name="pseudo"
-              placeholder="Votre pseudo"
-            ></Field>
+            <Field type="text" name="pseudo" placeholder="Votre pseudo"></Field>
+            <Field type="input" name="email" placeholder="Votre email"></Field>
 
             <button type="submit" disabled={isSubmitting}>
               Envoyer les réponses
