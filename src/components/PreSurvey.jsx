@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import "./Presurvey.scss";
 import backPort from "../const";
 
 class PreSurvey extends Component {
@@ -69,7 +70,7 @@ class PreSurvey extends Component {
   render() {
     const { hospitals, specialties, experiences } = this.state;
     return (
-      <div>
+      <div className="prequest">
         <h1>Pré-questionnaire</h1>
         <div
           style={{
@@ -85,7 +86,7 @@ class PreSurvey extends Component {
             id="hospital-select"
             onChange={this.handleHospital}
           >
-            <option value="hospital">Choisissez un hopital</option>
+            <option>Choisissez un hopital</option>
 
             {hospitals.map((hospital) => (
               <option value={hospital.id}>{hospital.name}</option>
@@ -117,7 +118,9 @@ class PreSurvey extends Component {
               <option value={experience.id}>{experience.name}</option>
             ))}
           </select>
-          <Link to={`/survey`}>Remplir le questionnaire</Link>
+          <Link to={`/survey`} className="btn-grad">
+            Remplir le questionnaire
+          </Link>
         </div>
       </div>
     );

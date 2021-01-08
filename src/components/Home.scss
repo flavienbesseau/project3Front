@@ -1,0 +1,77 @@
+.body {
+  background-color: #265f87;
+  color: #dadfe6;
+  font-size: 1rem;
+  @media only screen and (max-width: 600px) {
+    font-size: 1.2rem;
+  }
+}
+
+.donnetonavis {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 60%;
+  text-align: center;
+  margin: 2rem auto 2rem auto;
+  @media only screen and (max-width: 600px) {
+    width: 90%;
+  }
+}
+
+.btn-grad {
+  background-image: linear-gradient(
+    to right,
+    #1b4066 0%,
+    #265f87 51%,
+    #1b4066 90%
+  );
+}
+.btn-grad {
+  margin: 10px;
+  padding: 15px 45px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 100% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.nombreavis {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1.7rem;
+  margin: 2rem auto 0 auto;
+  text-align: center;
+  text-decoration: underline;
+  margin-left: auto;
+}
+
+.bigbox {
+  display: flex;
+  justify-content: center;
+  margin: 2rem auto 2rem auto;
+  @media only screen and (max-width: 600px) {
+    flex-wrap: wrap;
+  }
+}
+
+.box {
+  width: 25%;
+  text-align: center;
+  margin: 0 2rem;
+  @media only screen and (max-width: 600px) {
+    width: 80%;
+    text-align: center;
+    margin: 0.7rem 2rem;
+  }
+}
