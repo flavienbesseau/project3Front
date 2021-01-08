@@ -1,0 +1,78 @@
+.survey-container {
+  background-color: #f2f2f2;
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    padding: 3rem;
+    font-family: Roboto, sans-serif;
+    color: rgb(52, 138, 202);
+    background-color: #ffff;
+  }
+}
+
+.sending-form {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-wrap: wrap;
+  color: rgb(22, 66, 138);
+  font-size: 1.8rem;
+}
+
+.pseudo,
+.email,
+.send-button {
+  min-width: 30rem;
+  min-height: 4rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  font-size: 1.4rem;
+  text-indent: 1rem;
+  margin: 2rem 0rem 2rem 0rem;
+  color: rgb(52, 138, 202);
+  display: flex;
+  align-content: center;
+}
+
+.identification-form {
+  margin-top: 2rem;
+}
+
+.survey-button {
+  cursor: pointer;
+  background-color: rgb(52, 138, 202);
+  color: #ffff;
+  min-width: 30rem;
+  min-height: 4rem;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  font-size: 14px;
+  margin-bottom: 2rem;
+  &:hover {
+    background-color: rgb(33, 102, 155);
+  }
+}
+
+.send-button {
+  border: none;
+}
+
+@media screen and (min-width: 600px) {
+  .sending-form {
+    margin-top: 5rem;
+  }
+
+  .identification-form {
+    margin-right: 5rem;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    h3 {
+      margin: auto 2rem;
+    }
+  }
+
+  .survey-button {
+    margin-bottom: 0rem;
+  }
+}

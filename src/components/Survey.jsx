@@ -53,8 +53,8 @@ class Survey extends Component {
         }}
       >
         {({ handleSubmit, isSubmitting }) => (
-          <form onSubmit={handleSubmit}>
-            <h1>Titre du questionnaire</h1>
+          <form onSubmit={handleSubmit} className="survey-container">
+            <h1>Questionnaire</h1>
             {questions.map((item) => (
               <Question
                 id={item.id}
@@ -62,12 +62,33 @@ class Survey extends Component {
                 text_comment={item.text_comment}
               />
             ))}
-            <Field type="text" name="pseudo" placeholder="Votre pseudo"></Field>
-            <Field type="input" name="email" placeholder="Votre email"></Field>
-
-            <button type="submit" disabled={isSubmitting}>
-              Envoyer les réponses
-            </button>
+            <div className="sending-form">
+              <div className="identification-form">
+                <h3>Pseudonyme</h3>
+                <Field
+                  type="text"
+                  name="pseudo"
+                  placeholder="Jean Drenod"
+                  className="pseudo"
+                ></Field>
+                <h3>Adresse e-mail</h3>
+                <Field
+                  type="input"
+                  name="email"
+                  placeholder="jean.drenod@gmail.com"
+                  className="email"
+                ></Field>
+              </div>
+              <div className="send-button">
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="survey-button"
+                >
+                  Envoyer les réponses
+                </button>
+              </div>
+            </div>
           </form>
         )}
       </Formik>

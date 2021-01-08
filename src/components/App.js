@@ -5,6 +5,7 @@ import Navbar from "./NavBar";
 import Home from "./Home";
 import PreSurvey from "./PreSurvey";
 import Survey from "./Survey";
+import "../style/app.scss";
 
 class App extends Component {
   constructor(props) {
