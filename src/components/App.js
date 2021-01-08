@@ -1,5 +1,8 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Component } from "react";
+import "../style/app.scss";
+import Navbar from "./NavBar";
+import Home from "./Home";
 import PreSurvey from "./PreSurvey";
 import Survey from "./Survey";
 import "../style/app.scss";
@@ -12,9 +15,10 @@ class App extends Component {
   render() {
     return (
       <Router>
+        <Navbar />
         <Switch>
           <Route exact path="/">
-            Page d'accueil
+            <Home />
           </Route>
           <Route exact path="/presurvey">
             <PreSurvey />
