@@ -2,7 +2,6 @@ import axios from "axios";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import "./Presurvey.scss";
 import backPort from "../const";
 
 class PreSurvey extends Component {

@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Component } from "react";
+import "../style/app.scss";
 import Navbar from "./NavBar";
 import Home from "./Home";
 import PreSurvey from "./PreSurvey";

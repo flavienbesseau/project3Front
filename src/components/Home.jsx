@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./Home.scss";
 import { ReactComponent as Hospital } from "../pictures/hospital.svg";
 import { ReactComponent as Private } from "../pictures/private.svg";
 import { ReactComponent as Bell } from "../pictures/paper.svg";
