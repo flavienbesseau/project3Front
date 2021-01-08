@@ -1,0 +1,43 @@
+.prequest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #dadfe6;
+}
+
+.prequest h1 {
+  margin: 2rem 0;
+}
+
+.prequest label {
+  font-size: 1.3rem;
+}
+
+.prequest select {
+  background-color: #dadfe6;
+}
+
+.btn-grad {
+  padding: 15px 45px;
+  margin-top: 1.5rem;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 100% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.prequest select {
+  height: 2.5rem;
+  width: 100%;
+  margin: 1rem 0;
+}
