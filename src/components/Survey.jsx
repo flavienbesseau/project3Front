@@ -53,7 +53,7 @@ class Survey extends Component {
         }}
       >
         {({ handleSubmit, isSubmitting }) => (
-          <form onSubmit={handleSubmit} className='survey-container'>
+          <form onSubmit={handleSubmit} className="survey-container">
             <h1>Questionnaire</h1>
             {questions.map((item) => (
               <Question
@@ -64,14 +64,28 @@ class Survey extends Component {
             ))}
             <div className="sending-form">
               <div className="identification-form">
-                <h3>Pseudonyme</h3>  
-                <Field type="text" name="pseudo" placeholder="Jean Drenod" className='pseudo'></Field>
+                <h3>Pseudonyme</h3>
+                <Field
+                  type="text"
+                  name="pseudo"
+                  placeholder="Jean Drenod"
+                  className="pseudo"
+                ></Field>
                 <h3>Adresse e-mail</h3>
-                <Field type="input" name="email" placeholder="jean.drenod@gmail.com" className='email'></Field>
+                <Field
+                  type="input"
+                  name="email"
+                  placeholder="jean.drenod@gmail.com"
+                  className="email"
+                ></Field>
               </div>
               <div className="send-button">
-                <button type="submit" disabled={isSubmitting} className='survey-button'>
-                Envoyer les réponses
+                <button
+                  type="submit"
+                  disabled={isSubmitting}
+                  className="survey-button"
+                >
+                  Envoyer les réponses
                 </button>
               </div>
             </div>

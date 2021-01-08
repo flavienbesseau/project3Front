@@ -3,13 +3,13 @@ import React from "react";
 import { Field } from "formik";
 
 const Question = (props) => (
-  <div className='questions-container'>
+  <div className="questions-container">
     <div>
       <div>
         <p>{props.text_rating}</p>
       </div>
       <div id="my-radio-group"></div>
-      <div role="group" aria-labelledby="my-radio-group" className='radio'>
+      <div role="group" aria-labelledby="my-radio-group" className="radio">
         <label>
           <Field type="radio" name={props.id + "-score"} value="1" />1
         </label>
@@ -33,7 +33,7 @@ const Question = (props) => (
       type="input"
       name={props.id + "-text_answer"}
       placeholder={props.text_comment}
-      className='comments'
+      className="comments"
     ></Field>
   </div>
 );

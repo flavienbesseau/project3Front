@@ -2,7 +2,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Component } from "react";
 import PreSurvey from "./PreSurvey";
 import Survey from "./Survey";
-import '../style/app.scss'
+import "../style/app.scss";
 
 class App extends Component {
   constructor(props) {
