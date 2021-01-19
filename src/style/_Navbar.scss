@@ -1,17 +1,87 @@
 .navbar {
-  height: 7rem;
+  height: 12rem;
   background-color: #1b4066;
   color: #dadfe6;
   font-size: 1rem;
   display: flex;
-  justify-content: center;
-  padding-top: 2.2rem;
+  justify-content: space-between;
+  // justify-content: center;
+  padding-top: 2.7rem;
   @media only screen and (max-width: 600px) {
     font-size: 1.2rem;
+    height: 10rem;
   }
 }
 
 .logosite {
   width: 20rem;
   height: 5rem;
+  position: left;
+  @media only screen and (max-width: 600px) {
+    width: 5rem;
+    height: 1rem;
+  }
+}
+
+#search {
+  float: right;
+  margin-top: 9px;
+  width: 250px;
+}
+
+.search {
+  padding: 5px 0;
+  width: 230px;
+  height: 30px;
+  position: relative;
+  display: flex;
+  left: 10px;
+  float: left;
+  line-height: 22px;
+}
+
+.search input {
+  position: absolute;
+  background-color: #dadfe6;
+  width: 0px;
+  float: Left;
+  margin-left: 210px;
+  -webkit-transition: all 0.7s ease-in-out;
+  -moz-transition: all 0.7s ease-in-out;
+  -o-transition: all 0.7s ease-in-out;
+  transition: all 0.7s ease-in-out;
+  height: 30px;
+  line-height: 18px;
+  padding: 0 2px 0 2px;
+  border-radius: 1px;
+}
+
+.search:hover input,
+.search input:focus {
+  width: 200px;
+  margin-left: -10px;
+
+  border-color: #dadfe6;
+}
+
+.btn {
+  border-color: #dadfe6;
+  background-color: #265f87;
+  color: #dadfe6;
+  height: 3rem;
+  position: absolute;
+  right: 0;
+  top: 5px;
+  border-radius: 1px;
+  width: 4rem;
+}
+
+.titlesearch {
+  @media only screen and (max-width: 600px) {
+    display: none;
+  }
+}
+
+.buttonconnection {
+  height: 2rem;
 }

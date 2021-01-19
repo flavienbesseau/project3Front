@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Question from "./Question";
 import backPort from "../const";
-import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 
 import { Formik, Field } from "formik";
@@ -17,7 +16,6 @@ function Survey(props) {
     axios
       .get(url)
       .then((res) => res.data)
-
       .then((questionsArr) => {
         setQuestions(questionsArr);
       });
@@ -45,6 +43,7 @@ function Survey(props) {
             data: Object.values(results),
           })
             .then(() => setSubmitting(false))
+            .then(() => alert("Merci d'avoir répondu à l'enquête!"))
             .then(() => history.push("/"));
         }, 500);
       }}
