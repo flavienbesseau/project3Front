@@ -118,7 +118,7 @@ class PreSurvey extends Component {
             ))}
           </select>
           <Link to={`/survey`} className="btn-grad">
-            Remplir le questionnaire
+            Donnez votre avis
           </Link>
         </div>
       </div>

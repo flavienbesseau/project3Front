@@ -5,6 +5,7 @@ import Navbar from "./NavBar";
 import Home from "./Home";
 import PreSurvey from "./PreSurvey";
 import Survey from "./Survey";
+import ChartJs from "./ChartJs";
 import "../style/app.scss";
 
 class App extends Component {
@@ -19,6 +20,9 @@ class App extends Component {
         <Switch>
           <Route exact path="/">
             <Home />
+          </Route>
+          <Route exact path="/essaiChartJs">
+            <ChartJs />
           </Route>
           <Route exact path="/presurvey">
             <PreSurvey />
