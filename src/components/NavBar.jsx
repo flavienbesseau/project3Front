@@ -13,6 +13,7 @@ class NavBar extends Component {
         <Link to="/">
           <img className="logosite" src={logo} alt="logo" />
         </Link>
+        <button className="buttonconnection">Connexion / Inscription</button>
       </div>
     );
   }

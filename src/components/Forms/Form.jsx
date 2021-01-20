@@ -37,18 +37,20 @@ export default function Form() {
         fk_user_role_id: 1,
         fk_hospital_id: 1,
       })
-      .then((res) => setCreatedAccount(res.data.createdAccount))
+      .then((res) => {
+        setCreatedAccount(res.data.createdAccount);
+        setName("");
+        setEmail("");
+        setUserpassword("");
+        setPasswordConfirmation("");
+        setErrors("");
+      })
       .catch((error) =>
         setErrors({
           path: error.response.data.err.params.path,
           message: error.response.data.err.errors,
         })
       );
-
-    setName("");
-    setEmail("");
-    setUserpassword("");
-    setPasswordConfirmation("");
   };
 
   useEffect(() => {
