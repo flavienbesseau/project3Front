@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import PreSurvey from "./components/PreSurvey";
 import Survey from "./components/Survey";
 import ChartJs from "./components/ChartJs";
+import DataChart from "./components/DataChart";
 
 import "./scss/main.scss";
 import Form from "./components/Forms/Form";
@@ -17,6 +18,7 @@ export default function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
+          <Route path="/essaiChartJs/:hospitalId" component={DataChart} />
           <Route exact path="/essaiChartJs" component={ChartJs} />
           <Route exact path="/presurvey" component={PreSurvey} />
           <Route path="/survey" component={Survey} />
