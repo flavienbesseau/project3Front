@@ -1,24 +1,26 @@
-import React, { useState, useEffect, useContext } from 'react';
-import { useHistory } from 'react-router-dom';
-import axios from 'axios';
-import Registration from './Registration';
-import Login from './Login';
-import { authContext } from '../../contexts/ProvideAuth';
+import React, { useState, useEffect, useContext } from "react";
+import { useHistory } from "react-router-dom";
+import axios from "axios";
+import Registration from "./Registration";
+import Login from "./Login";
+import { authContext } from "../../contexts/ProvideAuth";
 
 export default function Form() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [userpassword, setUserpassword] = useState("");
+  const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [errors, setErrors] = useState("");
 
-  const [name, setName] = useState('');
-  const [email, setEmail] = useState('');
-  const [userpassword, setUserpassword] = useState('');
-  const [passwordConfirmation, setPasswordConfirmation] = useState('');
-  const [errors, setErrors] = useState('');
-
-  const [loginUser, setLoginUser] = useState({ emailToLogin: '', passwordToLogin: '' })
+  const [loginUser, setLoginUser] = useState({
+    emailToLogin: "",
+    passwordToLogin: "",
+  });
 
   const [createdAccount, setCreatedAccount] = useState(false);
   const [userHasAccount, setUserHasAccount] = useState(true);
 
-  const[isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
   axios.defaults.withCredentials = true;
 
@@ -28,29 +30,31 @@ export default function Form() {
 
   const register = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/register', {
-      name: name,
-      email: email,
-      password: userpassword,
-      passwordConfirmation: passwordConfirmation
-    })
+    axios
+      .post("http://localhost:5000/api/register", {
+        name: name,
+        email: email,
+        password: userpassword,
+        passwordConfirmation: passwordConfirmation,
+      })
       .then((res) => setCreatedAccount(res.data.createdAccount))
-      .catch((error) => setErrors({ 
-        path: error.response.data.err.params.path, 
-        message: error.response.data.err.errors
-      }));
-      
-        setName('')
-        setEmail('')       
-        setUserpassword('')
-        setPasswordConfirmation('')
-  }
+      .catch((error) =>
+        setErrors({
+          path: error.response.data.err.params.path,
+          message: error.response.data.err.errors,
+        })
+      );
+
+    setName("");
+    setEmail("");
+    setUserpassword("");
+    setPasswordConfirmation("");
+  };
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/login')
-    .then(res => {
-      console.log('Connected: ', res.data.loggedIn);
-      if(res.data.loggedIn === true) {
+    axios.get("http://localhost:5000/api/login").then((res) => {
+      console.log("Connected: ", res.data.loggedIn);
+      if (res.data.loggedIn === true) {
         setConnected(true);
       }
     });
@@ -58,46 +62,46 @@ export default function Form() {
 
   const login = (e) => {
     e.preventDefault();
-    axios.post('http://localhost:5000/api/login', {
-      email: loginUser.emailToLogin,
-      password: loginUser.passwordToLogin
-    })
-    .then(res => {
-      console.log('You are connected: ', res.data.username) || setIsAuthenticated(true);
-      if(res.status === 200) {
-        setConnected(true);
-        history.push(`/dashboard/${res.data.id}`);
-      } 
-    });
-  }
+    axios
+      .post("http://localhost:5000/api/login", {
+        email: loginUser.emailToLogin,
+        password: loginUser.passwordToLogin,
+      })
+      .then((res) => {
+        console.log("You are connected: ", res.data.username) ||
+          setIsAuthenticated(true);
+        if (res.status === 200) {
+          setConnected(true);
+          history.push(`/dashboard/${res.data.id}`);
+        }
+      });
+  };
 
   return (
     <div className="form-container">
-      {
-        userHasAccount
-          ?
-          <Login
-            login={login}
-            loginUser={loginUser}
-            setUserHasAccount={setUserHasAccount}
-            setLoginUser={setLoginUser}
-          />
-          :
-          <Registration
-            name={name}
-            setName={setName}
-            email={email}
-            setEmail={setEmail}
-            userpassword={userpassword}
-            setUserpassword={setUserpassword}
-            register={register}
-            createdAccount={createdAccount}
-            setUserHasAccount={setUserHasAccount}
-            passwordConfirmation={passwordConfirmation}
-            setPasswordConfirmation={setPasswordConfirmation}
-            errors={errors}
-          />
-      }
+      {userHasAccount ? (
+        <Login
+          login={login}
+          loginUser={loginUser}
+          setUserHasAccount={setUserHasAccount}
+          setLoginUser={setLoginUser}
+        />
+      ) : (
+        <Registration
+          name={name}
+          setName={setName}
+          email={email}
+          setEmail={setEmail}
+          userpassword={userpassword}
+          setUserpassword={setUserpassword}
+          register={register}
+          createdAccount={createdAccount}
+          setUserHasAccount={setUserHasAccount}
+          passwordConfirmation={passwordConfirmation}
+          setPasswordConfirmation={setPasswordConfirmation}
+          errors={errors}
+        />
+      )}
     </div>
   );
 }
