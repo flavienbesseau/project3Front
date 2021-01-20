@@ -1,9 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { ReactComponent as Hospital } from "../pictures/hospital.svg";
-import { ReactComponent as Private } from "../pictures/private.svg";
-import { ReactComponent as Bell } from "../pictures/paper.svg";
-import { ReactComponent as Paper } from "../pictures/bell.svg";
+import { ReactComponent as Hospital } from "../assets/hospital.svg";
+import { ReactComponent as Private } from "../assets/private.svg";
+import { ReactComponent as Bell } from "../assets/paper.svg";
+import { ReactComponent as Paper } from "../assets/bell.svg";
 
 export default function Home() {
   return (

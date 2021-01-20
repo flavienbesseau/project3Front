@@ -1,0 +1,82 @@
+.registration-container,
+.login-container {
+  min-height: 50vh;
+  @include flex-column-center;
+  .logo {
+    width: 50%;
+    margin: 0 auto;
+  }
+
+  .name-register,
+  .username-register,
+  .password-register,
+  .email-login,
+  .password-login {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 1rem;
+    label {
+      padding: 1rem;
+    }
+    input {
+      width: 20rem;
+      height: 3rem;
+      margin: 0 auto;
+      background-color: transparent;
+      border: none;
+      border-bottom: 0.2rem solid #61adbe;
+      color: #fff;
+      outline: none;
+    }
+  }
+
+  .button-register,
+  .button-login {
+    text-align: center;
+    button {
+      @include log-button;
+    }
+  }
+  .account-container {
+    color: #fff;
+    text-align: center;
+  }
+}
+
+.button-register-error,
+.button-login-error {
+  button {
+    @include log-button;
+    &:focus {
+      background: $error;
+      color: $white;
+      @include wrong;
+    }
+  }
+}
+
+.login-register {
+  text-align: center;
+  color: #fff;
+  padding: 1rem;
+  button {
+    cursor: pointer;
+    color: #fff;
+    border: none;
+    background: transparent;
+  }
+}
+
+.errors-input {
+  @include error;
+}
+
+// Login container
+.form-container {
+  min-width: 100vw;
+  min-height: 100vh;
+  background: $background;
+  @include flex-column-center;
+}

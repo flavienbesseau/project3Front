@@ -1,0 +1,14 @@
+@mixin log-button {
+  min-width: 20rem;
+  min-height: 4rem;
+  background: $white;
+  color: $dark-blue;
+  border: none;
+  border-radius: 1rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  outline: none;
+  &:hover {
+    background: rgb(196, 142, 194);
+  }
+}
