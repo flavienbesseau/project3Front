@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useRouteMatch } from "react-router-dom";
 import axios from "axios";
 import Registration from "./Registration";
 import Login from "./Login";
@@ -20,8 +20,6 @@ export default function Form() {
   const [createdAccount, setCreatedAccount] = useState(false);
   const [userHasAccount, setUserHasAccount] = useState(true);
 
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-
   axios.defaults.withCredentials = true;
 
   let history = useHistory();
@@ -36,6 +34,8 @@ export default function Form() {
         email: email,
         password: userpassword,
         passwordConfirmation: passwordConfirmation,
+        fk_user_role_id: 1,
+        fk_hospital_id: 1,
       })
       .then((res) => setCreatedAccount(res.data.createdAccount))
       .catch((error) =>
@@ -60,6 +60,8 @@ export default function Form() {
     });
   }, []);
 
+  let match = useRouteMatch();
+
   const login = (e) => {
     e.preventDefault();
     axios
@@ -68,11 +70,10 @@ export default function Form() {
         password: loginUser.passwordToLogin,
       })
       .then((res) => {
-        console.log("You are connected: ", res.data.username) ||
-          setIsAuthenticated(true);
+        console.log("You are connected: ", res.data.email);
         if (res.status === 200) {
           setConnected(true);
-          history.push(`/dashboard/${res.data.id}`);
+          history.push(`${match.url}/dashboard/${res.data.id}`);
         }
       });
   };

@@ -23,7 +23,7 @@ export default function App() {
           <Route exact path="/presurvey" component={PreSurvey} />
           <Route path="/survey" component={Survey} />
           <Route exact path="/authentication" component={Form} />
-          <ProtectedRoute path="authentication/dashboard/:id">
+          <ProtectedRoute path="/authentication/dashboard/:id">
             <Dashboard />
           </ProtectedRoute>
           <Route path="/" component={PageNotFound} />
