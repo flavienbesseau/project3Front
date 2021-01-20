@@ -38,12 +38,12 @@ export default function Form() {
         fk_hospital_id: 1,
       })
       .then((res) => {
-        setCreatedAccount(res.data.createdAccount)
+        setCreatedAccount(res.data.createdAccount);
         setName("");
         setEmail("");
         setUserpassword("");
         setPasswordConfirmation("");
-        setErrors('');
+        setErrors("");
       })
       .catch((error) =>
         setErrors({

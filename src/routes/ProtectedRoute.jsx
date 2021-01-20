@@ -9,9 +9,11 @@ export default function ProtectedRoute({ children, ...rest }) {
     <Route
       {...rest}
       render={() => {
-        return connected === true ? 
-        children 
-        : <Redirect to="/authentication" />;
+        return connected === true ? (
+          children
+        ) : (
+          <Redirect to="/authentication" />
+        );
       }}
     />
   );
