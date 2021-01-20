@@ -1,12 +1,10 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { Component } from "react";
-import "../style/app.scss";
-import Navbar from "./NavBar";
-import Home from "./Home";
-import PreSurvey from "./PreSurvey";
-import Survey from "./Survey";
-import ChartJs from "./ChartJs";
-import "../style/app.scss";
+import Navbar from "./components/NavBar";
+import Home from "./components/Home";
+import PreSurvey from "./components/PreSurvey";
+import Survey from "./components/Survey";
+import DataChart from "./components/DataChart";
 
 class App extends Component {
   constructor(props) {
@@ -21,9 +19,7 @@ class App extends Component {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route exact path="/essaiChartJs">
-            <ChartJs />
-          </Route>
+          <Route path="/essaiChartJs/:hospitalId" component={DataChart} />
           <Route exact path="/presurvey">
             <PreSurvey />
           </Route>

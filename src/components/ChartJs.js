@@ -1,56 +1,71 @@
 import React from "react";
-import { HorizontalBar } from "react-chartjs-2";
+import { HorizontalBar, defaults } from "react-chartjs-2";
 
-const ChartJs = (data) => ({
-  displayName: "BarExample",
-  render() {
-    return (
-      <div
-        style={{ backgroundColor: "white", width: "50%", textAlign: "center" }}
-      >
-        {/* <h2>Informations générales</h2> */}
-        <HorizontalBar
-          data={data}
-          width={300}
-          height={400}
-          options={{
-            maintainAspectRatio: false,
-            title: {
-              display: true,
-              text: "Informations générales",
-              fontSize: 15,
+defaults.global.tooltips.enabled = true;
+
+const ChartJs = (props) => (
+  <div
+    style={{
+      backgroundColor: "#265f87",
+      fontColor: "#dadfe6",
+      width: "60%",
+    }}
+  >
+    {/* <h2>Informations générales</h2> */}
+    <HorizontalBar
+      data={props.data}
+      width={1000}
+      height={400}
+      options={{
+        maintainAspectRatio: false,
+        title: {
+          display: true,
+          text: "Informations générales",
+          fontSize: 15,
+          fontColor: "#dadfe6",
+        },
+        legend: {
+          display: false,
+          position: "bottom",
+          backgroundColor: "blue",
+          labels: {
+            fontColor: "#dadfe6",
+          },
+        },
+        layout: {
+          padding: 15,
+        },
+        animation: {
+          duration: 3000,
+        },
+        scales: {
+          yAxes: [
+            {
+              ticks: {
+                fontColor: "#dadfe6",
+              },
             },
-            legend: {
-              display: true,
-              position: "bottom",
-              backgroundColor: "blue",
-            },
-            layout: {
-              padding: 15,
-            },
-            animation: {
-              duration: 1000,
-            },
-            scales: {
-              xAxes: [
-                {
-                  ticks: {
-                    beginAtZero: true,
-                    userCallback: function (label, index, labels) {
-                      // when the floored value is the same as the value we have a whole number
-                      if (Math.floor(label) === label) {
-                        return label;
-                      }
-                    },
-                  },
+          ],
+          xAxes: [
+            {
+              ticks: {
+                min: 0,
+                max: 5,
+                fontColor: "#dadfe6",
+                beginAtZero: true,
+                userCallback: function (label, index, labels) {
+                  // when the floored value is the same as the value we have a whole number
+                  if (Math.floor(label) === label) {
+                    return label;
+                  }
                 },
-              ],
+              },
             },
-          }}
-        />
-      </div>
-    );
-  },
-});
+          ],
+        },
+      }}
+    />
+  </div>
+);
 
 export default ChartJs;
