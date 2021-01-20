@@ -1,5 +1,4 @@
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Navbar from "./components/NavBar";
 import Home from "./components/Home";
 import PreSurvey from "./components/PreSurvey";
 import Survey from "./components/Survey";
@@ -16,7 +15,6 @@ export default function App() {
   return (
     <ProvideAuth>
       <Router>
-        <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route exact path="/essaiChartJs" component={ChartJs} />

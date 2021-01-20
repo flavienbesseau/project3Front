@@ -13,25 +13,6 @@ class NavBar extends Component {
         <Link to="/">
           <img className="logosite" src={logo} alt="logo" />
         </Link>
-
-        <div class="container">
-          <div class="row">
-            <h2 className="titlesearch">
-              Cherchez un établissement ou une spécialité
-            </h2>
-            <div class="search">
-              <input
-                type="text"
-                class="form-control input-sm"
-                maxlength="64"
-                placeholder="Hôpital, clinique, ..."
-              />
-              <button type="submit" class="btn btn-primary btn-sm">
-                🔍
-              </button>
-            </div>
-          </div>
-        </div>
         <button className="buttonconnection">Connexion / Inscription</button>
       </div>
     );
