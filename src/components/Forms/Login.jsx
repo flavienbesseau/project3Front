@@ -1,7 +1,13 @@
 import React from "react";
 import logo from "../../assets/hospitalidee-logo.png";
 
-export default function Registration({ login, setUserHasAccount, emailToLogin, passwordToLogin, dispatch }) {
+export default function Registration({
+  login,
+  setUserHasAccount,
+  emailToLogin,
+  passwordToLogin,
+  dispatch,
+}) {
   return (
     <div className="login-container">
       <img src={logo} alt="" className="logo" />
@@ -12,7 +18,13 @@ export default function Registration({ login, setUserHasAccount, emailToLogin, p
             type="text"
             id="email-to-login"
             value={emailToLogin}
-            onChange={(e) => {  dispatch({ type: 'login', field: 'emailToLogin', value: e.target.value })}}
+            onChange={(e) => {
+              dispatch({
+                type: "login",
+                field: "emailToLogin",
+                value: e.target.value,
+              });
+            }}
           />
         </div>
         <div className="password-login">
@@ -21,13 +33,18 @@ export default function Registration({ login, setUserHasAccount, emailToLogin, p
             type="password"
             id="password"
             value={passwordToLogin}
-            onChange={(e) => { dispatch({ type: 'login', field: 'passwordToLogin', value: e.target.value })}}
+            onChange={(e) => {
+              dispatch({
+                type: "login",
+                field: "passwordToLogin",
+                value: e.target.value,
+              });
+            }}
           />
         </div>
         <div
           className={
-            passwordToLogin.length === 0 ||
-            emailToLogin.length === 0
+            passwordToLogin.length === 0 || emailToLogin.length === 0
               ? "button-login-error"
               : "button-login"
           }

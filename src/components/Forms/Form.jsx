@@ -5,8 +5,8 @@ import Registration from "./Registration";
 import Login from "./Login";
 import { authContext } from "../../contexts/ProvideAuth";
 
-import { loginReducer } from '../../reducers/actions/loginReducer';
-import { initialLoginState } from '../../reducers/store/initialLoginState';
+import { loginReducer } from "../../reducers/actions/loginReducer";
+import { initialLoginState } from "../../reducers/store/initialLoginState";
 
 export default function Form() {
   // const [name, setName] = useState("");
@@ -16,7 +16,15 @@ export default function Form() {
   // const [errors, setErrors] = useState("");
 
   const [state, dispatch] = useReducer(loginReducer, initialLoginState);
-  const { emailToLogin, passwordToLogin, name, email, userpassword, passwordConfirmation, errors } = state;
+  const {
+    emailToLogin,
+    passwordToLogin,
+    name,
+    email,
+    userpassword,
+    passwordConfirmation,
+    errors,
+  } = state;
 
   const [createdAccount, setCreatedAccount] = useState(false);
   const [userHasAccount, setUserHasAccount] = useState(true);
