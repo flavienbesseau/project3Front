@@ -1,10 +1,9 @@
 export const initialLoginState = {
   emailToLogin: "",
   passwordToLogin: "",
-
   name: "",
   email: "",
-  password: "",
+  userpassword: "",
   passwordConfirmation: "",
   errors: "",
 };

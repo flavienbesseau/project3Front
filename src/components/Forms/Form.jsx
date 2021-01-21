@@ -9,12 +9,6 @@ import { loginReducer } from "../../reducers/actions/loginReducer";
 import { initialLoginState } from "../../reducers/store/initialLoginState";
 
 export default function Form() {
-  // const [name, setName] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [userpassword, setUserpassword] = useState("");
-  // const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  // const [errors, setErrors] = useState("");
-
   const [state, dispatch] = useReducer(loginReducer, initialLoginState);
   const {
     emailToLogin,
@@ -48,17 +42,14 @@ export default function Form() {
       })
       .then((res) => {
         setCreatedAccount(res.data.createdAccount);
-        setName("");
-        setEmail("");
-        setUserpassword("");
-        setPasswordConfirmation("");
-        setErrors("");
+        dispatch({ type: 'validate' })
       })
       .catch((error) =>
-        setErrors({
-          path: error.response.data.err.params.path,
-          message: error.response.data.err.errors,
-        })
+        dispatch({ 
+          type: 'register-errors', 
+          path: error.response.data.err.params.path, 
+          message: error.response.data.err.errors 
+        }) 
       );
   };
 
@@ -102,17 +93,14 @@ export default function Form() {
       ) : (
         <Registration
           name={name}
-          setName={setName}
           email={email}
-          setEmail={setEmail}
           userpassword={userpassword}
-          setUserpassword={setUserpassword}
+          passwordConfirmation={passwordConfirmation}
+          errors={errors}
+          dispatch={dispatch}
           register={register}
           createdAccount={createdAccount}
           setUserHasAccount={setUserHasAccount}
-          passwordConfirmation={passwordConfirmation}
-          setPasswordConfirmation={setPasswordConfirmation}
-          errors={errors}
         />
       )}
     </div>
