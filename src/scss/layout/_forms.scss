@@ -3,8 +3,12 @@
   min-height: 50vh;
   @include flex-column-center;
   .logo {
-    width: 50%;
+    width: 220px;
     margin: 0 auto;
+
+    @include breakpoint(laptop) {
+      width: 30%;
+    }
   }
 
   .name-register,

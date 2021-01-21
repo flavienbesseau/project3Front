@@ -11,11 +11,13 @@ import Dashboard from "./components/Dashboard/Dashboard";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { ProvideAuth } from "./contexts/ProvideAuth";
 import PageNotFound from "./routes/PageNotFound";
+import Navbar from './components/Header/Navbar';
 
 export default function App() {
   return (
     <ProvideAuth>
       <Router>
+        <Navbar />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/essaiChartJs/:hospitalId" component={DataChart} />
