@@ -1,21 +1,22 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState, useEffect, useContext, useReducer } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
 import axios from "axios";
 import Registration from "./Registration";
 import Login from "./Login";
 import { authContext } from "../../contexts/ProvideAuth";
 
-export default function Form() {
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [userpassword, setUserpassword] = useState("");
-  const [passwordConfirmation, setPasswordConfirmation] = useState("");
-  const [errors, setErrors] = useState("");
+import { loginReducer } from '../../reducers/actions/loginReducer';
+import { initialLoginState } from '../../reducers/store/initialLoginState';
 
-  const [loginUser, setLoginUser] = useState({
-    emailToLogin: "",
-    passwordToLogin: "",
-  });
+export default function Form() {
+  // const [name, setName] = useState("");
+  // const [email, setEmail] = useState("");
+  // const [userpassword, setUserpassword] = useState("");
+  // const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  // const [errors, setErrors] = useState("");
+
+  const [state, dispatch] = useReducer(loginReducer, initialLoginState);
+  const { emailToLogin, passwordToLogin, name, email, userpassword, passwordConfirmation, errors } = state;
 
   const [createdAccount, setCreatedAccount] = useState(false);
   const [userHasAccount, setUserHasAccount] = useState(true);
@@ -60,7 +61,7 @@ export default function Form() {
         setConnected(true);
       }
     });
-  }, []);
+  }, [setConnected]);
 
   let match = useRouteMatch();
 
@@ -68,8 +69,8 @@ export default function Form() {
     e.preventDefault();
     axios
       .post("http://localhost:5000/api/login", {
-        email: loginUser.emailToLogin,
-        password: loginUser.passwordToLogin,
+        email: emailToLogin,
+        password: passwordToLogin,
       })
       .then((res) => {
         console.log("You are connected: ", res.data.email);
@@ -85,9 +86,10 @@ export default function Form() {
       {userHasAccount ? (
         <Login
           login={login}
-          loginUser={loginUser}
           setUserHasAccount={setUserHasAccount}
-          setLoginUser={setLoginUser}
+          emailToLogin={emailToLogin}
+          passwordToLogin={passwordToLogin}
+          dispatch={dispatch}
         />
       ) : (
         <Registration

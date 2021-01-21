@@ -1,12 +1,7 @@
 import React from "react";
 import logo from "../../assets/hospitalidee-logo.png";
 
-export default function Registration({
-  login,
-  setUserHasAccount,
-  loginUser,
-  setLoginUser,
-}) {
+export default function Registration({ login, setUserHasAccount, emailToLogin, passwordToLogin, dispatch }) {
   return (
     <div className="login-container">
       <img src={logo} alt="" className="logo" />
@@ -16,11 +11,8 @@ export default function Registration({
           <input
             type="text"
             id="email-to-login"
-            name="emailToLogin"
-            value={loginUser.emailToLogin}
-            onChange={(e) => {
-              setLoginUser({ ...loginUser, [e.target.name]: e.target.value });
-            }}
+            value={emailToLogin}
+            onChange={(e) => {  dispatch({ type: 'login', field: 'emailToLogin', value: e.target.value })}}
           />
         </div>
         <div className="password-login">
@@ -28,17 +20,14 @@ export default function Registration({
           <input
             type="password"
             id="password"
-            name="passwordToLogin"
-            value={loginUser.passwordToLogin}
-            onChange={(e) => {
-              setLoginUser({ ...loginUser, [e.target.name]: e.target.value });
-            }}
+            value={passwordToLogin}
+            onChange={(e) => { dispatch({ type: 'login', field: 'passwordToLogin', value: e.target.value })}}
           />
         </div>
         <div
           className={
-            loginUser.passwordToLogin.length === 0 ||
-            loginUser.emailToLogin.length === 0
+            passwordToLogin.length === 0 ||
+            emailToLogin.length === 0
               ? "button-login-error"
               : "button-login"
           }
