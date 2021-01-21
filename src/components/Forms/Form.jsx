@@ -42,14 +42,14 @@ export default function Form() {
       })
       .then((res) => {
         setCreatedAccount(res.data.createdAccount);
-        dispatch({ type: 'validate' })
+        dispatch({ type: "validate" });
       })
       .catch((error) =>
-        dispatch({ 
-          type: 'register-errors', 
-          path: error.response.data.err.params.path, 
-          message: error.response.data.err.errors 
-        }) 
+        dispatch({
+          type: "register-errors",
+          path: error.response.data.err.params.path,
+          message: error.response.data.err.errors,
+        })
       );
   };
 

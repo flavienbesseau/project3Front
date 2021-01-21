@@ -22,7 +22,13 @@ export default function Registration({
             type="text"
             id="name-register"
             value={name}
-            onChange={(e) => dispatch({ type: 'register', registerField: 'name', registerValue: e.target.value })}
+            onChange={(e) =>
+              dispatch({
+                type: "register",
+                registerField: "name",
+                registerValue: e.target.value,
+              })
+            }
           />
           {errors
             ? errors.path.includes("name") && (
@@ -36,7 +42,13 @@ export default function Registration({
             type="text"
             id="username-register"
             value={email}
-            onChange={(e) => dispatch({ type: 'register', registerField: 'email', registerValue: e.target.value })}
+            onChange={(e) =>
+              dispatch({
+                type: "register",
+                registerField: "email",
+                registerValue: e.target.value,
+              })
+            }
           />
           {errors
             ? errors.path.includes("email") && (
@@ -50,7 +62,13 @@ export default function Registration({
             type="password"
             id="password-register"
             value={userpassword}
-            onChange={(e) => dispatch({ type: 'register', registerField: 'userpassword', registerValue: e.target.value })}
+            onChange={(e) =>
+              dispatch({
+                type: "register",
+                registerField: "userpassword",
+                registerValue: e.target.value,
+              })
+            }
           />
           {errors
             ? errors.path.includes("password") && (
@@ -66,7 +84,13 @@ export default function Registration({
             type="password"
             id="password-validation"
             value={passwordConfirmation}
-            onChange={(e) => dispatch({ type: 'register', registerField: 'passwordConfirmation', registerValue: e.target.value })}
+            onChange={(e) =>
+              dispatch({
+                type: "register",
+                registerField: "passwordConfirmation",
+                registerValue: e.target.value,
+              })
+            }
           />
           {errors
             ? errors.path.includes("passwordConfirmation") && (
