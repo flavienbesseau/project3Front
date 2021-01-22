@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../assets/hospitalidee-logo.png";
+import ChartJs from "../ChartJs";
 
 export default function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
@@ -42,7 +43,9 @@ export default function Dashboard() {
         <li>Evaluation QUALIPSO</li>
         <li>DECONNEXION</li>
       </div>
-      <div className="dashboard-general-informations"></div>
+      <div className="dashboard-general-informations">
+        {/* <ChartJs /> */}
+      </div>
       <div className="dashboard-confidence-score"></div>
       <div className="dashboard-repartition"></div>
       <div className="dashboard-this-month"></div>

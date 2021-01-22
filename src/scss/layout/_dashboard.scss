@@ -156,7 +156,16 @@
         margin: 1rem;
         border-radius: 1rem;
         background: #0f1744;
+        &:hover {
+          background: rgb(230, 136, 230);
+        }
       }
     }
   }
+
+  // .dashboard-general-informations {
+  //   @include breakpoint(laptop) {
+  //     @include flex-center;
+  //   }
+  // }
 }
