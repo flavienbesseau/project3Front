@@ -9,6 +9,8 @@ const ChartJs = (props) => (
       backgroundColor: "#265f87",
       fontColor: "#dadfe6",
       width: "60%",
+      border: "2px black solid",
+      margin: "10px",
     }}
   >
     {/* <h2>Informations générales</h2> */}
@@ -18,6 +20,13 @@ const ChartJs = (props) => (
       height={400}
       options={{
         maintainAspectRatio: false,
+        tooltips: {
+          callbacks: {
+            title: function (tooltipItems, data) {
+              return data.labels[tooltipItems[0].index];
+            },
+          },
+        },
         title: {
           display: true,
           text: "Informations générales",
@@ -41,6 +50,9 @@ const ChartJs = (props) => (
         scales: {
           yAxes: [
             {
+              gridLines: {
+                display: false,
+              },
               ticks: {
                 fontColor: "#dadfe6",
               },
@@ -48,6 +60,9 @@ const ChartJs = (props) => (
           ],
           xAxes: [
             {
+              gridLines: {
+                display: false,
+              },
               ticks: {
                 min: 0,
                 max: 5,
