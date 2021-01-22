@@ -1,5 +1,6 @@
 import React from "react";
 import { HorizontalBar, defaults } from "react-chartjs-2";
+import "chartjs-plugin-datalabels";
 
 defaults.global.tooltips.enabled = true;
 
@@ -19,6 +20,12 @@ const ChartJs = (props) => (
       width={1000}
       height={400}
       options={{
+        plugins: {
+          datalabels: {
+            display: true,
+            color: "white",
+          },
+        },
         maintainAspectRatio: false,
         tooltips: {
           callbacks: {
@@ -67,7 +74,6 @@ const ChartJs = (props) => (
                 min: 0,
                 max: 5,
                 fontColor: "#dadfe6",
-                beginAtZero: true,
                 userCallback: function (label, index, labels) {
                   // when the floored value is the same as the value we have a whole number
                   if (Math.floor(label) === label) {

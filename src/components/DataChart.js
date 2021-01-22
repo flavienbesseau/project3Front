@@ -9,6 +9,7 @@ class DataChart extends Component {
     super(props);
     this.state = {
       labels: ["Q1", "Q2", "Q3", "Q4"],
+      essai: [],
       datasets: [
         {
           label: "Note sur 5",
@@ -34,66 +35,28 @@ class DataChart extends Component {
             {
               label: "Note sur 5",
               data: responsesArray.map((donnees) => donnees.meanScore),
-              backgroundColor: [
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-              ],
-              borderColor: [
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-                "rgba(255, 99, 132, 0.9)",
-                "rgba(54, 162, 235, 0.9)",
-                "rgba(255, 206, 86, 0.9)",
-                "rgba(50,205,50, 0.9)",
-              ],
+              backgroundColor: responsesArray.map((data) => {
+                if (0 < data.meanScore && data.meanScore < 2) {
+                  return "#e85050";
+                } else if (2 <= data.meanScore && data.meanScore < 3) {
+                  return "#fa8938";
+                } else if (3 <= data.meanScore && data.meanScore < 4) {
+                  return "#fdc500";
+                } else {
+                  return "#2fb750";
+                }
+              }),
+              borderColor: responsesArray.map((data) => {
+                if (0 < data.meanScore && data.meanScore < 2) {
+                  return "#e85050";
+                } else if (2 <= data.meanScore && data.meanScore < 3) {
+                  return "#fa8938";
+                } else if (3 <= data.meanScore && data.meanScore < 4) {
+                  return "#fdc500";
+                } else {
+                  return "#2fb750";
+                }
+              }),
               borderWidth: 1,
             },
           ],
