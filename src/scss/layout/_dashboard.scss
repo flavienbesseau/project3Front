@@ -1,7 +1,162 @@
-.dashboard {
+//Grid configuration
+.dashboard-header {
+  grid-area: header;
+  background: #182363;
+  border-radius: 1rem;
+}
+.dashboard-sidebar {
+  grid-area: sidebar;
   background: $background;
-  @include flex-center;
-  min-width: 100vw;
+  border-radius: 1rem;
+}
+.dashboard-general-informations {
+  grid-area: general;
+  background: $background;
+  border-radius: 1rem;
+}
+.dashboard-confidence-score {
+  grid-area: confidence;
+  background: $background;
+  border-radius: 1rem;
+}
+.dashboard-repartition {
+  grid-area: repartition;
+  background: $background;
+  border-radius: 1rem;
+}
+.dashboard-this-month {
+  grid-area: month;
+  background: $background;
+  border-radius: 1rem;
+}
+//End
+
+.dashboard {
+  width: 100%;
   min-height: 100vh;
+
+  padding: 1rem;
+  margin: 0 auto;
+
+  // Grid Configuraion
+  display: grid;
+  row-gap: 1rem;
+  place-content: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(7, 1fr);
+  grid-template-areas:
+    "header"
+    "general"
+    "general"
+    "general"
+    "confidence"
+    "repartition"
+    "month";
+  //End
+
+  background: #182363;
   color: $white;
+
+  // Laptop grid configuration
+  @include breakpoint(laptop) {
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-areas:
+      "sidebar general general month"
+      "sidebar general general month"
+      "sidebar confidence repartition month";
+    padding-left: 4rem;
+    gap: 1rem;
+  }
+  // End
+
+  .dashboard-header {
+    @include flex-center;
+
+    .dashboard-header-menu {
+      position: absolute;
+      top: 2rem;
+      left: 2rem;
+      @include burger-menu;
+      @include flex-column-center;
+    }
+
+    img {
+      width: 40%;
+      justify-self: center;
+    }
+
+    .routes-links,
+    .routes-links-open {
+      min-width: 100vw;
+      min-height: 100vh;
+
+      position: fixed;
+      position: absolute;
+      top: 0;
+
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+
+      background: #182363;
+      list-style: none;
+      pointer-events: none;
+
+      clip-path: circle(100px at 0px 0px);
+      transition: all 1s ease-out;
+
+      @include breakpoint(laptop) {
+        clip-path: none;
+        display: none;
+      }
+
+      li {
+        width: 30rem;
+        height: 5rem;
+        margin: 1rem;
+        border-radius: 1rem;
+        @include flex-center;
+        background: #0f1744;
+      }
+
+      a {
+        color: $white;
+        text-decoration: none;
+        font-size: 2rem;
+      }
+
+      img {
+        margin-top: 10rem;
+        margin-bottom: 2rem;
+      }
+    }
+
+    .routes-links-open {
+      clip-path: circle(1000px at 0px 0px);
+      pointer-events: all;
+    }
+  }
+
+  .dashboard-sidebar {
+    display: none;
+    @include breakpoint(laptop) {
+      @include flex-column-center;
+
+      img {
+        width: 50%;
+      }
+
+      li {
+        @include flex-center;
+        flex-wrap: wrap;
+        width: 30rem;
+        height: 5rem;
+        margin: 1rem;
+        border-radius: 1rem;
+        background: #0f1744;
+      }
+    }
+  }
 }

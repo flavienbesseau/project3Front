@@ -11,4 +11,10 @@
   &:hover {
     background: rgb(196, 142, 194);
   }
+
+  @include breakpoint(tablet) {
+    min-width: 30rem;
+    min-height: 5rem;
+    margin-top: 2rem;
+  }
 }

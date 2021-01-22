@@ -17,7 +17,7 @@ export default function App() {
   return (
     <ProvideAuth>
       <Router>
-        <Navbar />
+        {/* <Navbar /> */}
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/essaiChartJs/:hospitalId" component={DataChart} />
