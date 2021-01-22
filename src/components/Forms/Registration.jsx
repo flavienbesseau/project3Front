@@ -3,17 +3,14 @@ import logo from "../../assets/hospitalidee-logo.png";
 
 export default function Registration({
   name,
-  setName,
   email,
-  setEmail,
   userpassword,
-  setUserpassword,
+  passwordConfirmation,
+  errors,
+  dispatch,
   register,
   createdAccount,
   setUserHasAccount,
-  passwordConfirmation,
-  setPasswordConfirmation,
-  errors,
 }) {
   return (
     <div className="registration-container">
@@ -25,7 +22,13 @@ export default function Registration({
             type="text"
             id="name-register"
             value={name}
-            onChange={(e) => setName(e.target.value)}
+            onChange={(e) =>
+              dispatch({
+                type: "register",
+                registerField: "name",
+                registerValue: e.target.value,
+              })
+            }
           />
           {errors
             ? errors.path.includes("name") && (
@@ -39,7 +42,13 @@ export default function Registration({
             type="text"
             id="username-register"
             value={email}
-            onChange={(e) => setEmail(e.target.value)}
+            onChange={(e) =>
+              dispatch({
+                type: "register",
+                registerField: "email",
+                registerValue: e.target.value,
+              })
+            }
           />
           {errors
             ? errors.path.includes("email") && (
@@ -53,7 +62,13 @@ export default function Registration({
             type="password"
             id="password-register"
             value={userpassword}
-            onChange={(e) => setUserpassword(e.target.value)}
+            onChange={(e) =>
+              dispatch({
+                type: "register",
+                registerField: "userpassword",
+                registerValue: e.target.value,
+              })
+            }
           />
           {errors
             ? errors.path.includes("password") && (
@@ -69,7 +84,13 @@ export default function Registration({
             type="password"
             id="password-validation"
             value={passwordConfirmation}
-            onChange={(e) => setPasswordConfirmation(e.target.value)}
+            onChange={(e) =>
+              dispatch({
+                type: "register",
+                registerField: "passwordConfirmation",
+                registerValue: e.target.value,
+              })
+            }
           />
           {errors
             ? errors.path.includes("passwordConfirmation") && (

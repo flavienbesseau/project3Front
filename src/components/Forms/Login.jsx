@@ -4,8 +4,9 @@ import logo from "../../assets/hospitalidee-logo.png";
 export default function Registration({
   login,
   setUserHasAccount,
-  loginUser,
-  setLoginUser,
+  emailToLogin,
+  passwordToLogin,
+  dispatch,
 }) {
   return (
     <div className="login-container">
@@ -16,10 +17,13 @@ export default function Registration({
           <input
             type="text"
             id="email-to-login"
-            name="emailToLogin"
-            value={loginUser.emailToLogin}
+            value={emailToLogin}
             onChange={(e) => {
-              setLoginUser({ ...loginUser, [e.target.name]: e.target.value });
+              dispatch({
+                type: "login",
+                field: "emailToLogin",
+                value: e.target.value,
+              });
             }}
           />
         </div>
@@ -28,17 +32,19 @@ export default function Registration({
           <input
             type="password"
             id="password"
-            name="passwordToLogin"
-            value={loginUser.passwordToLogin}
+            value={passwordToLogin}
             onChange={(e) => {
-              setLoginUser({ ...loginUser, [e.target.name]: e.target.value });
+              dispatch({
+                type: "login",
+                field: "passwordToLogin",
+                value: e.target.value,
+              });
             }}
           />
         </div>
         <div
           className={
-            loginUser.passwordToLogin.length === 0 ||
-            loginUser.emailToLogin.length === 0
+            passwordToLogin.length === 0 || emailToLogin.length === 0
               ? "button-login-error"
               : "button-login"
           }
