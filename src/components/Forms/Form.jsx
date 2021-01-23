@@ -36,18 +36,19 @@ export default function Form() {
     const fetchUserLogin = async () => {
       try {
         const log = await axios(`http://localhost:5000/api/login`);
-        const fetchHospitals = await axios(`http://localhost:5000/api/hospitals`)
-        console.log('connected: ', log.data.loggedIn);
-        console.log('hospitals: ', fetchHospitals.data);
-        log.data.loggedIn && setUserLogin({ connected : true })
-        fetchHospitals.data && setHospitals(fetchHospitals.data)
+        const fetchHospitals = await axios(
+          `http://localhost:5000/api/hospitals`
+        );
+        console.log("connected: ", log.data.loggedIn);
+        console.log("hospitals: ", fetchHospitals.data);
+        log.data.loggedIn && setUserLogin({ connected: true });
+        fetchHospitals.data && setHospitals(fetchHospitals.data);
+      } catch (error) {
+        console.log("fetchUserLogin: ", error);
       }
-      catch(error) {
-        console.log('fetchUserLogin: ', error);
-      }
-    }
+    };
     fetchUserLogin();
-  }, [setUserLogin])
+  }, [setUserLogin]);
 
   const register = (e) => {
     e.preventDefault();

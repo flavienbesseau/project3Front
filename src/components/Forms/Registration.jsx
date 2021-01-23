@@ -11,21 +11,26 @@ export default function Registration({
   register,
   createdAccount,
   setUserHasAccount,
-  hospitals
+  hospitals,
 }) {
   return (
     <div className="registration-container">
       <img src={logo} alt="" className="logo" />
       <form onSubmit={register}>
-
-        <select onChange={(e) => dispatch({ type: 'register', registerField: 'hospitalChoice', registerValue: e.target.value})}>
-        {
-          hospitals.map(hospital => (
+        <select
+          onChange={(e) =>
+            dispatch({
+              type: "register",
+              registerField: "hospitalChoice",
+              registerValue: e.target.value,
+            })
+          }
+        >
+          {hospitals.map((hospital) => (
             <Fragment key={hospital.id}>
               <option value={hospital.id}>{hospital.name}</option>
             </Fragment>
-          ))
-        }
+          ))}
         </select>
 
         <div className="name-register">

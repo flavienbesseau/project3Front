@@ -4,9 +4,7 @@ export function loginReducer(state, action) {
       return { ...state, [action.field]: action.value };
 
     case "register":
-      return { ...state, 
-        [action.registerField]: action.registerValue,
-      };
+      return { ...state, [action.registerField]: action.registerValue };
 
     case "validate":
       return {
