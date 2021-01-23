@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../assets/hospitalidee-logo.png";
-import RepartitionChart from "../Charts/Repartition/RepartitionChart";
+import RepartitionChart from '../Charts/Repartition/RepartitionChart';
 
 export default function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
@@ -19,13 +19,13 @@ export default function Dashboard() {
         <ul className={isOpen ? "routes-links-open" : "routes-links"}>
           <img src={logo} alt="" />
           <li>
-            <a href="#">Paramètres</a>
+            <a href="/nowhere">Paramètres</a>
           </li>
           <li>
-            <a href="#">Mon profil</a>
+            <a href="nowhere">Mon profil</a>
           </li>
           <li>
-            <a href="#">Déconnexion</a>
+            <a href="/nowhere">Déconnexion</a>
           </li>
         </ul>
         <img src={logo} alt="" />

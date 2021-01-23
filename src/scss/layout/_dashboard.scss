@@ -32,7 +32,7 @@
 //End
 
 .dashboard {
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
 
   padding: 1rem;
@@ -59,6 +59,7 @@
 
   // Laptop grid configuration
   @include breakpoint(laptop) {
+    height: 100vh;
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas:

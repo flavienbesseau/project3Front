@@ -12,12 +12,16 @@ export default function Registration({
   createdAccount,
   setUserHasAccount,
   hospitals,
+  hospitalChoice
 }) {
+
   return (
     <div className="registration-container">
       <img src={logo} alt="" className="logo" />
       <form onSubmit={register}>
         <select
+          className='select-register'
+          value={hospitalChoice}
           onChange={(e) =>
             dispatch({
               type: "register",
@@ -32,7 +36,6 @@ export default function Registration({
             </Fragment>
           ))}
         </select>
-
         <div className="name-register">
           <label htmlFor="name-register">Prénom et Nom</label>
           <input
