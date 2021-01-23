@@ -2,7 +2,7 @@ import React, { useState, useEffect, Fragment } from "react";
 import axios from "axios";
 import Question from "./Question";
 import backPort from "../const";
-import Navbar from './Header/Navbar';
+import Navbar from "./Header/Navbar";
 import { useHistory } from "react-router-dom";
 
 import { Formik, Field } from "formik";
@@ -92,8 +92,8 @@ function Survey(props) {
         )}
       </Formik>
     </Fragment>
-  );  
-} 
+  );
+}
 
 const mapStateToProps = (state) => {
   return {

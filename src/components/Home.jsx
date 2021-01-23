@@ -4,7 +4,7 @@ import { ReactComponent as Hospital } from "../assets/hospital.svg";
 import { ReactComponent as Private } from "../assets/private.svg";
 import { ReactComponent as Bell } from "../assets/paper.svg";
 import { ReactComponent as Paper } from "../assets/bell.svg";
-import Navbar from './Header/Navbar';
+import Navbar from "./Header/Navbar";
 
 export default function Home() {
   return (

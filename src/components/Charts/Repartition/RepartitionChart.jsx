@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import { authContext } from '../../../contexts/ProvideAuth';
+import { authContext } from "../../../contexts/ProvideAuth";
 import axios from "axios";
 import { Polar } from "react-chartjs-2";
 import { repartitionLabels, repartitionColors } from "./RepartitionData";
@@ -8,7 +8,7 @@ export default function RepartitionChart() {
   const [repartitionFeedback, setRepartitionFeedback] = useState(null);
 
   const { userLogin } = useContext(authContext);
-  console.log('userlogin: ', userLogin.hospital)
+  console.log("userlogin: ", userLogin.hospital);
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/repartition-chart/${userLogin.hospital}`)

@@ -12,15 +12,14 @@ export default function Registration({
   createdAccount,
   setUserHasAccount,
   hospitals,
-  hospitalChoice
+  hospitalChoice,
 }) {
-
   return (
     <div className="registration-container">
       <img src={logo} alt="" className="logo" />
       <form onSubmit={register}>
         <select
-          className='select-register'
+          className="select-register"
           value={hospitalChoice}
           onChange={(e) =>
             dispatch({

@@ -36,7 +36,9 @@ export default function Form() {
     const fetchUserLogin = async () => {
       try {
         const log = await axios(`http://localhost:5000/api/login`);
-        const fetchHospitals = await axios(`http://localhost:5000/api/hospitals`);
+        const fetchHospitals = await axios(
+          `http://localhost:5000/api/hospitals`
+        );
         log.data.loggedIn && setUserLogin({ connected: true });
         fetchHospitals.data && setHospitals(fetchHospitals.data);
       } catch (error) {
@@ -69,23 +71,23 @@ export default function Form() {
         })
       );
   };
-  
+
   const match = useRouteMatch();
   const login = (e) => {
     e.preventDefault();
     axios
-    .post("http://localhost:5000/api/login", {
-      email: emailToLogin,
-      password: passwordToLogin,
-    })
-    .then((res) => {
-      console.log("You are connected: ", res.data.email);
-      if (res.status === 200) {
-        setUserLogin({
-          connected: true,
-          name: res.data.name,
-          hospital: res.data.fk_hospital_id,
-        });
+      .post("http://localhost:5000/api/login", {
+        email: emailToLogin,
+        password: passwordToLogin,
+      })
+      .then((res) => {
+        console.log("You are connected: ", res.data.email);
+        if (res.status === 200) {
+          setUserLogin({
+            connected: true,
+            name: res.data.name,
+            hospital: res.data.fk_hospital_id,
+          });
           history.push(`${match.url}/dashboard/${res.data.id}`);
         }
       });

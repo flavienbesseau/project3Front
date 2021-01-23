@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import logo from "../../assets/hospitalidee-logo.png";
-import RepartitionChart from '../Charts/Repartition/RepartitionChart';
+import RepartitionChart from "../Charts/Repartition/RepartitionChart";
 
 export default function Dashboard() {
   const [isOpen, setIsOpen] = useState(false);
