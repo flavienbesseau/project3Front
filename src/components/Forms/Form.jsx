@@ -17,17 +17,37 @@ export default function Form() {
     email,
     userpassword,
     passwordConfirmation,
+    hospitalChoice,
     errors,
   } = state;
 
   const [createdAccount, setCreatedAccount] = useState(false);
   const [userHasAccount, setUserHasAccount] = useState(true);
 
+  const [hospitals, setHospitals] = useState(null);
+
   axios.defaults.withCredentials = true;
 
   let history = useHistory();
 
-  const { setConnected } = useContext(authContext);
+  const { setUserLogin } = useContext(authContext);
+
+  useEffect(() => {
+    const fetchUserLogin = async () => {
+      try {
+        const log = await axios(`http://localhost:5000/api/login`);
+        const fetchHospitals = await axios(`http://localhost:5000/api/hospitals`)
+        console.log('connected: ', log.data.loggedIn);
+        console.log('hospitals: ', fetchHospitals.data);
+        log.data.loggedIn && setUserLogin({ connected : true })
+        fetchHospitals.data && setHospitals(fetchHospitals.data)
+      }
+      catch(error) {
+        console.log('fetchUserLogin: ', error);
+      }
+    }
+    fetchUserLogin();
+  }, [setUserLogin])
 
   const register = (e) => {
     e.preventDefault();
@@ -37,8 +57,8 @@ export default function Form() {
         email: email,
         password: userpassword,
         passwordConfirmation: passwordConfirmation,
+        fk_hospital_id: hospitalChoice,
         fk_user_role_id: 1,
-        fk_hospital_id: 1,
       })
       .then((res) => {
         setCreatedAccount(res.data.createdAccount);
@@ -53,14 +73,15 @@ export default function Form() {
       );
   };
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/api/login").then((res) => {
-      console.log("Connected: ", res.data.loggedIn);
-      if (res.data.loggedIn === true) {
-        setConnected(true);
-      }
-    });
-  }, [setConnected]);
+  // useEffect(() => {
+  //   axios.get("http://localhost:5000/api/login")
+  //   .then((res) => {
+  //     console.log("Connected: ", res.data.loggedIn);
+  //     if (res.data.loggedIn) {
+  //       setUserLogin({ connected: true });
+  //     }
+  //   });
+  // }, [setUserLogin]);x
 
   let match = useRouteMatch();
 
@@ -74,7 +95,11 @@ export default function Form() {
       .then((res) => {
         console.log("You are connected: ", res.data.email);
         if (res.status === 200) {
-          setConnected(true);
+          setUserLogin({
+            connected: true,
+            name: res.data.name,
+            hospital: res.data.fk_hospital_id,
+          });
           history.push(`${match.url}/dashboard/${res.data.id}`);
         }
       });
@@ -101,6 +126,7 @@ export default function Form() {
           register={register}
           createdAccount={createdAccount}
           setUserHasAccount={setUserHasAccount}
+          hospitals={hospitals}
         />
       )}
     </div>
