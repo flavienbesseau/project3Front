@@ -20,12 +20,6 @@ const ChartJs = (props) => (
       width={1000}
       height={400}
       options={{
-        plugins: {
-          datalabels: {
-            display: true,
-            color: "white",
-          },
-        },
         maintainAspectRatio: false,
         tooltips: {
           callbacks: {
@@ -71,7 +65,7 @@ const ChartJs = (props) => (
                 display: false,
               },
               ticks: {
-                min: 0,
+                min: 0.5,
                 max: 5,
                 fontColor: "#dadfe6",
                 userCallback: function (label, index, labels) {
