@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import backPort from "../const";
+import Navbar from "./Header/Navbar";
 
 class PreSurvey extends Component {
   constructor(props) {
@@ -70,6 +71,7 @@ class PreSurvey extends Component {
     const { hospitals, specialties, experiences } = this.state;
     return (
       <div className="prequest">
+        <Navbar />
         <h1>Pré-questionnaire</h1>
         <div
           style={{

@@ -4,11 +4,12 @@ import axios from "axios";
 import Registration from "./Registration";
 import Login from "./Login";
 import { authContext } from "../../contexts/ProvideAuth";
-
 import { loginReducer } from "../../reducers/actions/loginReducer";
 import { initialLoginState } from "../../reducers/store/initialLoginState";
 
 export default function Form() {
+  axios.defaults.withCredentials = true;
+
   const [state, dispatch] = useReducer(loginReducer, initialLoginState);
   const {
     emailToLogin,
@@ -17,17 +18,40 @@ export default function Form() {
     email,
     userpassword,
     passwordConfirmation,
+    hospitalChoice,
     errors,
   } = state;
 
   const [createdAccount, setCreatedAccount] = useState(false);
   const [userHasAccount, setUserHasAccount] = useState(true);
+  const [hospitals, setHospitals] = useState(null);
+  const { setUserLogin } = useContext(authContext);
 
-  axios.defaults.withCredentials = true;
+  useEffect(() => {
+    const fetchUserLogin = async () => {
+      try {
+        const log = await axios(`http://localhost:5000/api/login`);
+        log.data.loggedIn && setUserLogin({ connected: true });
+      } catch (error) {
+        console.log("fetchUserLogin: ", error);
+      }
+    };
+    fetchUserLogin();
+  }, [setUserLogin]);
 
-  let history = useHistory();
-
-  const { setConnected } = useContext(authContext);
+  useEffect(() => {
+    const getHospitalsScores = async () => {
+      try {
+        const hospitalsScores = await axios(
+          `http://localhost:5000/api/hospitals`
+        );
+        hospitalsScores.data && setHospitals(hospitalsScores.data);
+      } catch (error) {
+        console.log("hospitalsScores: ", error);
+      }
+    };
+    getHospitalsScores();
+  }, []);
 
   const register = (e) => {
     e.preventDefault();
@@ -37,8 +61,8 @@ export default function Form() {
         email: email,
         password: userpassword,
         passwordConfirmation: passwordConfirmation,
+        fk_hospital_id: hospitalChoice,
         fk_user_role_id: 1,
-        fk_hospital_id: 1,
       })
       .then((res) => {
         setCreatedAccount(res.data.createdAccount);
@@ -53,16 +77,8 @@ export default function Form() {
       );
   };
 
-  useEffect(() => {
-    axios.get("http://localhost:5000/api/login").then((res) => {
-      console.log("Connected: ", res.data.loggedIn);
-      if (res.data.loggedIn === true) {
-        setConnected(true);
-      }
-    });
-  }, [setConnected]);
-
-  let match = useRouteMatch();
+  const match = useRouteMatch();
+  const history = useHistory();
 
   const login = (e) => {
     e.preventDefault();
@@ -74,7 +90,11 @@ export default function Form() {
       .then((res) => {
         console.log("You are connected: ", res.data.email);
         if (res.status === 200) {
-          setConnected(true);
+          setUserLogin({
+            connected: true,
+            name: res.data.name,
+            hospital: res.data.fk_hospital_id,
+          });
           history.push(`${match.url}/dashboard/${res.data.id}`);
         }
       });
@@ -101,6 +121,8 @@ export default function Form() {
           register={register}
           createdAccount={createdAccount}
           setUserHasAccount={setUserHasAccount}
+          hospitals={hospitals}
+          hospitalChoice={hospitalChoice}
         />
       )}
     </div>

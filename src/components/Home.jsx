@@ -4,10 +4,12 @@ import { ReactComponent as Hospital } from "../assets/hospital.svg";
 import { ReactComponent as Private } from "../assets/private.svg";
 import { ReactComponent as Bell } from "../assets/paper.svg";
 import { ReactComponent as Paper } from "../assets/bell.svg";
+import Navbar from "./Header/Navbar";
 
 export default function Home() {
   return (
     <div className="body">
+      <Navbar />
       <div className="donnetonavis">
         <Hospital />
         <p>Sur un sejour à l'hôpital ou dans une clinique</p>
