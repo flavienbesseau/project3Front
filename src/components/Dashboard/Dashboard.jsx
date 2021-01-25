@@ -48,7 +48,9 @@ export default function Dashboard() {
         <button type="button" onClick={() => setFeedback(!feedback)}>
           Commentaires
         </button>
-        {feedback && <Feedbacks feedback={feedback} setFeedback={setFeedback} />}
+        {feedback && (
+          <Feedbacks feedback={feedback} setFeedback={setFeedback} />
+        )}
       </div>
 
       <div className="dashboard-confidence-score"></div>
