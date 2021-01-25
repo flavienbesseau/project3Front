@@ -3,8 +3,9 @@
     position: absolute;
     top: 2rem;
     transform: translateX(20px);
+    z-index: 2;
 
-    width: 10rem;
+    width: 12rem;
     height: 2.5rem;
 
     background: $white;
@@ -16,23 +17,52 @@
   }
 }
 
-.feedback-container {
+.feedback-background {
   @include breakpoint(laptop) {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+  }
 
-    @include flex-column-center;
+  .feedback-container {
+    @include breakpoint(laptop) {
+      position: absolute;
+      z-index: 2;
+      top: 40%;
+      left: 50%;
+      transform: translate(-50%, -50%);
 
-    background: $background;
-    color: $white;
+      width: 80rem;
+      height: 30rem;
 
-    li {
-      list-style: none;
-      padding-bottom: 0.3rem;
-      border-bottom: 0.2rem solid $white;
-      width: 80%;
-      text-align: center;
-      font-size: 1.4rem;
+      @include flex-column-center;
+
+      background: $background-dashboard;
+      color: $white;
+      border-radius: 1rem;
+      box-shadow: 5px 5px 10px #060b2b, -5px -5px 10px #060b2b;
+      overflow-y: scroll;
+
+      @include scroll;
+
+      li {
+        width: 100%;
+
+        list-style: none;
+        padding: 2rem 0;
+        border-bottom: 0.2rem solid #0e1644;
+        text-align: center;
+        font-size: 1.4rem;
+        cursor: pointer;
+
+        &:hover {
+          background: $hover-pink;
+        }
+      }
     }
   }
 }
