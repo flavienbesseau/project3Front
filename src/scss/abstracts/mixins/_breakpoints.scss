@@ -1,0 +1,23 @@
+//This allows us to set up our breakpoints
+//and modify them in the future directly here,
+//and for all content in the app.
+
+//Usage : @include breakpoint(laptop) {...}
+
+@mixin breakpoint($breakpoint) {
+  @if ($breakpoint == tablet) {
+    @media screen and(min-width: 425px) {
+      @content;
+    }
+  }
+  @if ($breakpoint == laptop) {
+    @media screen and(min-width: 768px) {
+      @content;
+    }
+  }
+  @if ($breakpoint == desktop) {
+    @media screen and(min-width: 1024px) {
+      @content;
+    }
+  }
+}

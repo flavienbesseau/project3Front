@@ -1,0 +1,48 @@
+.prequest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #dadfe6;
+  font-size: 1.6rem;
+}
+
+.prequest h1 {
+  margin: 4rem 0 2rem 0;
+  font-size: 3rem;
+}
+
+.prequest label {
+  font-size: 1.6rem;
+  @media only screen and (max-width: 600px) {
+    font-size: 2rem;
+  }
+}
+
+.prequest select {
+  background-color: #dadfe6;
+}
+
+.btn-grad {
+  padding: 15px 45px;
+  margin-top: 2rem;
+  text-align: center;
+  text-transform: uppercase;
+  transition: 0.5s;
+  background-size: 100% auto;
+  color: white;
+  box-shadow: 0 0 20px #eee;
+  border-radius: 10px;
+  display: block;
+}
+
+.btn-grad:hover {
+  background-position: right center; /* change the direction of the change here */
+  color: #fff;
+  text-decoration: none;
+}
+
+.prequest select {
+  height: 2.5rem;
+  width: 100%;
+  margin: 1rem 0;
+}

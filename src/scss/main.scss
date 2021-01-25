@@ -1,0 +1,29 @@
+// Configurations, variables and mixins
+@import "abstracts/variables/colors";
+@import "abstracts/mixins/animations";
+@import "abstracts/mixins/flexbox";
+@import "abstracts/mixins/mixins";
+@import "abstracts/mixins/breakpoints";
+
+// Base
+@import "base/base";
+@import "base/fonts";
+
+// Modules
+@import "modules/buttons";
+@import "modules/burger";
+
+// Layout
+@import "layout/navbar";
+@import "layout/forms";
+@import "layout/dashboard";
+@import "layout/pagenotfound";
+@import "layout/sidebar";
+@import "layout/feedbacks";
+
+// File style
+@import "../style/survey";
+@import "../style/question";
+@import "../style/Home";
+@import "../style/Navbar";
+@import "../style/Presurvey";
