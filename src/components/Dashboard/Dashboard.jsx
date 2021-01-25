@@ -4,6 +4,7 @@ import RepartitionChart from "../Charts/Repartition/RepartitionChart";
 import sidebarData from "./Sidebar";
 import Feedbacks from "./Feedbacks";
 import DataChart from "../DataChart";
+import ThisMonth from "./ThisMonth";
 
 export default function Dashboard() {
   const [isTheMenuOpen, setIsTheMenuOpen] = useState(false);
@@ -55,7 +56,9 @@ export default function Dashboard() {
       <div className="dashboard-repartition">
         <RepartitionChart />
       </div>
-      <div className="dashboard-this-month"></div>
+      <div className="dashboard-this-month">
+        <ThisMonth />
+      </div>
     </div>
   );
 }

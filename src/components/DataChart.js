@@ -196,7 +196,7 @@ class DataChart extends Component {
       selectedPostDateEnd,
     } = this.state;
     return (
-      <div>
+      <div style={{ paddingRight: "1rem" }}>
         <select
           name="experience"
           id="experience"

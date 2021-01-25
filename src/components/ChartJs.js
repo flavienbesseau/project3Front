@@ -7,17 +7,16 @@ defaults.global.tooltips.enabled = true;
 const ChartJs = (props) => (
   <div
     style={{
-      backgroundColor: "#265f87",
+      // backgroundColor: "#265f87",
       fontColor: "#dadfe6",
-      width: "60%",
-      border: "2px black solid",
-      margin: "10px",
+      width: "100%",
+      height: "80%",
     }}
   >
     <HorizontalBar
       data={props.data}
       width={1000}
-      height={400}
+      height={500}
       options={{
         maintainAspectRatio: false,
         tooltips: {
