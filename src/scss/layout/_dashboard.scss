@@ -8,31 +8,36 @@
   grid-area: sidebar;
   background: $background;
   border-radius: 1rem;
+  box-shadow: 5px 5px 5px #0e1644;
 }
 .dashboard-general-informations {
   grid-area: general;
   background: $background;
   border-radius: 1rem;
+  box-shadow: 5px 5px 5px #0e1644;
 }
 .dashboard-confidence-score {
   grid-area: confidence;
   background: $background;
   border-radius: 1rem;
+  box-shadow: 5px 5px 5px #0e1644;
 }
 .dashboard-repartition {
   grid-area: repartition;
   background: $background;
   border-radius: 1rem;
+  box-shadow: 5px 5px 5px #0e1644;
 }
 .dashboard-this-month {
   grid-area: month;
   background: $background;
   border-radius: 1rem;
+  box-shadow: 5px 5px 5px #0e1644;
 }
 //End
 
 .dashboard {
-  width: 100%;
+  width: 100vw;
   min-height: 100vh;
 
   padding: 1rem;
@@ -59,6 +64,7 @@
 
   // Laptop grid configuration
   @include breakpoint(laptop) {
+    height: 100vh;
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas:
@@ -138,34 +144,4 @@
       pointer-events: all;
     }
   }
-
-  .dashboard-sidebar {
-    display: none;
-    @include breakpoint(laptop) {
-      @include flex-column-center;
-
-      img {
-        width: 50%;
-      }
-
-      li {
-        @include flex-center;
-        flex-wrap: wrap;
-        width: 20rem;
-        height: 5rem;
-        margin: 1rem;
-        border-radius: 1rem;
-        background: #0f1744;
-        &:hover {
-          background: rgb(230, 136, 230);
-        }
-      }
-    }
-  }
-
-  // .dashboard-general-informations {
-  //   @include breakpoint(laptop) {
-  //     @include flex-center;
-  //   }
-  // }
 }
