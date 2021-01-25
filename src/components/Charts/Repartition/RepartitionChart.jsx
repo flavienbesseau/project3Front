@@ -8,7 +8,6 @@ export default function RepartitionChart() {
   const [repartitionFeedback, setRepartitionFeedback] = useState(null);
 
   const { userLogin } = useContext(authContext);
-  console.log("userlogin: ", userLogin.hospital);
   useEffect(() => {
     axios
       .get(`http://localhost:5000/api/repartition-chart/${userLogin.hospital}`)

@@ -4,11 +4,12 @@ import axios from "axios";
 import Registration from "./Registration";
 import Login from "./Login";
 import { authContext } from "../../contexts/ProvideAuth";
-
 import { loginReducer } from "../../reducers/actions/loginReducer";
 import { initialLoginState } from "../../reducers/store/initialLoginState";
 
 export default function Form() {
+  axios.defaults.withCredentials = true;
+
   const [state, dispatch] = useReducer(loginReducer, initialLoginState);
   const {
     emailToLogin,
@@ -23,30 +24,32 @@ export default function Form() {
 
   const [createdAccount, setCreatedAccount] = useState(false);
   const [userHasAccount, setUserHasAccount] = useState(true);
-
   const [hospitals, setHospitals] = useState(null);
-
-  axios.defaults.withCredentials = true;
-
-  let history = useHistory();
-
   const { setUserLogin } = useContext(authContext);
 
   useEffect(() => {
     const fetchUserLogin = async () => {
       try {
         const log = await axios(`http://localhost:5000/api/login`);
-        const fetchHospitals = await axios(
-          `http://localhost:5000/api/hospitals`
-        );
         log.data.loggedIn && setUserLogin({ connected: true });
-        fetchHospitals.data && setHospitals(fetchHospitals.data);
       } catch (error) {
         console.log("fetchUserLogin: ", error);
       }
     };
     fetchUserLogin();
   }, [setUserLogin]);
+
+  useEffect(() => {
+    const getHospitalsScores = async() => {
+      try {
+        const hospitalsScores = await axios(`http://localhost:5000/api/hospitals`);
+        hospitalsScores.data && setHospitals(hospitalsScores.data);
+      } catch(error) {
+        console.log('hospitalsScores: ', error);
+      }
+    };
+    getHospitalsScores()
+  }, [])
 
   const register = (e) => {
     e.preventDefault();
@@ -73,6 +76,8 @@ export default function Form() {
   };
 
   const match = useRouteMatch();
+  const history = useHistory();
+
   const login = (e) => {
     e.preventDefault();
     axios
