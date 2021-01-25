@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 
 export default function Feedbacks() {
   const [listOfQuestions, setListOfQuestions] = useState(null);
+  
   useEffect(() => {
     const getFeedbacks = async () => {
       try {
@@ -16,11 +17,13 @@ export default function Feedbacks() {
   }, []);
 
   return (
-    <div className="feedback-container">
-      {listOfQuestions &&
-        listOfQuestions.map((question) => (
-          <li key={question.id}>{question.text_rating}</li>
-        ))}
+    <div className="feedback-background">
+      <div className="feedback-container">
+        {listOfQuestions &&
+          listOfQuestions.map((question) => (
+            <li key={question.id}>{question.text_rating}</li>
+            ))}
+      </div>
     </div>
   );
 }
