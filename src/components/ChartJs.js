@@ -14,7 +14,6 @@ const ChartJs = (props) => (
       margin: "10px",
     }}
   >
-    {/* <h2>Informations générales</h2> */}
     <HorizontalBar
       data={props.data}
       width={1000}
@@ -65,7 +64,7 @@ const ChartJs = (props) => (
                 display: false,
               },
               ticks: {
-                min: 0.5,
+                min: 0,
                 max: 5,
                 fontColor: "#dadfe6",
                 userCallback: function (label, index, labels) {
