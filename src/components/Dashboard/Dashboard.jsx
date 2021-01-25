@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import logo from "../../assets/hospitalidee-logo.png";
 import RepartitionChart from "../Charts/Repartition/RepartitionChart";
-import sidebarData from './Sidebar';
-import Feedbacks from './Feedbacks';
+import sidebarData from "./Sidebar";
+import Feedbacks from "./Feedbacks";
 
 export default function Dashboard() {
   const [isTheMenuOpen, setIsTheMenuOpen] = useState(false);
@@ -33,22 +33,26 @@ export default function Dashboard() {
         </ul>
         <img src={logo} alt="" />
       </div>
-      <div className="dashboard-sidebar"> 
+      <div className="dashboard-sidebar">
         <img src={logo} alt="" />
-        {sidebarData.map((link, index) => ( 
-          <li key={index} className={link.style}>{link.title}</li>
+        {sidebarData.map((link, index) => (
+          <li key={index} className={link.style}>
+            {link.title}
+          </li>
         ))}
       </div>
 
       <div className="dashboard-general-informations">
-        <button type='button' onClick={() => setFeedback(!feedback)}>Commentaires</button>
-        { feedback && <Feedbacks /> }
+        <button type="button" onClick={() => setFeedback(!feedback)}>
+          Commentaires
+        </button>
+        {feedback && <Feedbacks />}
       </div>
 
-      <div className="dashboard-confidence-score"></div> 
+      <div className="dashboard-confidence-score"></div>
       <div className="dashboard-repartition">
         <RepartitionChart />
-      </div> 
+      </div>
       <div className="dashboard-this-month"></div>
     </div>
   );

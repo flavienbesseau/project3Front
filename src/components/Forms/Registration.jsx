@@ -19,15 +19,15 @@ export default function Registration({
       <img src={logo} alt="" className="logo" />
       <form onSubmit={register}>
         <select
-        className="select-register"
-        value={hospitalChoice}
-        onChange={(e) =>
-          dispatch({
-            type: "register",
-            registerField: "hospitalChoice",
-            registerValue: e.target.value,
-          })
-        }
+          className="select-register"
+          value={hospitalChoice}
+          onChange={(e) =>
+            dispatch({
+              type: "register",
+              registerField: "hospitalChoice",
+              registerValue: e.target.value,
+            })
+          }
         >
           {hospitals.map((hospital) => (
             <Fragment key={hospital.id}>

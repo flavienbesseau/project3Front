@@ -40,16 +40,18 @@ export default function Form() {
   }, [setUserLogin]);
 
   useEffect(() => {
-    const getHospitalsScores = async() => {
+    const getHospitalsScores = async () => {
       try {
-        const hospitalsScores = await axios(`http://localhost:5000/api/hospitals`);
+        const hospitalsScores = await axios(
+          `http://localhost:5000/api/hospitals`
+        );
         hospitalsScores.data && setHospitals(hospitalsScores.data);
-      } catch(error) {
-        console.log('hospitalsScores: ', error);
+      } catch (error) {
+        console.log("hospitalsScores: ", error);
       }
     };
-    getHospitalsScores()
-  }, [])
+    getHospitalsScores();
+  }, []);
 
   const register = (e) => {
     e.preventDefault();
