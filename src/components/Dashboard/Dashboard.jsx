@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import logo from "../../assets/hospitalidee-logo.png";
 import RepartitionChart from "../Charts/Repartition/RepartitionChart";
 import sidebarData from "./Sidebar";
@@ -40,7 +40,7 @@ export default function Dashboard() {
         {sidebarData.map((link, index) => (
           <Link to={link.path}>
             <li key={index} className={link.style}>
-                {link.title}
+              {link.title}
             </li>
           </Link>
         ))}

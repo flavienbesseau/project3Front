@@ -41,8 +41,8 @@ const Sidebar = [
   {
     title: "DECONNEXION",
     style: "dashboard-sidebar-link-deconnexion",
-    path: '/authentication'
-  }
+    path: "/authentication",
+  },
 ];
 
 export default Sidebar;

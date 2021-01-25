@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { useHistory } from 'react-router-dom';
+import { useHistory } from "react-router-dom";
 import logo from "../../assets/hospitalidee-logo.png";
 
 export default function Registration({
@@ -133,7 +133,12 @@ export default function Registration({
           <div className="account-container-success">
             <div className="registered-account">
               <span>Votre compte a été enregistré avec succès.</span>
-              <button type='button' onClick={() => history.push(`/authentication/dashboard/1`)}>Se connecter</button>
+              <button
+                type="button"
+                onClick={() => history.push(`/authentication/dashboard/1`)}
+              >
+                Se connecter
+              </button>
             </div>
           </div>
         ) : null}
