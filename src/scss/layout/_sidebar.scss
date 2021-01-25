@@ -10,6 +10,12 @@
       transform: translateY(-80px);
     }
 
+    a {
+      text-decoration: none;
+      font-size: 1.6rem;
+      font-weight: 600;
+    }
+
     li {
       @include flex-center;
       flex-wrap: wrap;
@@ -18,14 +24,14 @@
       margin: 1rem;
       border-radius: 1rem;
       background: #0f1744;
-      font-size: 1.5rem;
+      cursor: pointer;
       &:hover {
-        background: $hover-pink;
+        background: $background-dashboard;
+        color: $white;
       }
     }
 
     .dashboard-sidebar-link-deconnexion {
-      position: absolute;
       bottom: 5rem;
       background: $white;
       color: $dark-blue;

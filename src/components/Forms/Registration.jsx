@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { useHistory } from 'react-router-dom';
 import logo from "../../assets/hospitalidee-logo.png";
 
 export default function Registration({
@@ -14,6 +15,8 @@ export default function Registration({
   hospitals,
   hospitalChoice,
 }) {
+  const history = useHistory();
+
   return (
     <div className="registration-container">
       <img src={logo} alt="" className="logo" />
@@ -127,7 +130,12 @@ export default function Registration({
       </div>
       <div className="account-container">
         {createdAccount ? (
-          <span>Votre compte a bien été enregistré.</span>
+          <div className="account-container-success">
+            <div className="registered-account">
+              <span>Votre compte a été enregistré avec succès.</span>
+              <button type='button' onClick={() => history.push(`/authentication/dashboard/1`)}>Se connecter</button>
+            </div>
+          </div>
         ) : null}
       </div>
     </div>

@@ -19,7 +19,7 @@ export default function Feedbacks({ feedback, setFeedback }) {
   return (
     <div className="feedback-background">
       <div className="feedback-container">
-        <i class="fas fa-times-circle" onClick={() => setFeedback(!feedback)} />
+        <i className="fas fa-times-circle" onClick={() => setFeedback(!feedback)} />
         <h2>Listes des questions</h2>
         {listOfQuestions &&
           listOfQuestions.map((question) => (

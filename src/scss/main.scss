@@ -1,5 +1,6 @@
 // Configurations, variables and mixins
 @import "abstracts/variables/colors";
+@import "abstracts/variables/fonts";
 @import "abstracts/mixins/animations";
 @import "abstracts/mixins/flexbox";
 @import "abstracts/mixins/mixins";
@@ -21,6 +22,7 @@
 @import "layout/pagenotfound";
 @import "layout/sidebar";
 @import "layout/feedbacks";
+@import "layout/register";
 
 // File style
 @import "../style/survey";
