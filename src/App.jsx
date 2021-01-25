@@ -18,7 +18,7 @@ export default function App() {
       <Router>
         <Switch>
           <Route exact path="/" component={Home} />
-          <Route path="/essaiChartJs/:hospitalId" component={DataChart} />
+          <Route path="/statistics/:hospitalId" component={DataChart} />
           <Route exact path="/essaiChartJs" component={ChartJs} />
           <Route exact path="/presurvey" component={PreSurvey} />
           <Route path="/survey" component={Survey} />
