@@ -9,6 +9,35 @@
 
 .radio {
   margin: 0.5rem;
+
+  input {
+    margin-right: 1rem;
+    margin-left: 1rem;
+    &::after {
+      width: 15px;
+      height: 15px;
+      border-radius: 15px;
+      top: -2px;
+      left: -1px;
+      position: relative;
+      background-color: #ffff;
+      content: "";
+      display: inline-block;
+      border: 2px solid rgb(52, 138, 202);
+    }
+    &:checked::after {
+      width: 15px;
+      height: 15px;
+      border-radius: 15px;
+      top: -2px;
+      left: -1px;
+      position: relative;
+      background-color: rgb(52, 138, 202);
+      content: "";
+      display: inline-block;
+      border: 2px solid rgb(52, 138, 202);
+    }
+  }
 }
 
 .comments {
@@ -20,35 +49,6 @@
   font-size: 1.4rem;
   text-indent: 1rem;
   color: rgb(52, 138, 202);
-}
-
-input {
-  margin-right: 1rem;
-  margin-left: 1rem;
-  &::after {
-    width: 15px;
-    height: 15px;
-    border-radius: 15px;
-    top: -2px;
-    left: -1px;
-    position: relative;
-    background-color: #ffff;
-    content: "";
-    display: inline-block;
-    border: 2px solid rgb(52, 138, 202);
-  }
-  &:checked::after {
-    width: 15px;
-    height: 15px;
-    border-radius: 15px;
-    top: -2px;
-    left: -1px;
-    position: relative;
-    background-color: rgb(52, 138, 202);
-    content: "";
-    display: inline-block;
-    border: 2px solid rgb(52, 138, 202);
-  }
 }
 
 @media screen and (min-width: 600px) {

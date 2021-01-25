@@ -12,7 +12,7 @@ export default function Navbar() {
       </div>
       <div className="navbar-connection">
         <button onClick={() => history.push("/authentication")}>
-          Se connecter
+          Se connecter / S'inscrire
         </button>
       </div>
     </div>

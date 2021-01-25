@@ -24,8 +24,9 @@
     align-items: center;
 
     button {
-      min-width: 10rem;
+      min-width: 12rem;
       min-height: 3rem;
+      padding: 0 1rem;
       font-weight: bold;
       background: $dark-blue;
       color: $white;
@@ -43,7 +44,7 @@
 
       @include breakpoint(laptop) {
         transform: translateX(-30px);
-        min-width: 15rem;
+        min-width: 18rem;
         min-height: 4rem;
         font-size: 1.6rem;
       }
