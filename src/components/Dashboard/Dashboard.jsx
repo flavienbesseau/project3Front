@@ -10,7 +10,7 @@ export default function Dashboard() {
   const [feedback, setFeedback] = useState(false);
 
   return (
-      <div className='dashboard'>
+    <div className="dashboard">
       <div className="dashboard-header">
         <div
           onClick={() => setIsTheMenuOpen(!isTheMenuOpen)}

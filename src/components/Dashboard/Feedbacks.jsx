@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 export default function Feedbacks() {
   const [listOfQuestions, setListOfQuestions] = useState(null);
-  
+
   useEffect(() => {
     const getFeedbacks = async () => {
       try {
@@ -22,7 +22,7 @@ export default function Feedbacks() {
         {listOfQuestions &&
           listOfQuestions.map((question) => (
             <li key={question.id}>{question.text_rating}</li>
-            ))}
+          ))}
       </div>
     </div>
   );
