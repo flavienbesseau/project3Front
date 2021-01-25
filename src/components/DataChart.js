@@ -3,10 +3,12 @@ import axios from "axios";
 import ChartJs from "./ChartJs";
 import backPort from "../const";
 import { Chart } from "react-chartjs-2";
+import { authContext } from "../contexts/ProvideAuth";
 
 const ALL = "all";
 
 class DataChart extends Component {
+  static contextType = authContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -51,6 +53,7 @@ class DataChart extends Component {
   }
 
   getResponses() {
+    const { userLogin } = this.context;
     const {
       selectedExperience,
       selectedSpecialty,
@@ -58,7 +61,7 @@ class DataChart extends Component {
       selectedPostDateEnd,
     } = this.state;
     const url = new URL(
-      `http://localhost:${backPort}/api/informationsgenerales/${this.props.match.params.hospitalId}`
+      `http://localhost:${backPort}/api/informationsgenerales/${userLogin.hospital}`
     );
     if (selectedExperience !== ALL) {
       url.searchParams.append("experienceId", selectedExperience); //creer le query params    ?experienceId=selectedExperience

@@ -3,6 +3,7 @@ import logo from "../../assets/hospitalidee-logo.png";
 import RepartitionChart from "../Charts/Repartition/RepartitionChart";
 import sidebarData from "./Sidebar";
 import Feedbacks from "./Feedbacks";
+import DataChart from "../DataChart";
 
 export default function Dashboard() {
   const [isTheMenuOpen, setIsTheMenuOpen] = useState(false);
@@ -43,6 +44,7 @@ export default function Dashboard() {
       </div>
 
       <div className="dashboard-general-informations">
+        <DataChart />
         <button type="button" onClick={() => setFeedback(!feedback)}>
           Commentaires
         </button>
