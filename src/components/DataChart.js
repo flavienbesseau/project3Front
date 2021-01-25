@@ -3,12 +3,12 @@ import axios from "axios";
 import ChartJs from "./ChartJs";
 import backPort from "../const";
 import { Chart } from "react-chartjs-2";
-import { authContext } from '../contexts/ProvideAuth';
+import { authContext } from "../contexts/ProvideAuth";
 
 const ALL = "all";
 
 class DataChart extends Component {
-  static contextType = authContext
+  static contextType = authContext;
   constructor(props) {
     super(props);
     this.state = {
