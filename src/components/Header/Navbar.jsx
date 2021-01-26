@@ -8,7 +8,7 @@ export default function Navbar() {
   return (
     <div className="navbar-container">
       <div className="navbar-logo">
-        <img src={logo} alt="" onClick={() => history.push('/')}/>
+        <img src={logo} alt="" onClick={() => history.push("/")} />
       </div>
       <div className="navbar-connection">
         <button onClick={() => history.push("/authentication")}>
