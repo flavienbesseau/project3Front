@@ -1,0 +1,26 @@
+.account-container {
+  .account-container-success {
+    @include modal-container;
+  }
+
+  .registered-account {
+    @include modal;
+
+    @include flex-column-center;
+
+    background: $background-dashboard;
+    color: $white;
+    font-size: 2rem;
+  }
+
+  button {
+    @include button($background-dashboard, $white);
+    border: 1px solid $white;
+    min-width: 20%;
+
+    @include breakpoint(tablet) {
+      min-width: 15rem;
+      margin-top: 5rem;
+    }
+  }
+}

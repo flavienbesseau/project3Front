@@ -1,33 +1,38 @@
 //Grid configuration
 .dashboard-header {
   grid-area: header;
-  background: #182363;
+  background: $background-dashboard;
   border-radius: 1rem;
 }
+
 .dashboard-sidebar {
   grid-area: sidebar;
   background: $background;
   border-radius: 1rem;
   box-shadow: 5px 5px 5px #0e1644;
 }
+
 .dashboard-general-informations {
   grid-area: general;
   background: $background;
   border-radius: 1rem;
   box-shadow: 5px 5px 5px #0e1644;
 }
+
 .dashboard-confidence-score {
   grid-area: confidence;
   background: $background;
   border-radius: 1rem;
   box-shadow: 5px 5px 5px #0e1644;
 }
+
 .dashboard-repartition {
   grid-area: repartition;
   background: $background;
   border-radius: 1rem;
   box-shadow: 5px 5px 5px #0e1644;
 }
+
 .dashboard-this-month {
   grid-area: month;
   background: $background;
@@ -59,7 +64,7 @@
     "month";
   //End
 
-  background: #182363;
+  background: $background-dashboard;
   color: $white;
 
   // Laptop grid configuration
@@ -83,6 +88,7 @@
       position: absolute;
       top: 2rem;
       left: 2rem;
+
       @include burger-menu;
       @include flex-column-center;
     }
@@ -100,13 +106,14 @@
       position: fixed;
       position: absolute;
       top: 0;
+      left: 0;
 
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
 
-      background: #182363;
+      background: $background-dashboard;
       list-style: none;
       pointer-events: none;
 
@@ -121,16 +128,19 @@
       li {
         width: 30rem;
         height: 5rem;
-        margin: 1rem;
-        border-radius: 1rem;
+
         @include flex-center;
+
+        margin: 1rem;
+
+        border-radius: 1rem;
         background: #0f1744;
       }
 
       a {
         color: $white;
         text-decoration: none;
-        font-size: 2rem;
+        font-size: $large;
       }
 
       img {

@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/hospitalidee-logo.png";
 import RepartitionChart from "../Charts/Repartition/RepartitionChart";
 import sidebarData from "./Sidebar";
@@ -9,6 +10,10 @@ import ThisMonth from "./ThisMonth";
 export default function Dashboard() {
   const [isTheMenuOpen, setIsTheMenuOpen] = useState(false);
   const [feedback, setFeedback] = useState(false);
+
+  const escModal = (e) => {
+    e.key === "Escape" && setFeedback(false);
+  };
 
   return (
     <div className="dashboard">
@@ -38,18 +43,26 @@ export default function Dashboard() {
       <div className="dashboard-sidebar">
         <img src={logo} alt="" />
         {sidebarData.map((link, index) => (
-          <li key={index} className={link.style}>
-            {link.title}
-          </li>
+          <Link to={link.path}>
+            <li key={index} className={link.style}>
+              {link.title}
+            </li>
+          </Link>
         ))}
       </div>
 
       <div className="dashboard-general-informations">
         <DataChart />
-        <button type="button" onClick={() => setFeedback(!feedback)}>
+        <button
+          type="button"
+          onClick={(e) => setFeedback(!feedback)}
+          onKeyDown={escModal}
+        >
           Commentaires
         </button>
-        {feedback && <Feedbacks />}
+        {feedback && (
+          <Feedbacks feedback={feedback} setFeedback={setFeedback} />
+        )}
       </div>
 
       <div className="dashboard-confidence-score"></div>
