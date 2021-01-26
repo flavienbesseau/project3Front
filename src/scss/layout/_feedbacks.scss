@@ -1,3 +1,4 @@
+//Button 'commentaires'
 .dashboard-general-informations {
   button {
     position: absolute;
@@ -19,36 +20,22 @@
 
 .feedback-background {
   @include breakpoint(laptop) {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-
-    width: 100vw;
-    height: 100vh;
-
-    background: rgba(0, 0, 0, 0.5);
+    @include modal-container;
   }
 
   .feedback-container {
     @include breakpoint(laptop) {
-      position: absolute;
-      z-index: 2;
-      top: 40%;
-      left: 50%;
+      @include modal;
 
-      width: 60rem;
-      height: 30rem;
-      transform: translate(-50%, -50%);
+      width: 100rem;
+      height: 50rem;
 
       @include flex-column-start;
 
       background: $background-dashboard;
       color: $white;
-      border-radius: 1rem;
-      box-shadow: 5px 5px 10px #060b2b, -5px -5px 10px #060b2b;
-      overflow-y: scroll;
 
+      overflow-y: scroll;
       @include scroll;
 
       h2 {
@@ -61,14 +48,14 @@
         text-align: center;
         background: $white;
         color: $background-dashboard;
-        font-size: $medium;
+        font-size: $large;
       }
 
-      i {
+      #esc-modal {
         position: absolute;
         z-index: 3;
         top: 0.5rem;
-        right: 0.5rem;
+        right: 1.5rem;
 
         font-size: 3rem;
         color: $background-dashboard;
@@ -84,7 +71,7 @@
         list-style: none;
         border-bottom: 0.2rem solid #0e1644;
         text-align: center;
-        font-size: $small;
+        font-size: $medium;
         cursor: pointer;
 
         &:hover {

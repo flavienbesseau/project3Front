@@ -6,6 +6,12 @@
   align-items: center;
 }
 
+@mixin flex-start {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
 @mixin flex-column-center {
   display: flex;
   flex-direction: column;
