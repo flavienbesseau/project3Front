@@ -12,7 +12,7 @@
     color: $background;
     border: none;
     border-radius: 0.8rem;
-    font-size: 1.5rem;
+    font-size: $medium;
     outline: none;
   }
 }
@@ -23,8 +23,10 @@
     z-index: 1;
     top: 0;
     left: 0;
+
     width: 100vw;
     height: 100vh;
+
     background: rgba(0, 0, 0, 0.5);
   }
 
@@ -34,10 +36,10 @@
       z-index: 2;
       top: 40%;
       left: 50%;
-      transform: translate(-50%, -50%);
 
       width: 60rem;
       height: 30rem;
+      transform: translate(-50%, -50%);
 
       @include flex-column-start;
 
@@ -59,7 +61,7 @@
         text-align: center;
         background: $white;
         color: $background-dashboard;
-        font-size: 1.7rem;
+        font-size: $medium;
       }
 
       i {
@@ -77,11 +79,12 @@
       li {
         width: 100%;
 
-        list-style: none;
         padding: 3.5rem 0;
+
+        list-style: none;
         border-bottom: 0.2rem solid #0e1644;
         text-align: center;
-        font-size: 1.4rem;
+        font-size: $small;
         cursor: pointer;
 
         &:hover {

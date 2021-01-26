@@ -1,31 +1,16 @@
 .account-container {
   .account-container-success {
-    position: absolute;
-    z-index: 1;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5);
+    @include modal-container;
   }
 
   .registered-account {
-    position: absolute;
-    z-index: 2;
-    top: 40%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    width: 50rem;
-    height: 18rem;
+    @include modal;
 
     @include flex-column-center;
 
     background: $background-dashboard;
     color: $white;
     font-size: 2rem;
-    border-radius: 1rem;
-    box-shadow: 5px 5px 10px #060b2b, -5px -5px 10px #060b2b;
   }
 
   button {

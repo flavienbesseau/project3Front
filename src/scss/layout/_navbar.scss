@@ -1,19 +1,23 @@
 .navbar-container {
   width: 100vw;
   height: 10vh;
-  background: $dark-blue;
   display: flex;
+
+  background: $background;
 
   .navbar-logo {
     display: flex;
     justify-content: flex-start;
     align-items: center;
     flex: 1;
+
     img {
       transform: translateX(10px);
       width: 60%;
       min-width: 100px;
       max-width: 175px;
+
+      cursor: pointer;
     }
   }
 
@@ -24,28 +28,23 @@
     align-items: center;
 
     button {
-      min-width: 12rem;
-      min-height: 3rem;
+      @include log-button;
+      min-width: 10rem;
+      min-height: 4rem;
+
+      margin-top: 0;
       padding: 0 1rem;
-      font-weight: bold;
-      background: $dark-blue;
-      color: $white;
-      border: 1px solid $white;
-      border-radius: 1rem;
-      cursor: pointer;
       transform: translateX(-10px);
 
-      &:hover {
-        background: $white;
-        color: $dark-blue;
-        border: none;
-        outline: none;
-      }
+      font-weight: bold;
 
       @include breakpoint(laptop) {
-        transform: translateX(-30px);
         min-width: 18rem;
         min-height: 4rem;
+
+        margin-top: 0;
+        transform: translateX(-30px);
+
         font-size: 1.6rem;
       }
     }

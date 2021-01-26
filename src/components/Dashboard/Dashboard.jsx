@@ -10,6 +10,8 @@ export default function Dashboard() {
   const [isTheMenuOpen, setIsTheMenuOpen] = useState(false);
   const [feedback, setFeedback] = useState(false);
 
+  const escModal = (e) => { e.key === 'Escape' && setFeedback(false) }
+
   return (
     <div className="dashboard">
       <div className="dashboard-header">
@@ -48,7 +50,7 @@ export default function Dashboard() {
 
       <div className="dashboard-general-informations">
         <DataChart />
-        <button type="button" onClick={() => setFeedback(!feedback)}>
+        <button type="button" onClick={(e) => setFeedback(!feedback)} onKeyDown={escModal}>
           Commentaires
         </button>
         {feedback && (

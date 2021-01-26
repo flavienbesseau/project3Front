@@ -1,0 +1,7 @@
+.repartition-chart {
+  @include breakpoint(laptop) {
+    @include flex-center;
+
+    padding: 2rem;
+  }
+}
