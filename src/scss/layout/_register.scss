@@ -14,16 +14,9 @@
   }
 
   button {
-    @include log-button;
-    background: $background-dashboard;
-    color: $white;
+    @include button($background-dashboard, $white);
     border: 1px solid $white;
     min-width: 20%;
-
-    &:hover {
-      background: $white;
-      color: $background-dashboard;
-    }
 
     @include breakpoint(tablet) {
       min-width: 15rem;

@@ -21,12 +21,11 @@
 }
 
 .btn-grad {
-  @include log-button;
+  @include button($white, $background-dashboard);
   @include flex-center;
 
-  text-decoration: none;
-  background: $white;
-  color: $background;
+  text-transform: uppercase;
+  font-family: "B612", sans-serif;
 }
 
 // .btn-grad {

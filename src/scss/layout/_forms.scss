@@ -84,7 +84,7 @@
     text-align: center;
 
     button {
-      @include log-button;
+      @include button($background-dashboard, $white);
     }
   }
 }

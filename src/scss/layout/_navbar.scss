@@ -28,7 +28,7 @@
     align-items: center;
 
     button {
-      @include log-button;
+      @include button($background-dashboard, $white);
       min-width: 10rem;
       min-height: 4rem;
 
