@@ -7,27 +7,26 @@ const useCloseModal = (handler) => {
 
   useEffect(() => {
     const outsideModalHandler = (event) => {
-      if(!refModal.current.contains(event.target)) {
+      if (!refModal.current.contains(event.target)) {
         handler();
       }
-    }
+    };
 
-    document.addEventListener('mousedown', outsideModalHandler);
+    document.addEventListener("mousedown", outsideModalHandler);
 
-    return () => document.removeEventListener('mousedown', outsideModalHandler);
+    return () => document.removeEventListener("mousedown", outsideModalHandler);
   });
 
   return refModal;
-}
-
+};
 
 export default function Feedbacks({ feedback, setFeedback }) {
   const [listOfQuestions, setListOfQuestions] = useState(null);
   const [getFeedbacks, setGetFeedbacks] = useState(null);
 
   let refModal = useCloseModal(() => {
-    setFeedback(false)
-  })
+    setFeedback(false);
+  });
 
   useEffect(() => {
     const getQuestionsFeedbacks = async () => {
