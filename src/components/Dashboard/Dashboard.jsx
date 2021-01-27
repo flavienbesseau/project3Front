@@ -57,14 +57,14 @@ export default function Dashboard() {
             type="button"
             onClick={(e) => setFeedback(!feedback)}
             onKeyDown={escModal}
-            >
+          >
             Avis
           </button>
         </div>
         {feedback && (
           <Feedbacks feedback={feedback} setFeedback={setFeedback} />
-          )}
-          <DataChart />
+        )}
+        <DataChart />
       </div>
 
       <div className="dashboard-confidence-score"></div>
