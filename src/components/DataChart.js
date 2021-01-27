@@ -196,57 +196,63 @@ class DataChart extends Component {
       selectedPostDateEnd,
     } = this.state;
     return (
-      <div className='general-information'>
-        <div className={this.props.openFilter ? 'general-information-filter' : 'general-information-filter-none'}>
-         <div className='general-information-filter-experiences'>
-           <select
-             name="experience"
-             id="experience"
-             onChange={this.onClickChangeExperience}
-             value={selectedExperience}
-             >
-             <option value="all">Tous</option>
-             {experiences.map((xp) => (
-               <option value={xp.id}>{xp.name}</option>
-             ))}
-           </select>
-         </div>
-        <div className='general-information-filter-specialties'>
-          <select
-            name="specialties"
-            id="specialties"
-            onChange={this.onClickChangeSpecialties}
-            value={selectedSpecialty}
-          >
-          <option value="all">Tous</option>
-            {specialties.map((specialty) => (
-              <option value={specialty.id}>{specialty.name}</option>
-            ))}
-          </select>
+      <div className="general-information">
+        <div
+          className={
+            this.props.openFilter
+              ? "general-information-filter"
+              : "general-information-filter-none"
+          }
+        >
+          <div className="general-information-filter-experiences">
+            <select
+              name="experience"
+              id="experience"
+              onChange={this.onClickChangeExperience}
+              value={selectedExperience}
+            >
+              <option value="all">Tous</option>
+              {experiences.map((xp) => (
+                <option value={xp.id}>{xp.name}</option>
+              ))}
+            </select>
+          </div>
+          <div className="general-information-filter-specialties">
+            <select
+              name="specialties"
+              id="specialties"
+              onChange={this.onClickChangeSpecialties}
+              value={selectedSpecialty}
+            >
+              <option value="all">Tous</option>
+              {specialties.map((specialty) => (
+                <option value={specialty.id}>{specialty.name}</option>
+              ))}
+            </select>
+          </div>
+          <div className="general-information-filter-date-start">
+            <input
+              type="date"
+              id="postDateStart"
+              name="postDateStart"
+              min="1000-01-01"
+              onChange={this.onClickChangeStartDate}
+              value={selectedPostDateStart}
+            ></input>
+          </div>
+          <div className="general-information-filter-date-end">
+            <input
+              type="date"
+              id="postDateEnd"
+              name="postDateEnd"
+              min="1000-01-01"
+              onChange={this.onClickChangeEndDate}
+              value={selectedPostDateEnd}
+            ></input>
+          </div>
         </div>
-        <div className='general-information-filter-date-start'>
-          <input
-            type="date"
-            id="postDateStart"
-            name="postDateStart"
-            min="1000-01-01"
-            onChange={this.onClickChangeStartDate}
-            value={selectedPostDateStart}
-          ></input>
-        </div>
-        <div className='general-information-filter-date-end'>
-          <input
-            type="date"
-            id="postDateEnd"
-            name="postDateEnd"
-            min="1000-01-01"
-            onChange={this.onClickChangeEndDate}
-            value={selectedPostDateEnd}
-          ></input>
-        </div>
+        <ChartJs data={this.state} />
       </div>
-      <ChartJs data={this.state} />
-    </div>
     );
   }
 }

@@ -54,7 +54,10 @@ export default function Dashboard() {
 
       <div className="dashboard-general-informations">
         <div className="feedbacks-button">
-          <div className="feedbacks-button-filter" onClick={() => setOpenFilter(!openFilter)}>
+          <div
+            className="feedbacks-button-filter"
+            onClick={() => setOpenFilter(!openFilter)}
+          >
             <i className="fas fa-filter" />
             <span>Filtres</span>
           </div>
