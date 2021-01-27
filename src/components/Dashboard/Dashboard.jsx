@@ -10,6 +10,7 @@ import ThisMonth from "./ThisMonth";
 export default function Dashboard() {
   const [isTheMenuOpen, setIsTheMenuOpen] = useState(false);
   const [feedback, setFeedback] = useState(false);
+  const [openFilter, setOpenFilter] = useState(false);
 
   const escModal = (e) => {
     e.key === "Escape" && setFeedback(false);
@@ -53,7 +54,10 @@ export default function Dashboard() {
 
       <div className="dashboard-general-informations">
         <div className="feedbacks-button">
-          <div className="feedbacks-button-filter">
+          <div
+            className="feedbacks-button-filter"
+            onClick={() => setOpenFilter(!openFilter)}
+          >
             <i className="fas fa-filter" />
             <span>Filtres</span>
           </div>
@@ -68,7 +72,7 @@ export default function Dashboard() {
         {feedback && (
           <Feedbacks feedback={feedback} setFeedback={setFeedback} />
         )}
-        <DataChart />
+        <DataChart openFilter={openFilter} />
       </div>
 
       <div className="dashboard-confidence-score"></div>

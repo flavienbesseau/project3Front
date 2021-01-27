@@ -1,0 +1,54 @@
+.general-information {
+  @include breakpoint(tablet) {
+    @include flex-column(center);
+    position: relative;
+
+    .general-information-filter-none {
+      display: none;
+    }
+
+    .general-information-filter {
+      position: absolute;
+      top: 0;
+      right: 2rem;
+
+      @include flex-column(flex-start);
+
+      width: 40%;
+
+      padding: 1rem;
+
+      background: $dark-blue;
+      border-radius: 1rem;
+
+      input,
+      select {
+        width: 100%;
+        height: 5rem;
+
+        margin: 1rem auto;
+
+        background-color: transparent;
+        border: none;
+        border-bottom: 0.2rem solid #fff;
+        color: #fff;
+        outline: none;
+        outline-color: $dark-blue;
+        cursor: pointer;
+      }
+
+      option {
+        background: $dark-blue;
+        color: $white;
+      }
+
+      .general-information-filter-experiences,
+      .general-information-filter-specialties,
+      .general-information-filter-date-start,
+      .general-information-filter-date-end,
+      .general-information-filter- {
+        width: 100%;
+      }
+    }
+  }
+}
