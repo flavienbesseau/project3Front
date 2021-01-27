@@ -66,7 +66,7 @@ const ChartJs = (props) => (
                 min: 0,
                 max: 5,
                 fontColor: "#dadfe6",
-                userCallback: function (label, index, labels) {
+                userCallback: function (label) {
                   // when the floored value is the same as the value we have a whole number
                   if (Math.floor(label) === label) {
                     return label;
