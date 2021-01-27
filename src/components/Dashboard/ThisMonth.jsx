@@ -4,6 +4,8 @@ import { authContext } from "../../contexts/ProvideAuth";
 import { ReactComponent as Plus } from "../../ressources/plus.svg";
 import { ReactComponent as NorthEast } from "../../ressources/northEast.svg";
 import { ReactComponent as SouthEast } from "../../ressources/southEast.svg";
+import { ReactComponent as Cup } from "../../ressources/cup.svg";
+import { ReactComponent as Medal } from "../../ressources/medal.svg";
 
 const greenPlus = <Plus style={{ fill: "#64C67D" }} />;
 const renderAverageScore = (score) => (
@@ -159,6 +161,14 @@ export default function ThisMonth() {
       <p className="pMonth">Ce mois-ci</p>
       <p className="review">{totalCount.count} avis</p>
       <p className="review">Note: {average}/5 ⭐</p>
+      <div className="recordVolume">
+        <Cup />
+        <p className="pRecordVolume">Record de volume en Occitanie</p>
+      </div>
+      <div className="recordVolume">
+        <Medal />
+        <p className="pRecordVolume">N°1 en Chirugie cardiaque</p>
+      </div>
       <div>
         <div className="progressionBox">
           <h2>Relation avec les médecins</h2>
