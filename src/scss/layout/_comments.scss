@@ -51,6 +51,7 @@
 
       h3 {
         font-size: $small;
+        font-weight: inherit;
       }
     }
 
@@ -65,19 +66,27 @@
         @include flex-center;
 
         span {
-          font-size: $small;
+          font-size: $medium;
           margin-right: 0.5rem;
         }
 
         i {
           font-size: 1.5rem;
+        }
+
+        .star-rating-none {
+          color: rgb(214, 213, 205);
+        }
+
+        .star-rating-yellow {
           color: rgb(252, 212, 51);
         }
       }
 
       .comments-by-questions-answer-feedback {
+        margin-top: 1rem;
         p {
-          font-size: $small;
+          font-size: $medium;
         }
       }
     }

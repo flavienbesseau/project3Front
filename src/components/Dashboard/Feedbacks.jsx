@@ -4,18 +4,18 @@ import CommentsByQuestions from "./CommentsByQuestions";
 
 export default function Feedbacks({ feedback, setFeedback }) {
   const [listOfQuestions, setListOfQuestions] = useState(null);
-  const [getFeedbacks, setGetFeedbacks] = useState(false);
+  const [getFeedbacks, setGetFeedbacks] = useState(null);
 
   useEffect(() => {
-    const getFeedbacks = async () => {
+    const getQuestionsFeedbacks = async () => {
       try {
         const getQuestions = await axios(`http://localhost:5000/api/questions`);
         setListOfQuestions(getQuestions.data);
       } catch (error) {
-        console.log("getFeedbacks: ", error);
+        console.log("getQuestionsFeedbacks: ", error);
       }
     };
-    getFeedbacks();
+    getQuestionsFeedbacks();
   }, []);
 
   return (
@@ -24,7 +24,7 @@ export default function Feedbacks({ feedback, setFeedback }) {
         <i
           className="fas fa-times-circle"
           id="esc-modal"
-          onClick={() => setFeedback(!feedback)}
+          onClick={() => { setFeedback(!feedback) }}
         />
         <h2>Listes des questions</h2>
         {listOfQuestions &&
@@ -32,9 +32,10 @@ export default function Feedbacks({ feedback, setFeedback }) {
             <Fragment>
               <li
                 key={question.id}
-                onClick={() =>
+                onClick={() => {
                   setGetFeedbacks({ status: true, id: question.id })
-                }
+                }}
+                className={getFeedbacks ? 'feedbacks-questions-disappear' : 'feedbacks-questions'}
               >
                 {question.text_rating}
               </li>
@@ -44,6 +45,7 @@ export default function Feedbacks({ feedback, setFeedback }) {
           <CommentsByQuestions
             setGetFeedbacks={setGetFeedbacks}
             id={getFeedbacks.id}
+            setListOfQuestions={setListOfQuestions}
           />
         )}
       </div>
