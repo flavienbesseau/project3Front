@@ -70,6 +70,7 @@
   // Laptop grid configuration
   @include breakpoint(laptop) {
     height: 100vh;
+
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas:
@@ -80,6 +81,10 @@
     gap: 1rem;
   }
   // End
+
+  @include breakpoint(large-screen) {
+    max-width: 90vw;
+  }
 
   .dashboard-header {
     @include flex-center;

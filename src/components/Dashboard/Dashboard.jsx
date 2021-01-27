@@ -52,17 +52,23 @@ export default function Dashboard() {
       </div>
 
       <div className="dashboard-general-informations">
-        <DataChart />
-        <button
-          type="button"
-          onClick={(e) => setFeedback(!feedback)}
-          onKeyDown={escModal}
-        >
-          Commentaires
-        </button>
+        <div className="feedbacks-button">
+          <div className="feedbacks-button-filter">
+            <i className="fas fa-filter" />
+            <span>Filtres</span>
+          </div>
+          <button
+            type="button"
+            onClick={(e) => setFeedback(!feedback)}
+            onKeyDown={escModal}
+          >
+            Avis
+          </button>
+        </div>
         {feedback && (
           <Feedbacks feedback={feedback} setFeedback={setFeedback} />
         )}
+        <DataChart />
       </div>
 
       <div className="dashboard-confidence-score"></div>
