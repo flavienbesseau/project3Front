@@ -14,12 +14,12 @@
       text-decoration: none;
       font-size: 1.6rem;
       font-weight: 600;
+      width: 70%;
     }
 
     li {
       @include flex-center;
       flex-wrap: wrap;
-      width: 20rem;
       height: 5rem;
       margin: 1rem;
       border-radius: 1rem;
@@ -28,10 +28,6 @@
       &:hover {
         background: $background-dashboard;
         color: $white;
-      }
-
-      @include breakpoint(desktop) {
-        width: 30rem;
       }
     }
 

@@ -1,20 +1,26 @@
 //Button 'commentaires'
+.feedbacks-button {
+  display: flex;
+  justify-content: flex-end;
+
+  margin: 1rem;
+}
+
 .dashboard-general-informations {
   button {
-    position: absolute;
-    top: 2rem;
-    transform: translateX(20px);
-    z-index: 2;
-
-    width: 12rem;
+    width: 8%;
     height: 2.5rem;
 
-    background: $white;
-    color: $background;
+    background: $dark-blue;
+    color: $white;
     border: none;
     border-radius: 0.8rem;
     font-size: $medium;
     outline: none;
+
+    &:focus {
+      background: rgb(144, 76, 238);
+    }
   }
 }
 
@@ -82,6 +88,10 @@
           display: none;
         }
       }
+    }
+
+    @include breakpoint(large-screen) {
+      max-width: 50vw;
     }
   }
 }
