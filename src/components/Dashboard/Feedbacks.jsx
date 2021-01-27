@@ -24,7 +24,9 @@ export default function Feedbacks({ feedback, setFeedback }) {
         <i
           className="fas fa-times-circle"
           id="esc-modal"
-          onClick={() => { setFeedback(!feedback) }}
+          onClick={() => {
+            setFeedback(!feedback);
+          }}
         />
         <h2>Listes des questions</h2>
         {listOfQuestions &&
@@ -33,9 +35,13 @@ export default function Feedbacks({ feedback, setFeedback }) {
               <li
                 key={question.id}
                 onClick={() => {
-                  setGetFeedbacks({ status: true, id: question.id })
+                  setGetFeedbacks({ status: true, id: question.id });
                 }}
-                className={getFeedbacks ? 'feedbacks-questions-disappear' : 'feedbacks-questions'}
+                className={
+                  getFeedbacks
+                    ? "feedbacks-questions-disappear"
+                    : "feedbacks-questions"
+                }
               >
                 {question.text_rating}
               </li>
