@@ -1,10 +1,33 @@
 import axios from "axios";
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState, useRef, Fragment } from "react";
 import CommentsByQuestions from "./CommentsByQuestions";
+
+const useCloseModal = (handler) => {
+  let refModal = useRef();
+
+  useEffect(() => {
+    const outsideModalHandler = (event) => {
+      if(!refModal.current.contains(event.target)) {
+        handler();
+      }
+    }
+
+    document.addEventListener('mousedown', outsideModalHandler);
+
+    return () => document.removeEventListener('mousedown', outsideModalHandler);
+  });
+
+  return refModal;
+}
+
 
 export default function Feedbacks({ feedback, setFeedback }) {
   const [listOfQuestions, setListOfQuestions] = useState(null);
   const [getFeedbacks, setGetFeedbacks] = useState(null);
+
+  let refModal = useCloseModal(() => {
+    setFeedback(false)
+  })
 
   useEffect(() => {
     const getQuestionsFeedbacks = async () => {
@@ -20,7 +43,7 @@ export default function Feedbacks({ feedback, setFeedback }) {
 
   return (
     <div className="feedback-background">
-      <div className="feedback-container">
+      <div className="feedback-container" ref={refModal}>
         <i
           className="fas fa-times-circle"
           id="esc-modal"
