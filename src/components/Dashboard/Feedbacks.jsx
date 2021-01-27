@@ -1,24 +1,8 @@
 import axios from "axios";
-import React, { useEffect, useState, useRef, Fragment } from "react";
+import React, { useEffect, useState, Fragment } from "react";
 import CommentsByQuestions from "./CommentsByQuestions";
+import useCloseModal from '../../Hooks/useCloseModal';
 
-const useCloseModal = (handler) => {
-  let refModal = useRef();
-
-  useEffect(() => {
-    const outsideModalHandler = (event) => {
-      if (!refModal.current.contains(event.target)) {
-        handler();
-      }
-    };
-
-    document.addEventListener("mousedown", outsideModalHandler);
-
-    return () => document.removeEventListener("mousedown", outsideModalHandler);
-  });
-
-  return refModal;
-};
 
 export default function Feedbacks({ feedback, setFeedback }) {
   const [listOfQuestions, setListOfQuestions] = useState(null);
@@ -50,7 +34,7 @@ export default function Feedbacks({ feedback, setFeedback }) {
             setFeedback(!feedback);
           }}
         />
-        <h2>Listes des questions</h2>
+        <h2>Liste des questions</h2>
         {listOfQuestions &&
           listOfQuestions.map((question) => (
             <Fragment>
