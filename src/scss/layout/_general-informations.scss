@@ -1,3 +1,7 @@
+.dashboard-general-informations {
+  padding-right: 0px;
+}
+
 .general-information {
   @include flex-column(center);
   position: relative;
@@ -15,7 +19,6 @@
     @include flex-column(flex-start);
 
     width: 100%;
-
     padding: 1rem;
 
     background: $dark-blue;

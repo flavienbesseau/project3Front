@@ -72,6 +72,7 @@
 .feedback-background {
   @include modal-container;
   position: fixed;
+  z-index: 2;
 
   .feedback-container {
     @include modal;
