@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/hospitalidee-logo.png";
-import hospitalideeLogo from '../../assets/hospitalidee-transparent.png';
+import hospitalideeLogo from "../../assets/hospitalidee-transparent.png";
 import RepartitionChart from "../Charts/Repartition/RepartitionChart";
 import sidebarData from "./Sidebar";
 import Feedbacks from "./Feedbacks";
