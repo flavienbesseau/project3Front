@@ -18,7 +18,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="dashboard">
+    <div className='dashboard'>
       <div className="dashboard-header">
         <div
           onClick={() => setIsTheMenuOpen(!isTheMenuOpen)}
