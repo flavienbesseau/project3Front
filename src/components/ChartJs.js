@@ -19,6 +19,7 @@ const ChartJs = (props) => (
       height={500}
       options={{
         maintainAspectRatio: false,
+        responsive: true,
         tooltips: {
           callbacks: {
             title: function (tooltipItems, data) {

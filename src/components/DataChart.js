@@ -171,7 +171,7 @@ class DataChart extends Component {
     Chart.scaleService.updateScaleDefaults("category", {
       ticks: {
         callback: function (tick) {
-          var characterLimit = 30;
+          var characterLimit = 25;
           if (tick.length >= characterLimit) {
             return (
               tick

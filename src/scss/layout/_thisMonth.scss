@@ -1,24 +1,44 @@
 .thisMonth {
   padding: 1rem;
+
+  font-size: $medium;
+  text-align: center;
+
+  h2 {
+    font-size: $medium;
+  }
+
+  @include breakpoint(tablet) {
+    margin-top: 5rem;
+  }
 }
 
 .pMonth {
-  font-size: 2rem;
+  font-size: $medium;
+
+  @include breakpoint(tablet) {
+    font-size: $large;
+  }
 }
 
 .review {
-  font-size: 2.3rem;
+  font-size: $large;
   text-align: center;
   margin: 1.5rem 0;
 }
 
 .recordVolume {
   display: flex;
+  justify-content: center;
   margin-top: 1.2rem;
+
+  svg {
+    width: 12%;
+  }
 }
 
 .pRecordVolume {
-  font-size: 1.8rem;
+  font-size: $medium;
   margin: 1.2rem 0 0 2px;
 }
 
@@ -33,6 +53,10 @@
   margin-top: 1rem;
 }
 
-// .titleBox {
-//   font-size: 50px;
-// }
+.star-rating-none {
+  color: rgb(214, 213, 205);
+}
+
+.star-rating-yellow {
+  color: rgb(252, 212, 51);
+}
