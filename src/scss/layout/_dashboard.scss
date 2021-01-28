@@ -81,6 +81,7 @@
     padding-left: 4rem;
     gap: 1rem;
   }
+
   // End
 
   @include breakpoint(large-screen) {
@@ -109,7 +110,6 @@
       min-width: 100vw;
       min-height: 100vh;
 
-      position: fixed;
       position: absolute;
       top: 0;
       left: 0;
@@ -120,7 +120,6 @@
       align-items: center;
 
       background: $background-dashboard;
-      list-style: none;
       pointer-events: none;
 
       clip-path: circle(100px at 0px 0px);
@@ -132,7 +131,7 @@
       }
 
       li {
-        width: 30rem;
+        width: 25rem;
         height: 5rem;
 
         @include flex-center;
@@ -146,7 +145,7 @@
       a {
         color: $white;
         text-decoration: none;
-        font-size: $large;
+        font-size: $medium;
       }
 
       img {
