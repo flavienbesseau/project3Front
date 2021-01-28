@@ -42,11 +42,11 @@ export default function RepartitionChart() {
           options={{
             maintainAspectRatio: false,
             legend: {
-              align: 'start',
+              align: "start",
               labels: {
-                fontColor: '#fff',
-              }
-            }
+                fontColor: "#fff",
+              },
+            },
           }}
         />
       </div>
