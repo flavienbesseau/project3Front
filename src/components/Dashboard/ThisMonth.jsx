@@ -157,7 +157,6 @@ export default function ThisMonth() {
   }, []);
 
   return (
-
     <div className="thisMonth">
       <h3 className="pMonth">Ce mois-ci</h3>
       <p className="review">{totalCount.count} avis</p>
@@ -165,41 +164,41 @@ export default function ThisMonth() {
       <i
         class="fas fa-star"
         className={
-         average >= 1
-          ? "fas fa-star star-rating-yellow"
-          : "fas fa-star star-rating-none"
+          average >= 1
+            ? "fas fa-star star-rating-yellow"
+            : "fas fa-star star-rating-none"
         }
       />
       <i
         class="fas fa-star"
         className={
-       average >= 2
-          ? "fas fa-star star-rating-yellow"
-          : "fas fa-star star-rating-none"
-                  }
-      />
-      <i
-        class="fas fa-star"
-        className={
-       average >= 3
-          ? "fas fa-star star-rating-yellow"
-          : "fas fa-star star-rating-none"
+          average >= 2
+            ? "fas fa-star star-rating-yellow"
+            : "fas fa-star star-rating-none"
         }
       />
       <i
         class="fas fa-star"
         className={
-         average >= 4
-          ? "fas fa-star star-rating-yellow"
-          : "fas fa-star star-rating-none"
+          average >= 3
+            ? "fas fa-star star-rating-yellow"
+            : "fas fa-star star-rating-none"
         }
       />
       <i
         class="fas fa-star"
         className={
-         average >= 5
-          ? "fas fa-star star-rating-yellow"
-          : "fas fa-star star-rating-none"
+          average >= 4
+            ? "fas fa-star star-rating-yellow"
+            : "fas fa-star star-rating-none"
+        }
+      />
+      <i
+        class="fas fa-star"
+        className={
+          average >= 5
+            ? "fas fa-star star-rating-yellow"
+            : "fas fa-star star-rating-none"
         }
       />
       <div className="recordVolume">
