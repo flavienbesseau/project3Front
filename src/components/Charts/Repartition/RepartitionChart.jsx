@@ -25,22 +25,31 @@ export default function RepartitionChart() {
 
   return (
     <div className="repartition-chart">
-      <Polar
-        data={{
-          labels: repartitionLabels,
-          datasets: [
-            {
-              data: repartitionFeedback,
-              backgroundColor: repartitionColors,
-            },
-          ],
-        }}
-        width={600}
-        height={400}
-        options={{
-          maintainAspectRatio: false,
-        }}
-      />
+      <h3>Repartition</h3>
+      <div className="repartition-chart-graph">
+        <Polar
+          data={{
+            labels: repartitionLabels,
+            datasets: [
+              {
+                data: repartitionFeedback,
+                backgroundColor: repartitionColors,
+              },
+            ],
+          }}
+          width={600}
+          height={400}
+          options={{
+            maintainAspectRatio: false,
+            legend: {
+              align: 'start',
+              labels: {
+                fontColor: '#fff',
+              }
+            }
+          }}
+        />
+      </div>
     </div>
   );
 }
