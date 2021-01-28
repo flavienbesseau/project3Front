@@ -4,43 +4,67 @@
   justify-content: flex-end;
 
   margin: 1rem;
+
   .feedbacks-button-filter {
     @include flex-center;
-    width: 10%;
+    width: 25%;
 
-    margin-right: 1rem;
+    margin-right: 0.5rem;
 
     background: $dark-blue;
     border-radius: 0.8rem;
     color: $white;
     cursor: pointer;
+
+    @include breakpoint(tablet) {
+      width: 20%;
+    }
+
+    @include breakpoint(laptop) {
+      width: 20%;
+      margin-right: 1rem;
+    }
 
     i {
       font-size: 1.3rem;
     }
 
     span {
-      font-size: $medium;
+      font-size: $small;
       margin-left: 0.5rem;
+
+      @include breakpoint(tablet) {
+        font-size: $medium;
+      }
     }
   }
 }
 
 .dashboard-general-informations {
   button {
-    width: 8%;
+    width: 15%;
     height: 2.5rem;
 
     background: $dark-blue;
     color: $white;
     border: none;
     border-radius: 0.8rem;
-    font-size: $medium;
+    font-size: $small;
     outline: none;
     cursor: pointer;
 
     &:focus {
       background: rgb(144, 76, 238);
+    }
+
+    @include breakpoint(tablet) {
+      width: 10%;
+      font-size: $medium;
+    }
+
+    @include breakpoint(laptop) {
+      width: 10%;
+      font-size: $medium;
     }
   }
 }
