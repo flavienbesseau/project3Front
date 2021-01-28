@@ -30,26 +30,24 @@ export default function Dashboard() {
         </div>
         <ul className={isTheMenuOpen ? "routes-links-open" : "routes-links"}>
           <img src={hospitalideeLogo} alt="" />
-          {
-            sidebarData.map((link, index) => (
-              <Link to={link.path}>
-                <li key={index} className={link.style}>
-                  {link.title}
-                </li>
-              </Link>
+          {sidebarData.map((link, index) => (
+            <Link to={link.path}>
+              <li key={index} className={link.style}>
+                {link.title}
+              </li>
+            </Link>
           ))}
         </ul>
         <img src={hospitalideeLogo} alt="" />
       </div>
       <div className="dashboard-sidebar">
         <img src={logo} alt="" />
-        {
-          sidebarData.map((link, index) => (
-            <Link to={link.path}>
-              <li key={index} className={link.style}>
-                {link.title}
-              </li>
-            </Link>
+        {sidebarData.map((link, index) => (
+          <Link to={link.path}>
+            <li key={index} className={link.style}>
+              {link.title}
+            </li>
+          </Link>
         ))}
       </div>
       <div className="dashboard-general-informations">
