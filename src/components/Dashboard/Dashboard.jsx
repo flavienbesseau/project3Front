@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/hospitalidee-logo.png";
 import hospitalideeLogo from "../../assets/hospitalidee-transparent.png";
 import RepartitionChart from "../Charts/Repartition/RepartitionChart";
+import DataTrustRadar from "./DataTrustRadar";
 import sidebarData from "./Sidebar";
 import Feedbacks from "./Feedbacks";
 import DataChart from "../DataChart";
@@ -73,7 +74,9 @@ export default function Dashboard() {
         <DataChart openFilter={openFilter} />
       </div>
 
-      <div className="dashboard-confidence-score"></div>
+      <div className="dashboard-confidence-score">
+        <DataTrustRadar />
+      </div>
       <div className="dashboard-repartition">
         <RepartitionChart />
       </div>
