@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/hospitalidee-logo.png";
+import hospitalideeLogo from "../../assets/hospitalidee-transparent.png";
 import RepartitionChart from "../Charts/Repartition/RepartitionChart";
 import sidebarData from "./Sidebar";
 import Feedbacks from "./Feedbacks";
@@ -28,18 +29,16 @@ export default function Dashboard() {
           <span />
         </div>
         <ul className={isTheMenuOpen ? "routes-links-open" : "routes-links"}>
-          <img src={logo} alt="" />
-          <li>
-            <a href="/nowhere">Paramètres</a>
-          </li>
-          <li>
-            <a href="nowhere">Mon profil</a>
-          </li>
-          <li>
-            <a href="/nowhere">Déconnexion</a>
-          </li>
+          <img src={hospitalideeLogo} alt="" />
+          {sidebarData.map((link, index) => (
+            <Link to={link.path}>
+              <li key={index} className={link.style}>
+                {link.title}
+              </li>
+            </Link>
+          ))}
         </ul>
-        <img src={logo} alt="" />
+        <img src={hospitalideeLogo} alt="" />
       </div>
       <div className="dashboard-sidebar">
         <img src={logo} alt="" />
@@ -51,7 +50,6 @@ export default function Dashboard() {
           </Link>
         ))}
       </div>
-
       <div className="dashboard-general-informations">
         <div className="feedbacks-button">
           <div

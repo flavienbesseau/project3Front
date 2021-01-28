@@ -1,7 +1,15 @@
 .repartition-chart {
-  @include breakpoint(laptop) {
-    @include flex-center;
+  @include flex-column(center);
+  height: 100%;
+  width: 100%;
 
-    padding: 2rem;
+  h3 {
+    text-align: center;
+    padding: 1rem;
+    font-size: $medium;
+  }
+
+  .repartition-chart-graph {
+    width: 50%;
   }
 }
