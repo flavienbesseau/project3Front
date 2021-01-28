@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState, Fragment } from "react";
 import CommentsByQuestions from "./CommentsByQuestions";
-import useCloseModal from "../../Hooks/useCloseModal";
+import useCloseModal from "../../hooks/useCloseModal";
 
 export default function Feedbacks({ feedback, setFeedback }) {
   const [listOfQuestions, setListOfQuestions] = useState(null);

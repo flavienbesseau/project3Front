@@ -55,12 +55,10 @@
   display: grid;
   row-gap: 1rem;
   place-content: center;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(5, minmax(150px, auto));
   grid-template-areas:
     "header"
-    "general"
-    "general"
     "general"
     "confidence"
     "repartition"
@@ -68,6 +66,7 @@
   //End
 
   background: $background-dashboard;
+  // background: red;
   color: $white;
 
   // Laptop grid configuration

@@ -32,3 +32,9 @@
   justify-content: center;
   align-items: $align;
 }
+
+@mixin flex-row($justify) {
+  display: flex;
+  justify-content: $justify;
+  align-items: center;
+}
