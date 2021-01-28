@@ -47,7 +47,7 @@ export default function RepartitionChart() {
                 fontColor: "#fff",
               },
             },
-          }}  
+          }}
         />
       </div>
     </div>
