@@ -44,8 +44,14 @@
     }
 
     .btn-grad {
-      width: 12%;
-      height: 1rem;
+      @include button($white, $background-dashboard);
+      @include flex-center;
+
+      width: 15%;
+      height: 3rem;
+
+      text-transform: uppercase;
+      font-family: "B612", sans-serif;
 
       margin: 4rem auto 0;
     }
