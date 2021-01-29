@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from '../../services/axios-config';
 import React, { useEffect, useState, Fragment } from "react";
 import CommentsByQuestions from "./CommentsByQuestions";
 import useCloseModal from "../../hooks/useCloseModal";

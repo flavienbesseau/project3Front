@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import axios from '../../services/axios-config';
 import { authContext } from "../../contexts/ProvideAuth";
 import { ReactComponent as Plus } from "../../ressources/plus.svg";
 import { ReactComponent as NorthEast } from "../../ressources/northEast.svg";

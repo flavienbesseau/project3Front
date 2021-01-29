@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import axios from "axios";
+import axios from '../services/axios-config';
 import ChartJs from "./ChartJs";
 import backPort from "../const";
 import { Chart } from "react-chartjs-2";

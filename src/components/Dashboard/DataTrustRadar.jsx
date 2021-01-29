@@ -1,5 +1,5 @@
 import React, { useState, useContext, useEffect } from "react";
-import axios from "axios";
+import axios from '../../services/axios-config';
 import TrustRadar from "./TrustRadar";
 import { authContext } from "../../contexts/ProvideAuth";
 
