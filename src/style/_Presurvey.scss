@@ -22,27 +22,39 @@
   background-color: #dadfe6;
 }
 
-.btn-grad {
-  padding: 15px 45px;
-  margin-top: 2rem;
-  text-align: center;
-  text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 100% auto;
-  color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  display: block;
-}
+// .btn-grad {
+//   padding: 15px 45px;
+//   margin-top: 2rem;
+//   text-align: center;
+//   text-transform: uppercase;
+//   transition: 0.5s;
+//   background-size: 100% auto;
+//   color: white;
+//   box-shadow: 0 0 20px #eee;
+//   border-radius: 10px;
+//   display: block;
+// }
 
-.btn-grad:hover {
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
-}
+// .btn-grad:hover {
+//   background-position: right center; /* change the direction of the change here */
+//   color: #fff;
+//   text-decoration: none;
+// }
 
 .prequest select {
-  height: 2.5rem;
-  width: 100%;
+  width: 50rem;
+  height: 3rem;
+
+  @include flex-center;
+
+  background: $background;
+  color: $white;
+  font-size: $large;
+  border: none;
+  padding-bottom: 0.5rem;
   margin: 1rem 0;
+  border-bottom: 0.2rem solid #61adbe;
+  outline: none;
+  cursor: pointer;
+  text-align-last: center;
 }

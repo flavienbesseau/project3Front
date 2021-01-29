@@ -6,5 +6,5 @@ export const initialLoginState = {
   userpassword: "",
   passwordConfirmation: "",
   errors: "",
-  hospitalChoice: "",
+  hospitalChoice: 1,
 };

@@ -1,5 +1,5 @@
 .body {
-  background-color: #265f87;
+  background-color: $background;
   color: #dadfe6;
   font-size: 1.6rem;
 }
@@ -21,31 +21,39 @@
 }
 
 .btn-grad {
-  background-image: linear-gradient(
-    to right,
-    #1b4066 0%,
-    #265f87 51%,
-    #1b4066 90%
-  );
-}
-.btn-grad {
-  margin: 10px;
-  padding: 15px 45px;
-  text-align: center;
+  @include button($white, $background-dashboard);
+  @include flex-center;
+
   text-transform: uppercase;
-  transition: 0.5s;
-  background-size: 100% auto;
-  color: white;
-  box-shadow: 0 0 20px #eee;
-  border-radius: 10px;
-  display: block;
+  font-family: "B612", sans-serif;
 }
 
-.btn-grad:hover {
-  background-position: right center; /* change the direction of the change here */
-  color: #fff;
-  text-decoration: none;
-}
+// .btn-grad {
+//   background-image: linear-gradient(
+//     to right,
+//     #1b4066 0%,
+//     #265f87 51%,
+//     #1b4066 90%
+//   );
+// }
+// .btn-grad {
+//   margin: 10px;
+//   padding: 15px 45px;
+//   text-align: center;
+//   text-transform: uppercase;
+//   transition: 0.5s;
+//   background-size: 100% auto;
+//   color: white;
+//   box-shadow: 0 0 20px #eee;
+//   border-radius: 10px;
+//   display: block;
+// }
+
+// .btn-grad:hover {
+//   background-position: right center; /* change the direction of the change here */
+//   color: #fff;
+//   text-decoration: none;
+// }
 
 .nombreavis {
   display: flex;

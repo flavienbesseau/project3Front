@@ -1,12 +1,22 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/hospitalidee-logo.png";
+import hospitalideeLogo from "../../assets/hospitalidee-transparent.png";
 import RepartitionChart from "../Charts/Repartition/RepartitionChart";
+import DataTrustRadar from "./DataTrustRadar";
 import sidebarData from "./Sidebar";
 import Feedbacks from "./Feedbacks";
+import DataChart from "../DataChart";
+import ThisMonth from "./ThisMonth";
 
 export default function Dashboard() {
   const [isTheMenuOpen, setIsTheMenuOpen] = useState(false);
   const [feedback, setFeedback] = useState(false);
+  const [openFilter, setOpenFilter] = useState(false);
+
+  const escModal = (e) => {
+    e.key === "Escape" && setFeedback(false);
+  };
 
   return (
     <div className="dashboard">
@@ -20,40 +30,59 @@ export default function Dashboard() {
           <span />
         </div>
         <ul className={isTheMenuOpen ? "routes-links-open" : "routes-links"}>
-          <img src={logo} alt="" />
-          <li>
-            <a href="/nowhere">Paramètres</a>
-          </li>
-          <li>
-            <a href="nowhere">Mon profil</a>
-          </li>
-          <li>
-            <a href="/nowhere">Déconnexion</a>
-          </li>
+          <img src={hospitalideeLogo} alt="" />
+          {sidebarData.map((link, index) => (
+            <Link to={link.path}>
+              <li key={index} className={link.style}>
+                {link.title}
+              </li>
+            </Link>
+          ))}
         </ul>
-        <img src={logo} alt="" />
+        <img src={hospitalideeLogo} alt="" />
       </div>
       <div className="dashboard-sidebar">
         <img src={logo} alt="" />
         {sidebarData.map((link, index) => (
-          <li key={index} className={link.style}>
-            {link.title}
-          </li>
+          <Link to={link.path}>
+            <li key={index} className={link.style}>
+              {link.title}
+            </li>
+          </Link>
         ))}
       </div>
-
       <div className="dashboard-general-informations">
-        <button type="button" onClick={() => setFeedback(!feedback)}>
-          Commentaires
-        </button>
-        {feedback && <Feedbacks />}
+        <div className="feedbacks-button">
+          <div
+            className="feedbacks-button-filter"
+            onClick={() => setOpenFilter(!openFilter)}
+          >
+            <i className="fas fa-filter" />
+            <span>Filtres</span>
+          </div>
+          <button
+            type="button"
+            onClick={(e) => setFeedback(!feedback)}
+            onKeyDown={escModal}
+          >
+            Avis
+          </button>
+        </div>
+        {feedback && (
+          <Feedbacks feedback={feedback} setFeedback={setFeedback} />
+        )}
+        <DataChart openFilter={openFilter} />
       </div>
 
-      <div className="dashboard-confidence-score"></div>
+      <div className="dashboard-confidence-score">
+        <DataTrustRadar />
+      </div>
       <div className="dashboard-repartition">
         <RepartitionChart />
       </div>
-      <div className="dashboard-this-month"></div>
+      <div className="dashboard-this-month">
+        <ThisMonth />
+      </div>
     </div>
   );
 }

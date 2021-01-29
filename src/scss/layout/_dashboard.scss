@@ -1,33 +1,41 @@
 //Grid configuration
 .dashboard-header {
   grid-area: header;
-  background: #182363;
+  background: $background-dashboard;
   border-radius: 1rem;
 }
+
 .dashboard-sidebar {
   grid-area: sidebar;
   background: $background;
   border-radius: 1rem;
   box-shadow: 5px 5px 5px #0e1644;
 }
+
 .dashboard-general-informations {
   grid-area: general;
   background: $background;
   border-radius: 1rem;
   box-shadow: 5px 5px 5px #0e1644;
+
+  overflow-y: scroll;
+  @include scroll;
 }
+
 .dashboard-confidence-score {
   grid-area: confidence;
   background: $background;
   border-radius: 1rem;
   box-shadow: 5px 5px 5px #0e1644;
 }
+
 .dashboard-repartition {
   grid-area: repartition;
   background: $background;
   border-radius: 1rem;
   box-shadow: 5px 5px 5px #0e1644;
 }
+
 .dashboard-this-month {
   grid-area: month;
   background: $background;
@@ -47,24 +55,23 @@
   display: grid;
   row-gap: 1rem;
   place-content: center;
-  grid-template-columns: 1fr;
-  grid-template-rows: repeat(7, 1fr);
+  grid-template-columns: 100%;
+  grid-template-rows: repeat(5, minmax(150px, auto));
   grid-template-areas:
     "header"
     "general"
-    "general"
-    "general"
-    "confidence"
     "repartition"
+    "confidence"
     "month";
   //End
 
-  background: #182363;
+  background: $background-dashboard;
   color: $white;
 
   // Laptop grid configuration
   @include breakpoint(laptop) {
     height: 100vh;
+
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: repeat(3, 1fr);
     grid-template-areas:
@@ -74,7 +81,12 @@
     padding-left: 4rem;
     gap: 1rem;
   }
+
   // End
+
+  @include breakpoint(large-screen) {
+    max-width: 90vw;
+  }
 
   .dashboard-header {
     @include flex-center;
@@ -83,6 +95,8 @@
       position: absolute;
       top: 2rem;
       left: 2rem;
+      z-index: 1;
+
       @include burger-menu;
       @include flex-column-center;
     }
@@ -97,17 +111,17 @@
       min-width: 100vw;
       min-height: 100vh;
 
-      position: fixed;
       position: absolute;
       top: 0;
+      left: 0;
+      z-index: 1;
 
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
       align-items: center;
 
-      background: #182363;
-      list-style: none;
+      background: $background-dashboard;
       pointer-events: none;
 
       clip-path: circle(100px at 0px 0px);
@@ -119,18 +133,21 @@
       }
 
       li {
-        width: 30rem;
+        width: 25rem;
         height: 5rem;
-        margin: 1rem;
-        border-radius: 1rem;
+
         @include flex-center;
+
+        margin: 1rem;
+
+        border-radius: 1rem;
         background: #0f1744;
       }
 
       a {
         color: $white;
         text-decoration: none;
-        font-size: 2rem;
+        font-size: $medium;
       }
 
       img {
@@ -140,8 +157,9 @@
     }
 
     .routes-links-open {
-      clip-path: circle(1000px at 0px 0px);
+      clip-path: circle(2000px at 0px 0px);
       pointer-events: all;
+      position: fixed;
     }
   }
 }
