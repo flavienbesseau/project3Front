@@ -1,60 +1,59 @@
 .prequest {
+  height: 100vh;
+
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: #dadfe6;
-  font-size: 1.6rem;
-}
-
-.prequest h1 {
-  margin: 4rem 0 2rem 0;
-  font-size: 3rem;
-}
-
-.prequest label {
-  font-size: 1.6rem;
-  @media only screen and (max-width: 600px) {
-    font-size: 2rem;
-  }
-}
-
-.prequest select {
-  background-color: #dadfe6;
-}
-
-// .btn-grad {
-//   padding: 15px 45px;
-//   margin-top: 2rem;
-//   text-align: center;
-//   text-transform: uppercase;
-//   transition: 0.5s;
-//   background-size: 100% auto;
-//   color: white;
-//   box-shadow: 0 0 20px #eee;
-//   border-radius: 10px;
-//   display: block;
-// }
-
-// .btn-grad:hover {
-//   background-position: right center; /* change the direction of the change here */
-//   color: #fff;
-//   text-decoration: none;
-// }
-
-.prequest select {
-  width: 50rem;
-  height: 3rem;
-
-  @include flex-center;
 
   background: $background;
-  color: $white;
-  font-size: $large;
-  border: none;
-  padding-bottom: 0.5rem;
-  margin: 1rem 0;
-  border-bottom: 0.2rem solid #61adbe;
-  outline: none;
-  cursor: pointer;
-  text-align-last: center;
+  color: #dadfe6;
+  font-size: $medium;
+
+  h1 {
+    margin: 4rem 0 2rem 0;
+    font-size: 3rem;
+  }
+
+  .prequest-hospital-selection {
+    label {
+      font-size: $small;
+    }
+
+    select {
+      width: 100%;
+      height: 3rem;
+
+      @include flex-center;
+
+      padding-bottom: 0.5rem;
+      margin: 2.5rem 0;
+
+      background: $background;
+      color: $white;
+      font-size: $small;
+      border: none;
+
+      border-bottom: 0.2rem solid #61adbe;
+      outline: none;
+      cursor: pointer;
+      text-align-last: center;
+
+      @include breakpoint(tablet) {
+        font-size: $large;
+      }
+    }
+
+    .btn-grad {
+      @include button($white, $background-dashboard);
+      @include flex-center;
+
+      width: 15%;
+      height: 3rem;
+
+      text-transform: uppercase;
+      font-family: "B612", sans-serif;
+
+      margin: 4rem auto 0;
+    }
+  }
 }

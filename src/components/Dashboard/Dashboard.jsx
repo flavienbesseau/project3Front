@@ -51,7 +51,13 @@ export default function Dashboard() {
           </Link>
         ))}
       </div>
-      <div className="dashboard-general-informations">
+      <div
+        className={
+          isTheMenuOpen
+            ? "dashboard-general-informations-disable"
+            : "dashboard-general-informations"
+        }
+      >
         <div className="feedbacks-button">
           <div
             className="feedbacks-button-filter"
@@ -74,13 +80,31 @@ export default function Dashboard() {
         <DataChart openFilter={openFilter} />
       </div>
 
-      <div className="dashboard-confidence-score">
+      <div
+        className={
+          isTheMenuOpen
+            ? "dashboard-confidence-score-disable"
+            : "dashboard-confidence-score"
+        }
+      >
         <DataTrustRadar />
       </div>
-      <div className="dashboard-repartition">
+      <div
+        className={
+          isTheMenuOpen
+            ? "dashboard-repartition-disable"
+            : "dashboard-repartition"
+        }
+      >
         <RepartitionChart />
       </div>
-      <div className="dashboard-this-month">
+      <div
+        className={
+          isTheMenuOpen
+            ? "dashboard-this-month-disable"
+            : "dashboard-this-month"
+        }
+      >
         <ThisMonth />
       </div>
     </div>
