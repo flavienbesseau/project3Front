@@ -73,7 +73,7 @@ class PreSurvey extends Component {
       <div className="prequest">
         <Navbar />
         <h1>Pré-questionnaire</h1>
-        <div className='prequest-hospital-selection'>
+        <div className="prequest-hospital-selection">
           <label for="hospital-select" />
           <select
             name="hospital"
