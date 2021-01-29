@@ -71,6 +71,7 @@
   // Laptop grid configuration
   @include breakpoint(laptop) {
     height: 100vh;
+    width: 100vw;
 
     grid-template-columns: repeat(4, 25%);
     grid-template-rows: repeat(3, 1fr);
@@ -159,7 +160,6 @@
     .routes-links-open {
       clip-path: circle(2000px at 0px 0px);
       pointer-events: all;
-      position: fixed;
     }
   }
 }
