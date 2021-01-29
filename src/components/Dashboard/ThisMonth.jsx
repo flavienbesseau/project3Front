@@ -172,7 +172,7 @@ export default function ThisMonth() {
       <i
         class="fas fa-star"
         className={
-          average >= 2
+          average >= 1.95
             ? "fas fa-star star-rating-yellow"
             : "fas fa-star star-rating-none"
         }
@@ -180,7 +180,7 @@ export default function ThisMonth() {
       <i
         class="fas fa-star"
         className={
-          average >= 3
+          average >= 2.95
             ? "fas fa-star star-rating-yellow"
             : "fas fa-star star-rating-none"
         }
@@ -188,7 +188,7 @@ export default function ThisMonth() {
       <i
         class="fas fa-star"
         className={
-          average >= 4
+          average >= 3.95
             ? "fas fa-star star-rating-yellow"
             : "fas fa-star star-rating-none"
         }
@@ -196,7 +196,7 @@ export default function ThisMonth() {
       <i
         class="fas fa-star"
         className={
-          average >= 5
+          average >= 4.95
             ? "fas fa-star star-rating-yellow"
             : "fas fa-star star-rating-none"
         }
