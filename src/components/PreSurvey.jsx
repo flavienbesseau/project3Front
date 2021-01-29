@@ -73,14 +73,7 @@ class PreSurvey extends Component {
       <div className="prequest">
         <Navbar />
         <h1>Pré-questionnaire</h1>
-        <div
-          style={{
-            display: "flex",
-            flexDirection: "column",
-            width: "20rem",
-            textAlign: "center",
-          }}
-        >
+        <div className='prequest-hospital-selection'>
           <label for="hospital-select" />
           <select
             name="hospital"
