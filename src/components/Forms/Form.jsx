@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useReducer } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import axios from "axios";
+import axios from "../../services/axios-config";
 import Registration from "./Registration";
 import Login from "./Login";
 import { authContext } from "../../contexts/ProvideAuth";

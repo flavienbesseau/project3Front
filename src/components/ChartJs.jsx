@@ -7,19 +7,19 @@ defaults.global.tooltips.enabled = true;
 const ChartJs = (props) => (
   <div
     style={{
-      backgroundColor: "#265f87",
+      // backgroundColor: "#265f87",
       fontColor: "#dadfe6",
-      width: "60%",
-      border: "2px black solid",
-      margin: "10px",
+      width: "100%",
+      height: "80%",
     }}
   >
     <HorizontalBar
       data={props.data}
       width={1000}
-      height={400}
+      height={500}
       options={{
         maintainAspectRatio: false,
+        responsive: true,
         tooltips: {
           callbacks: {
             title: function (tooltipItems, data) {
@@ -67,7 +67,7 @@ const ChartJs = (props) => (
                 min: 0,
                 max: 5,
                 fontColor: "#dadfe6",
-                userCallback: function (label, index, labels) {
+                userCallback: function (label) {
                   // when the floored value is the same as the value we have a whole number
                   if (Math.floor(label) === label) {
                     return label;

@@ -1,15 +1,41 @@
 @mixin log-button {
   min-width: 20rem;
   min-height: 4rem;
-  background: $white;
-  color: $dark-blue;
+  background: $background-dashboard;
+  color: $white;
   border: none;
   border-radius: 1rem;
   margin-top: 1.5rem;
   cursor: pointer;
   outline: none;
+  text-decoration: none;
   &:hover {
-    background: rgb(196, 142, 194);
+    background: $white;
+    color: $background-dashboard;
+  }
+
+  @include breakpoint(tablet) {
+    min-width: 30rem;
+    min-height: 5rem;
+    margin-top: 2rem;
+    font-size: 2rem;
+  }
+}
+
+@mixin button($inside-color, $font-color) {
+  min-width: 20rem;
+  min-height: 4rem;
+  background: $inside-color;
+  color: $font-color;
+  border: none;
+  border-radius: 1rem;
+  margin-top: 1.5rem;
+  cursor: pointer;
+  outline: none;
+  text-decoration: none;
+  &:hover {
+    background: $font-color;
+    color: $inside-color;
   }
 
   @include breakpoint(tablet) {

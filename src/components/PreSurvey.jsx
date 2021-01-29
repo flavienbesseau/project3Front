@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../services/axios-config";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
@@ -81,7 +81,7 @@ class PreSurvey extends Component {
             textAlign: "center",
           }}
         >
-          <label for="hospital-select">Hopital</label>
+          <label for="hospital-select" />
           <select
             name="hospital"
             id="hospital-select"
@@ -94,7 +94,7 @@ class PreSurvey extends Component {
             ))}
           </select>
 
-          <label for="specialties-select">Spécialité</label>
+          <label for="specialties-select" />
           <select
             name="specialties"
             id="specialties-select"
@@ -106,7 +106,7 @@ class PreSurvey extends Component {
             ))}
           </select>
 
-          <label for="experiences-select">Type d'hospitalisation</label>
+          <label for="experiences-select" />
           <select
             name="experiences"
             id="experiences-select"

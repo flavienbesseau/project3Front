@@ -1,12 +1,14 @@
 import React, { Component } from "react";
-import axios from "axios";
+import axios from "../services/axios-config";
 import ChartJs from "./ChartJs";
 import backPort from "../const";
 import { Chart } from "react-chartjs-2";
+import { authContext } from "../contexts/ProvideAuth";
 
 const ALL = "all";
 
 class DataChart extends Component {
+  static contextType = authContext;
   constructor(props) {
     super(props);
     this.state = {
@@ -51,6 +53,7 @@ class DataChart extends Component {
   }
 
   getResponses() {
+    const { userLogin } = this.context;
     const {
       selectedExperience,
       selectedSpecialty,
@@ -58,7 +61,7 @@ class DataChart extends Component {
       selectedPostDateEnd,
     } = this.state;
     const url = new URL(
-      `http://localhost:${backPort}/api/informationsgenerales/${this.props.match.params.hospitalId}`
+      `http://localhost:${backPort}/api/informationsgenerales/${userLogin.hospital}`
     );
     if (selectedExperience !== ALL) {
       url.searchParams.append("experienceId", selectedExperience); //creer le query params    ?experienceId=selectedExperience
@@ -168,7 +171,7 @@ class DataChart extends Component {
     Chart.scaleService.updateScaleDefaults("category", {
       ticks: {
         callback: function (tick) {
-          var characterLimit = 30;
+          var characterLimit = 25;
           if (tick.length >= characterLimit) {
             return (
               tick
@@ -193,45 +196,61 @@ class DataChart extends Component {
       selectedPostDateEnd,
     } = this.state;
     return (
-      <div>
-        <select
-          name="experience"
-          id="experience"
-          onChange={this.onClickChangeExperience}
-          value={selectedExperience}
+      <div className="general-information">
+        <div
+          className={
+            this.props.openFilter
+              ? "general-information-filter"
+              : "general-information-filter-none"
+          }
         >
-          <option value="all">Tous</option>
-          {experiences.map((xp) => (
-            <option value={xp.id}>{xp.name}</option>
-          ))}
-        </select>
-        <select
-          name="specialties"
-          id="specialties"
-          onChange={this.onClickChangeSpecialties}
-          value={selectedSpecialty}
-        >
-          <option value="all">Tous</option>
-          {specialties.map((specialty) => (
-            <option value={specialty.id}>{specialty.name}</option>
-          ))}
-        </select>
-        <input
-          type="date"
-          id="postDateStart"
-          name="postDateStart"
-          min="1000-01-01"
-          onChange={this.onClickChangeStartDate}
-          value={selectedPostDateStart}
-        ></input>
-        <input
-          type="date"
-          id="postDateEnd"
-          name="postDateEnd"
-          min="1000-01-01"
-          onChange={this.onClickChangeEndDate}
-          value={selectedPostDateEnd}
-        ></input>
+          <div className="general-information-filter-experiences">
+            <select
+              name="experience"
+              id="experience"
+              onChange={this.onClickChangeExperience}
+              value={selectedExperience}
+            >
+              <option value="all">Tous</option>
+              {experiences.map((xp) => (
+                <option value={xp.id}>{xp.name}</option>
+              ))}
+            </select>
+          </div>
+          <div className="general-information-filter-specialties">
+            <select
+              name="specialties"
+              id="specialties"
+              onChange={this.onClickChangeSpecialties}
+              value={selectedSpecialty}
+            >
+              <option value="all">Tous</option>
+              {specialties.map((specialty) => (
+                <option value={specialty.id}>{specialty.name}</option>
+              ))}
+            </select>
+          </div>
+          <div className="general-information-filter-date-start">
+            <input
+              type="date"
+              id="postDateStart"
+              name="postDateStart"
+              min="1000-01-01"
+              onChange={this.onClickChangeStartDate}
+              value={selectedPostDateStart}
+            ></input>
+          </div>
+          <div className="general-information-filter-date-end">
+            <input
+              type="date"
+              id="postDateEnd"
+              name="postDateEnd"
+              min="1000-01-01"
+              onChange={this.onClickChangeEndDate}
+              value={selectedPostDateEnd}
+            ></input>
+          </div>
+        </div>
         <ChartJs data={this.state} />
       </div>
     );

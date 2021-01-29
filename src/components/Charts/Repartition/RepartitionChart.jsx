@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import { authContext } from "../../../contexts/ProvideAuth";
-import axios from "axios";
+import axios from "../../../services/axios-config";
 import { Polar } from "react-chartjs-2";
 import { repartitionLabels, repartitionColors } from "./RepartitionData";
 
@@ -25,22 +25,31 @@ export default function RepartitionChart() {
 
   return (
     <div className="repartition-chart">
-      <Polar
-        data={{
-          labels: repartitionLabels,
-          datasets: [
-            {
-              data: repartitionFeedback,
-              backgroundColor: repartitionColors,
+      <h3>Repartition</h3>
+      <div className="repartition-chart-graph">
+        <Polar
+          data={{
+            labels: repartitionLabels,
+            datasets: [
+              {
+                data: repartitionFeedback,
+                backgroundColor: repartitionColors,
+              },
+            ],
+          }}
+          width={600}
+          height={400}
+          options={{
+            maintainAspectRatio: false,
+            legend: {
+              align: "start",
+              labels: {
+                fontColor: "#fff",
+              },
             },
-          ],
-        }}
-        width={600}
-        height={400}
-        options={{
-          maintainAspectRatio: false,
-        }}
-      />
+          }}
+        />
+      </div>
     </div>
   );
 }

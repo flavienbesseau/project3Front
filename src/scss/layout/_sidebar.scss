@@ -10,25 +10,35 @@
       transform: translateY(-80px);
     }
 
+    a {
+      text-decoration: none;
+      font-size: $small;
+      font-weight: 600;
+      width: 80%;
+
+      @include breakpoint(tablet) {
+        width: 70%;
+      }
+    }
+
     li {
       @include flex-center;
       flex-wrap: wrap;
-      width: 30rem;
       height: 5rem;
       margin: 1rem;
       border-radius: 1rem;
       background: #0f1744;
-      font-size: 1.5rem;
+      cursor: pointer;
       &:hover {
-        background: rgb(230, 136, 230);
+        background: $background-dashboard;
+        color: $white;
       }
     }
 
     .dashboard-sidebar-link-deconnexion {
-      position: absolute;
       bottom: 5rem;
       background: $white;
-      color: $dark-blue;
+      color: $middle-blue;
     }
   }
 }

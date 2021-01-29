@@ -1,6 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
-import logo from "../../assets/logoHospitalidee.png";
+import logo from "../../assets/hospitalidee-logo.png";
 
 export default function Navbar() {
   const history = useHistory();
@@ -8,11 +8,11 @@ export default function Navbar() {
   return (
     <div className="navbar-container">
       <div className="navbar-logo">
-        <img src={logo} alt="" />
+        <img src={logo} alt="" onClick={() => history.push("/")} />
       </div>
       <div className="navbar-connection">
         <button onClick={() => history.push("/authentication")}>
-          Se connecter
+          Se connecter / S'inscrire
         </button>
       </div>
     </div>

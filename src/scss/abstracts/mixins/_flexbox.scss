@@ -1,7 +1,14 @@
 // flexbox models
+
 @mixin flex-center {
   display: flex;
   justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-start {
+  display: flex;
+  justify-content: flex-start;
   align-items: center;
 }
 
@@ -9,5 +16,25 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
+}
+
+@mixin flex-column-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+@mixin flex-column($align) {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: $align;
+}
+
+@mixin flex-row($justify) {
+  display: flex;
+  justify-content: $justify;
   align-items: center;
 }
