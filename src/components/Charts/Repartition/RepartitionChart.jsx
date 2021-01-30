@@ -10,7 +10,7 @@ export default function RepartitionChart() {
   const { userLogin } = useContext(authContext);
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/repartition-chart/${userLogin.hospital}`)
+      .get(`/api/repartition-chart/${userLogin.hospital}`)
       .then((res) =>
         setRepartitionFeedback([
           res.data.hospWithBloc,

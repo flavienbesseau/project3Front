@@ -20,50 +20,38 @@ export default function DataTrustRadar() {
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/scoreConfiance/skills/${userLogin.hospital}`
-      )
+      .get(`/api/scoreConfiance/skills/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setSkills(Number(data[0].score).toFixed(2)));
   }, [userLogin.hospital]);
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/scoreConfiance/reliability/${userLogin.hospital}`
-      )
+      .get(`/api/scoreConfiance/reliability/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setReliability(Number(data[0].score).toFixed(2)));
   }, [userLogin.hospital]);
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/scoreConfiance/transparency/${userLogin.hospital}`
-      )
+      .get(`/api/scoreConfiance/transparency/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setTransparency(Number(data[0].score).toFixed(2)));
   }, [userLogin.hospital]);
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/scoreConfiance/relation/${userLogin.hospital}`
-      )
+      .get(`/api/scoreConfiance/relation/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setRelation(Number(data[0].score).toFixed(2)));
   }, [userLogin.hospital]);
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/scoreConfiance/Competitionskills/${userLogin.hospital}`
-      )
+      .get(`/api/scoreConfiance/Competitionskills/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setSkillsCompetition(Number(data[0].score).toFixed(2)));
   }, [userLogin.hospital]);
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/scoreConfiance/Competitionreliability/${userLogin.hospital}`
-      )
+      .get(`/api/scoreConfiance/Competitionreliability/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) =>
         setReliabilityCompetition(Number(data[0].score).toFixed(2))
@@ -71,9 +59,7 @@ export default function DataTrustRadar() {
   }, [userLogin.hospital]);
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/scoreConfiance/Competitiontransparency/${userLogin.hospital}`
-      )
+      .get(`/api/scoreConfiance/Competitiontransparency/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) =>
         setTransparencyCompetition(Number(data[0].score).toFixed(2))
@@ -81,9 +67,7 @@ export default function DataTrustRadar() {
   }, [userLogin.hospital]);
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/scoreConfiance/Competitionrelation/${userLogin.hospital}`
-      )
+      .get(`/api/scoreConfiance/Competitionrelation/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setRelationCompetition(Number(data[0].score).toFixed(2)));
   }, [userLogin.hospital]);

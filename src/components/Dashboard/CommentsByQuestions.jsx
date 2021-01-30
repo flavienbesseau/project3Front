@@ -8,7 +8,7 @@ export default function CommentsByQuestions({ id, setGetFeedbacks }) {
 
   useEffect(() => {
     axios
-      .post(`http://localhost:5000/api/feedbacks`, {
+      .post(`/api/feedbacks`, {
         hospitalid: userLogin.hospital,
         questionid: id,
       })
