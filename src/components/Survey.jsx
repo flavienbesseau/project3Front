@@ -1,5 +1,5 @@
 import React, { useState, useEffect, Fragment } from "react";
-import axios from "axios";
+import axios from "../services/axios-config";
 import Question from "./Question";
 import backPort from "../const";
 import Navbar from "./Header/Navbar";

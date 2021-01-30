@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext, useReducer } from "react";
 import { useHistory, useRouteMatch } from "react-router-dom";
-import axios from "axios";
+import axios from "../../services/axios-config";
 import Registration from "./Registration";
 import Login from "./Login";
 import { authContext } from "../../contexts/ProvideAuth";
@@ -30,7 +30,7 @@ export default function Form() {
   useEffect(() => {
     const fetchUserLogin = async () => {
       try {
-        const log = await axios(`http://localhost:5000/api/login`);
+        const log = await axios(`/api/login`);
         log.data.loggedIn && setUserLogin({ connected: true });
       } catch (error) {
         console.log("fetchUserLogin: ", error);
@@ -42,9 +42,7 @@ export default function Form() {
   useEffect(() => {
     const getHospitalsScores = async () => {
       try {
-        const hospitalsScores = await axios(
-          `http://localhost:5000/api/hospitals`
-        );
+        const hospitalsScores = await axios(`/api/hospitals`);
         hospitalsScores.data && setHospitals(hospitalsScores.data);
       } catch (error) {
         console.log("hospitalsScores: ", error);
@@ -56,7 +54,7 @@ export default function Form() {
   const register = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/api/register", {
+      .post("/api/register", {
         name: name,
         email: email,
         password: userpassword,
@@ -83,7 +81,7 @@ export default function Form() {
   const login = (e) => {
     e.preventDefault();
     axios
-      .post("http://localhost:5000/api/login", {
+      .post("/api/login", {
         email: emailToLogin,
         password: passwordToLogin,
       })

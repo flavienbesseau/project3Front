@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios from "../../services/axios-config";
 import React, { useEffect, useState, Fragment } from "react";
 import CommentsByQuestions from "./CommentsByQuestions";
 import useCloseModal from "../../hooks/useCloseModal";
@@ -14,7 +14,7 @@ export default function Feedbacks({ feedback, setFeedback }) {
   useEffect(() => {
     const getQuestionsFeedbacks = async () => {
       try {
-        const getQuestions = await axios(`http://localhost:5000/api/questions`);
+        const getQuestions = await axios(`/api/questions`);
         setListOfQuestions(getQuestions.data);
       } catch (error) {
         console.log("getQuestionsFeedbacks: ", error);

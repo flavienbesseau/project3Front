@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
-import axios from "axios";
+import axios from "../../services/axios-config";
 import { authContext } from "../../contexts/ProvideAuth";
 
 export default function CommentsByQuestions({ id, setGetFeedbacks }) {
@@ -8,7 +8,7 @@ export default function CommentsByQuestions({ id, setGetFeedbacks }) {
 
   useEffect(() => {
     axios
-      .post(`http://localhost:5000/api/feedbacks`, {
+      .post(`/api/feedbacks`, {
         hospitalid: userLogin.hospital,
         questionid: id,
       })
