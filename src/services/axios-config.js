@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const config = {
-  baseURL: process.env.REACT_APP_API_BASE_URL,
+  baseURL: process.env.REACT_APP_BASE_URL,
   timeout: 20000,
 };
 

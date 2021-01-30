@@ -70,7 +70,7 @@ export default function ThisMonth() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/averageHospital/${userLogin.hospital}`)
+      .get(`/api/averageHospital/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setTotalAverage(data[0]));
   }, []);
@@ -79,43 +79,35 @@ export default function ThisMonth() {
 
   useEffect(() => {
     axios
-      .get(`http://localhost:5000/api/countReviews/${userLogin.hospital}`)
+      .get(`/api/countReviews/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setTotalCount(data[0]));
   }, []);
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/averageThisMonth/doctorsRelation/${userLogin.hospital}`
-      )
+      .get(`/api/averageThisMonth/doctorsRelation/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setDoctorRelation(data[0]));
   }, []);
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/averageThisMonth/doctorsRelationPast/${userLogin.hospital}`
-      )
+      .get(`/api/averageThisMonth/doctorsRelationPast/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setDoctorRelationPast(data[0]));
   }, []);
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/averageThisMonth/healthTeam/${userLogin.hospital}`
-      )
+      .get(`/api/averageThisMonth/healthTeam/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setHealthTeam(data[0]));
   }, []);
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/averageThisMonth/healthTeamPast/${userLogin.hospital}`
-      )
+      .get(`/api/averageThisMonth/healthTeamPast/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setHealthTeamPast(data[0]));
   }, []);
@@ -123,7 +115,7 @@ export default function ThisMonth() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/api/averageThisMonth/explanationsInformations/${userLogin.hospital}`
+        `/api/averageThisMonth/explanationsInformations/${userLogin.hospital}`
       )
       .then((res) => res.data)
       .then((data) => setExplanationsInformations(data[0]));
@@ -132,7 +124,7 @@ export default function ThisMonth() {
   useEffect(() => {
     axios
       .get(
-        `http://localhost:5000/api/averageThisMonth/explanationsInformationsPast/${userLogin.hospital}`
+        `/api/averageThisMonth/explanationsInformationsPast/${userLogin.hospital}`
       )
       .then((res) => res.data)
       .then((data) => setExplanationsInformationsPast(data[0]));
@@ -140,18 +132,14 @@ export default function ThisMonth() {
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/averageThisMonth/organisation/${userLogin.hospital}`
-      )
+      .get(`/api/averageThisMonth/organisation/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setOrganisation(data[0]));
   }, []);
 
   useEffect(() => {
     axios
-      .get(
-        `http://localhost:5000/api/averageThisMonth/organisationPast/${userLogin.hospital}`
-      )
+      .get(`/api/averageThisMonth/organisationPast/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setOrganisationPast(data[0]));
   }, []);
