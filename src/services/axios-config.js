@@ -5,6 +5,4 @@ const config = {
   timeout: 20000,
 };
 
-const $axios = axios.create(config);
-
-export default $axios;
+export default axios.create(config);;
