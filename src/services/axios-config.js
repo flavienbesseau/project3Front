@@ -5,4 +5,4 @@ const config = {
   timeout: 20000,
 };
 
-export default axios.create(config);;
+export default axios.create(config);
