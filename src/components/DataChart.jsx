@@ -60,7 +60,11 @@ class DataChart extends Component {
       selectedPostDateStart,
       selectedPostDateEnd,
     } = this.state;
-    const url = new URL(`/api/informationsgenerales/${userLogin.hospital}`);
+    const url = new URL(
+      `${
+        process.env.REACT_APP_BASE_URL || "http://localhost:5000"
+      }/api/informationsgenerales/${userLogin.hospital}`
+    );
     if (selectedExperience !== ALL) {
       url.searchParams.append("experienceId", selectedExperience); //creer le query params    ?experienceId=selectedExperience
     }
