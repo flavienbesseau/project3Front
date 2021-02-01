@@ -13,7 +13,7 @@ function Survey(props) {
   const [questions, setQuestions] = useState([]);
   const history = useHistory();
   const getQuestions = () => {
-    const url = `http://localhost:${backPort}/api/survey?experienceId=${props.experienceId}`;
+    const url = `/api/survey?experienceId=${props.experienceId}`;
     axios
       .get(url)
       .then((res) => res.data)
@@ -39,7 +39,7 @@ function Survey(props) {
               props.experienceId,
               props.specialtyId
             );
-            const url = `http://localhost:${backPort}/api/surveys/responses`;
+            const url = `/api/surveys/responses`;
             axios({
               method: "post",
               url: url,

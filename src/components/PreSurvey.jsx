@@ -19,7 +19,7 @@ class PreSurvey extends Component {
   }
 
   getHospitals() {
-    const url = `http://localhost:${backPort}/api/hospitals`;
+    const url = `/api/hospitals`;
     axios
       .get(url)
       .then((response) => response.data)
@@ -27,7 +27,7 @@ class PreSurvey extends Component {
   }
 
   getSpecialties() {
-    const url = `http://localhost:${backPort}/api/specialties`;
+    const url = `/api/specialties`;
     axios
       .get(url)
       .then((response) => response.data)
@@ -37,7 +37,7 @@ class PreSurvey extends Component {
   }
 
   getExperiences() {
-    const url = `http://localhost:${backPort}/api/experiences`;
+    const url = `/api/experiences`;
     axios
       .get(url)
       .then((response) => response.data)
