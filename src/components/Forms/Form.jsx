@@ -24,7 +24,7 @@ export default function Form() {
 
   const [createdAccount, setCreatedAccount] = useState(false);
   const [userHasAccount, setUserHasAccount] = useState(true);
-  const [hospitals, setHospitals] = useState(null);
+  const [hospitals, setHospitals] = useState([]);
   const { setUserLogin } = useContext(authContext);
 
   useEffect(() => {
