@@ -33,7 +33,7 @@ class DataChart extends Component {
   }
 
   getExperiences() {
-    const url = `http://localhost:${backPort}/api/experiences`;
+    const url = `/api/experiences`;
     axios
       .get(url)
       .then((response) => response.data)
@@ -43,7 +43,7 @@ class DataChart extends Component {
   }
 
   getSpecialties() {
-    const url = `http://localhost:${backPort}/api/specialties`;
+    const url = `/api/specialties`;
     axios
       .get(url)
       .then((response) => response.data)
@@ -60,9 +60,7 @@ class DataChart extends Component {
       selectedPostDateStart,
       selectedPostDateEnd,
     } = this.state;
-    const url = new URL(
-      `http://localhost:${backPort}/api/informationsgenerales/${userLogin.hospital}`
-    );
+    const url = new URL(`/api/informationsgenerales/${userLogin.hospital}`);
     if (selectedExperience !== ALL) {
       url.searchParams.append("experienceId", selectedExperience); //creer le query params    ?experienceId=selectedExperience
     }

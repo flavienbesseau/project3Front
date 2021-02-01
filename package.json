@@ -27,6 +27,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
+    "startb": "REACT_APP_BASE_URL=http://51.83.33.21:5001 react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
