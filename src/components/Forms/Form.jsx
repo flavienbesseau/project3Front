@@ -27,17 +27,17 @@ export default function Form() {
   const [hospitals, setHospitals] = useState([]);
   const { setUserLogin } = useContext(authContext);
 
-  useEffect(() => {
-    const fetchUserLogin = async () => {
-      try {
-        const log = await axios(`/api/login`);
-        log.data.loggedIn && setUserLogin({ connected: true });
-      } catch (error) {
-        console.log("fetchUserLogin: ", error);
-      }
-    };
-    fetchUserLogin();
-  }, [setUserLogin]);
+  // useEffect(() => {
+  //   const fetchUserLogin = async () => {
+  //     try {
+  //       const log = await axios(`/api/login`);
+  //       log.data.loggedIn && setUserLogin({ connected: true });
+  //     } catch (error) {
+  //       console.log("fetchUserLogin: ", error);
+  //     }
+  //   };
+  //   fetchUserLogin();
+  // }, [setUserLogin]);
 
   useEffect(() => {
     const getHospitalsScores = async () => {
