@@ -41,6 +41,11 @@ export default function RepartitionChart() {
           height={400}
           options={{
             maintainAspectRatio: false,
+            scale: {
+              ticks: {
+                showLabelBackdrop: false,
+              },
+            },
             legend: {
               align: "start",
               labels: {
