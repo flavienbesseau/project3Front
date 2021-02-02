@@ -5,6 +5,10 @@
 
   margin: 1rem;
 
+  @include breakpoint(laptop) {
+    margin-bottom: 8rem;
+  }
+
   .feedbacks-button-filter {
     @include flex-center;
     width: 25%;

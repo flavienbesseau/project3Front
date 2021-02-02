@@ -26,6 +26,8 @@ class DataChart extends Component {
           backgroundColor: [],
           borderColor: [],
           borderWidth: 1,
+          barThickness: 20,
+          padding: 100,
         },
       ],
     };
