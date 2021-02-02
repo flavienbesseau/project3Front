@@ -12,6 +12,7 @@ class PreSurvey extends Component {
       hospitals: [],
       specialties: [],
       experiences: [],
+      errorMessage: false,
     };
     this.handleHospital = this.handleHospital.bind(this);
     this.handleSpecialty = this.handleSpecialty.bind(this);
@@ -69,6 +70,7 @@ class PreSurvey extends Component {
 
   render() {
     const { hospitals, specialties, experiences } = this.state;
+    const { hospitalId, specialtyId, experienceId } = this.props;
     return (
       <div className="prequest">
         <Navbar />
@@ -112,14 +114,38 @@ class PreSurvey extends Component {
               <option value={experience.id}>{experience.name}</option>
             ))}
           </select>
-          <Link to={`/survey`} className="btn-grad">
-            Donnez votre avis
-          </Link>
+          {hospitalId && specialtyId && experienceId ? (
+            <Link to={`/survey`} className="btn-grad">
+              Donnez votre avis
+            </Link>
+          ) : (
+            <div className="errorHandler">
+              <button
+                className="btn-grad"
+                onClick={() => this.setState({ errorMessage: true })}
+              >
+                Donnez votre avis
+              </button>
+              {this.state.errorMessage === true ? (
+                <p>Remplissez les 3 champs</p>
+              ) : (
+                ""
+              )}
+            </div>
+          )}
         </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    experienceId: state.experienceId,
+    specialtyId: state.specialtyId,
+    hospitalId: state.hospitalId,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   updateExperienceId: (id) =>
@@ -128,4 +154,4 @@ const mapDispatchToProps = (dispatch) => ({
   updateSpecialtyId: (id) => dispatch({ type: "UPDATE_SPECIALTY_ID", id: id }),
 });
 
-export default connect(null, mapDispatchToProps)(PreSurvey);
+export default connect(mapStateToProps, mapDispatchToProps)(PreSurvey);
