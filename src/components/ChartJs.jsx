@@ -10,13 +10,13 @@ const ChartJs = (props) => (
       // backgroundColor: "#265f87",
       fontColor: "#dadfe6",
       width: "100%",
-      height: "80%",
+      height: "100%",
     }}
   >
     <HorizontalBar
       data={props.data}
       width={1000}
-      height={500}
+      height={700}
       options={{
         maintainAspectRatio: false,
         responsive: true,
@@ -50,6 +50,8 @@ const ChartJs = (props) => (
         scales: {
           yAxes: [
             {
+              categoryPercentage: 1.0,
+              barPercentage: 1.0,
               gridLines: {
                 display: false,
               },
