@@ -18,7 +18,7 @@
   }
 
   .select-register {
-    width: 100%;
+    width: 20rem;
     height: 3rem;
 
     @include flex-center;
@@ -28,13 +28,14 @@
     font-size: $small;
     border: none;
     padding-bottom: 0.5rem;
-    margin: 1rem 0;
+    margin: 2rem auto;
     border-bottom: 0.2rem solid #61adbe;
     outline: none;
     cursor: pointer;
     text-align-last: center;
 
     @include breakpoint(tablet) {
+      width: 30rem;
       font-size: $large;
     }
   }
@@ -102,6 +103,7 @@
 
 .button-register-error,
 .button-login-error {
+  @include flex-center;
   button {
     @include log-button;
     font-size: $small;

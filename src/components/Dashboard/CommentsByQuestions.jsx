@@ -14,7 +14,7 @@ export default function CommentsByQuestions({ id, setGetFeedbacks }) {
       })
       .then((res) => setListOfFeedbacks(res.data))
       .catch((error) => console.log("CommentsByQuestions: ", error));
-  }, []);
+  }, [id, userLogin.hospital]);
 
   return (
     <div className="comments-by-questions-container">

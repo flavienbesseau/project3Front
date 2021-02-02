@@ -2,7 +2,6 @@ import axios from "../services/axios-config";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import backPort from "../const";
 import Navbar from "./Header/Navbar";
 
 class PreSurvey extends Component {
@@ -74,7 +73,7 @@ class PreSurvey extends Component {
         <Navbar />
         <h1>Pré-questionnaire</h1>
         <div className="prequest-hospital-selection">
-          <label for="hospital-select" />
+          <label htmlFor="hospital-select" />
           <select
             name="hospital"
             id="hospital-select"
@@ -83,11 +82,13 @@ class PreSurvey extends Component {
             <option>Choisissez un hopital</option>
 
             {hospitals.map((hospital) => (
-              <option value={hospital.id}>{hospital.name}</option>
+              <option key={hospital.id} value={hospital.id}>
+                {hospital.name}
+              </option>
             ))}
           </select>
 
-          <label for="specialties-select" />
+          <label htmlFor="specialties-select" />
           <select
             name="specialties"
             id="specialties-select"
@@ -95,11 +96,13 @@ class PreSurvey extends Component {
           >
             <option value="specialty">Choisissez une spécialité</option>
             {specialties.map((specialty) => (
-              <option value={specialty.id}>{specialty.name}</option>
+              <option key={specialty.id} value={specialty.id}>
+                {specialty.name}
+              </option>
             ))}
           </select>
 
-          <label for="experiences-select" />
+          <label htmlFor="experiences-select" />
           <select
             name="experiences"
             id="experiences-select"
@@ -109,7 +112,9 @@ class PreSurvey extends Component {
               Choisissez votre type d'hospitalisation
             </option>
             {experiences.map((experience) => (
-              <option value={experience.id}>{experience.name}</option>
+              <option key={experience.id} value={experience.id}>
+                {experience.name}
+              </option>
             ))}
           </select>
           <Link to={`/survey`} className="btn-grad">

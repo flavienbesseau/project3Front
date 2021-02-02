@@ -1,7 +1,6 @@
 import React, { useState, useEffect, Fragment } from "react";
 import axios from "../services/axios-config";
 import Question from "./Question";
-import backPort from "../const";
 import Navbar from "./Header/Navbar";
 import { useHistory } from "react-router-dom";
 
@@ -12,7 +11,8 @@ import { connect } from "react-redux";
 function Survey(props) {
   const [questions, setQuestions] = useState([]);
   const history = useHistory();
-  const getQuestions = () => {
+
+  useEffect(() => {
     const url = `/api/survey?experienceId=${props.experienceId}`;
     axios
       .get(url)
@@ -20,11 +20,7 @@ function Survey(props) {
       .then((questionsArr) => {
         setQuestions(questionsArr);
       });
-  };
-
-  useEffect(() => {
-    getQuestions();
-  }, []); //pas de re render avec les crochets
+  }, [props.experienceId]); //pas de re render avec les crochets
 
   return (
     <Fragment>
@@ -59,6 +55,7 @@ function Survey(props) {
                 id={item.id}
                 text_rating={item.text_rating}
                 text_comment={item.text_comment}
+                key={item.id}
               />
             ))}
             <div className="sending-form">

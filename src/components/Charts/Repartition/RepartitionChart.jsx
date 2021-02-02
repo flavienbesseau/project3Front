@@ -21,7 +21,7 @@ export default function RepartitionChart() {
           res.data.maternities,
         ])
       );
-  }, []);
+  }, [userLogin.hospital]);
 
   return (
     <div className="repartition-chart">
