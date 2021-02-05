@@ -16,10 +16,12 @@ export default function Feedbacks({ feedback, setFeedback }) {
       try {
         const getQuestions = await axios(`/api/questions`);
         setListOfQuestions(getQuestions.data);
+
       } catch (error) {
         console.log("getQuestionsFeedbacks: ", error);
       }
     };
+
     getQuestionsFeedbacks();
   }, []);
 
@@ -33,7 +35,7 @@ export default function Feedbacks({ feedback, setFeedback }) {
             setFeedback(!feedback);
           }}
         />
-        <h2>Liste des questions</h2>
+        <h2>Choississez la question pour acceder aux verbatims</h2>
         {listOfQuestions &&
           listOfQuestions.map((question) => (
             <Fragment>

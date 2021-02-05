@@ -6,8 +6,9 @@
     position: relative;
 
     img {
-      width: 50%;
+      width: 80%;
       transform: translateY(-80px);
+      display: none;
     }
 
     a {
@@ -32,6 +33,31 @@
       &:hover {
         background: $background-dashboard;
         color: $white;
+      }
+
+      display: none;
+    }
+
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      height: 4rem;
+      width: 4rem;
+
+      font-size: 2rem;
+      color: $blue;
+      background: $white;
+      border-radius: 50%;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
 

@@ -1,5 +1,6 @@
 .dashboard-general-informations {
   padding-right: 0px;
+  max-width: 100%;
 }
 
 .general-information {
@@ -27,6 +28,7 @@
     @include breakpoint(laptop) {
       right: 2rem;
       width: 40%;
+      top: -5rem;
     }
 
     input,

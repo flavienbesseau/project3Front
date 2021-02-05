@@ -48,6 +48,7 @@ export default function Dashboard() {
             <li key={index} className={link.style}>
               {link.title}
             </li>
+            <i className={link.logo}/>
           </Link>
         ))}
       </div>
