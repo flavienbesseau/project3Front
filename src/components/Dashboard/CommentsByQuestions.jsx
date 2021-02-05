@@ -3,7 +3,7 @@ import axios from "../../services/axios-config";
 import { authContext } from "../../contexts/ProvideAuth";
 
 export default function CommentsByQuestions({ id, setGetFeedbacks }) {
-  const [listOfFeedbacks, setListOfFeedbacks] = useState(null);
+  const [listOfFeedbacks, setListOfFeedbacks] = useState([]);
   const { userLogin } = useContext(authContext);
 
   useEffect(() => {
@@ -26,6 +26,7 @@ export default function CommentsByQuestions({ id, setGetFeedbacks }) {
         }}
       />
       <h2>Verbatims</h2>
+      {console.log(listOfFeedbacks)}
       {listOfFeedbacks &&
         listOfFeedbacks.map((feedback) => (
           <div key={feedback.id} className="comments-by-questions">
