@@ -25,7 +25,7 @@ export default function CommentsByQuestions({ id, setGetFeedbacks }) {
           setGetFeedbacks(false);
         }}
       />
-      <h2>Commentaires</h2>
+      <h2>Verbatims</h2>
       {listOfFeedbacks &&
         listOfFeedbacks.map((feedback) => (
           <div key={feedback.id} className="comments-by-questions">

@@ -42,6 +42,7 @@ const Sidebar = [
     title: "DECONNEXION",
     style: "dashboard-sidebar-link-deconnexion",
     path: "/authentication",
+    logo: "fas fa-sign-out-alt"
   },
 ];
 
