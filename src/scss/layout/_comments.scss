@@ -90,7 +90,7 @@
 
       .comments-by-questions-answer-feedback {
         overflow-y: scroll;
-        // @include scroll;
+        @include scroll;
         p {
           font-size: $medium;
         }
