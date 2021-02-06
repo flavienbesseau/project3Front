@@ -22,22 +22,6 @@
       }
     }
 
-    li {
-      @include flex-center;
-      flex-wrap: wrap;
-      height: 5rem;
-      margin: 1rem;
-      border-radius: 1rem;
-      background: #0f1744;
-      cursor: pointer;
-      &:hover {
-        background: $background-dashboard;
-        color: $white;
-      }
-
-      display: none;
-    }
-
     i {
       position: absolute;
       top: 50%;
@@ -62,9 +46,17 @@
     }
 
     .dashboard-sidebar-link-deconnexion {
-      bottom: 5rem;
-      background: $white;
-      color: $middle-blue;
+      width: 100%;
+
+      position: absolute;
+      margin-top: 0.5rem;
+
+      left: 0;
+
+      text-align: center;
+      cursor: pointer;
+      color: $white;
+      font-size: $small;
     }
   }
 }
