@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "../services/axios-config";
 import ChartJs from "./ChartJs";
-import { Chart } from "react-chartjs-2";
 import { authContext } from "../contexts/ProvideAuth";
 
 const ALL = "all";
@@ -13,8 +12,8 @@ class DataChart extends Component {
     this.state = {
       selectedExperience: "all",
       selectedSpecialty: "all",
-      selectedPostDateStart: "all",
-      selectedPostDateEnd: "all",
+      selectedPostDateStart: undefined,
+      selectedPostDateEnd: undefined,
       experiences: [],
       specialties: [],
       labels: ["Q1", "Q2", "Q3", "Q4"],
@@ -72,10 +71,10 @@ class DataChart extends Component {
     if (selectedSpecialty !== ALL) {
       url.searchParams.append("specialtyId", selectedSpecialty);
     }
-    if (selectedPostDateStart !== ALL) {
+    if (selectedPostDateStart) {
       url.searchParams.append("postDateStart", selectedPostDateStart);
     }
-    if (selectedPostDateEnd !== ALL) {
+    if (selectedPostDateEnd) {
       url.searchParams.append("postDateEnd", selectedPostDateEnd);
     }
 
@@ -169,26 +168,6 @@ class DataChart extends Component {
     }
   }
 
-  componentWillMount() {
-    // Limit the size of the labels on the x axis
-    Chart.scaleService.updateScaleDefaults("category", {
-      ticks: {
-        callback: function (tick) {
-          var characterLimit = 25;
-          if (tick.length >= characterLimit) {
-            return (
-              tick
-                .slice(0, tick.length)
-                .substring(0, characterLimit - 1)
-                .trim() + "..."
-            );
-          }
-          return tick;
-        },
-      },
-    });
-  }
-
   render() {
     const {
       selectedExperience,
@@ -214,9 +193,11 @@ class DataChart extends Component {
               onChange={this.onClickChangeExperience}
               value={selectedExperience}
             >
-              <option value="all">Tous</option>
+              <option value="all">Toutes les types d'hospit</option>
               {experiences.map((xp) => (
-                <option value={xp.id}>{xp.name}</option>
+                <option key={xp.id} value={xp.id}>
+                  {xp.name}
+                </option>
               ))}
             </select>
           </div>
@@ -227,9 +208,11 @@ class DataChart extends Component {
               onChange={this.onClickChangeSpecialties}
               value={selectedSpecialty}
             >
-              <option value="all">Tous</option>
+              <option value="all">Toutes les spécialités</option>
               {specialties.map((specialty) => (
-                <option value={specialty.id}>{specialty.name}</option>
+                <option key={specialty.id} value={specialty.id}>
+                  {specialty.name}
+                </option>
               ))}
             </select>
           </div>
@@ -254,7 +237,7 @@ class DataChart extends Component {
             ></input>
           </div>
         </div>
-        <h3 className='datachart-title'>Informations générales</h3>
+        <h3 className="datachart-title">Informations générales</h3>
         <ChartJs data={this.state} />
       </div>
     );

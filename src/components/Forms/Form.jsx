@@ -60,9 +60,8 @@ export default function Form() {
           type: "register-errors",
           path: error.response.data.err.params.path,
           message: error.response.data.err.errors,
-        })
-      }
-      );
+        });
+      });
   };
 
   const match = useRouteMatch();

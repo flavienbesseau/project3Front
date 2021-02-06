@@ -32,8 +32,8 @@ const config = {
 let options = {
   plugins: {
     datalabels: {
-       display: false,
-    }
+      display: false,
+    },
   },
   scale: {
     pointLabels: {

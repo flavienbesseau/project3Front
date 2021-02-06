@@ -16,7 +16,6 @@ export default function Feedbacks({ feedback, setFeedback }) {
       try {
         const getQuestions = await axios(`/api/questions`);
         setListOfQuestions(getQuestions.data);
-
       } catch (error) {
         console.log("getQuestionsFeedbacks: ", error);
       }
@@ -50,7 +49,7 @@ export default function Feedbacks({ feedback, setFeedback }) {
                     : "feedbacks-questions"
                 }
               >
-                {question.text_rating}
+                <p key={question}>{question.text_rating}</p>
               </li>
             </Fragment>
           ))}

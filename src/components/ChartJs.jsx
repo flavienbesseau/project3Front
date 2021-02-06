@@ -4,6 +4,19 @@ import "chartjs-plugin-datalabels";
 
 defaults.global.tooltips.enabled = true;
 
+const tickShortener = (tick) => {
+  const characterLimit = 25;
+  if (tick.length >= characterLimit) {
+    return (
+      tick
+        .slice(0, tick.length)
+        .substring(0, characterLimit - 1)
+        .trim() + "..."
+    );
+  }
+  return tick;
+};
+
 const ChartJs = (props) => (
   <div>
     <HorizontalBar
@@ -13,13 +26,13 @@ const ChartJs = (props) => (
       options={{
         plugins: {
           datalabels: {
-            align: 'center',
+            align: "center",
             font: {
-              weight: 'bold', 
-              size: 12
+              weight: "bold",
+              size: 12,
             },
-            color: '#283583',
-          }
+            color: "#283583",
+          },
         },
         maintainAspectRatio: false,
         responsive: true,
@@ -50,8 +63,7 @@ const ChartJs = (props) => (
         scales: {
           yAxes: [
             {
-              categoryPercentage: 1.0,
-              barPercentage: 1,
+              afterBuildTicks: (axis, ticks) => ticks.map(tickShortener),
               gridLines: {
                 display: false,
               },
