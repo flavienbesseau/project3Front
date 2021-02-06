@@ -1,19 +1,28 @@
 .trust-chart {
-  @include flex-column(center);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+
   height: 100%;
   width: 100%;
 
   margin-bottom: 2rem;
 
   h3 {
-    text-align: center;
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
     padding: 1rem;
+
     font-size: $medium;
   }
 
   @include breakpoint(tablet) {
     margin-bottom: 0;
-    margin: 5rem 0;
+    margin: 1rem 0;
   }
 }
 

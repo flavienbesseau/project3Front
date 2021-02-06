@@ -5,19 +5,22 @@ import "chartjs-plugin-datalabels";
 defaults.global.tooltips.enabled = true;
 
 const ChartJs = (props) => (
-  <div
-    style={{
-      // backgroundColor: "#265f87",
-      fontColor: "#dadfe6",
-      width: "100%",
-      height: "100%",
-    }}
-  >
+  <div>
     <HorizontalBar
       data={props.data}
       width={1000}
-      height={700}
+      height={650}
       options={{
+        plugins: {
+          datalabels: {
+            align: 'center',
+            font: {
+              weight: 'bold', 
+              size: 12
+            },
+            color: '#283583',
+          }
+        },
         maintainAspectRatio: false,
         responsive: true,
         tooltips: {
@@ -28,10 +31,7 @@ const ChartJs = (props) => (
           },
         },
         title: {
-          display: true,
-          text: "Informations générales",
-          fontSize: 15,
-          fontColor: "#dadfe6",
+          display: false,
         },
         legend: {
           display: false,
@@ -51,7 +51,7 @@ const ChartJs = (props) => (
           yAxes: [
             {
               categoryPercentage: 1.0,
-              barPercentage: 1.0,
+              barPercentage: 1,
               gridLines: {
                 display: false,
               },

@@ -30,6 +30,11 @@ const config = {
 };
 
 let options = {
+  plugins: {
+    datalabels: {
+       display: false,
+    }
+  },
   scale: {
     pointLabels: {
       fontStyle: "bold",

@@ -254,6 +254,7 @@ class DataChart extends Component {
             ></input>
           </div>
         </div>
+        <h3 className='datachart-title'>Informations générales</h3>
         <ChartJs data={this.state} />
       </div>
     );

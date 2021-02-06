@@ -4,7 +4,6 @@
 }
 
 .general-information {
-  @include flex-column(center);
   position: relative;
   z-index: 0;
 
@@ -28,7 +27,7 @@
     @include breakpoint(laptop) {
       right: 2rem;
       width: 40%;
-      top: -5rem;
+      top: 1rem;
     }
 
     input,
@@ -64,4 +63,16 @@
 
 .dashboard-general-informations-disable {
   display: none;
+}
+
+.datachart-title {
+  width: 100%;
+
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+
+  padding-left: 2rem;
+
+  font-size: $medium;
 }

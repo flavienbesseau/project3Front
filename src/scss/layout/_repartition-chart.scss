@@ -1,12 +1,38 @@
 .repartition-chart {
-  @include flex-column(center);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+
   height: 100%;
   width: 100%;
 
+  position: relative;
+
+  transform: translate(-50px);
+  margin-top: 5rem;
+
+  @include breakpoint(tablet) {
+    margin-top: 0;
+  }
+
   h3 {
+    position: absolute;
+    top: -5rem;
+    left: 5rem;
+    width: 100%;
+
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
     text-align: center;
     padding: 1rem;
     font-size: $medium;
+
+    @include breakpoint(tablet) {
+      top: 0;
+    }
   }
 
   .repartition-chart-graph {
