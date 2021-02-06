@@ -45,10 +45,10 @@ export default function Dashboard() {
         <img src={logo} alt="" />
         {sidebarData.map((link, index) => (
           <Link to={link.path}>
+            <i className={link.logo}/>
             <li key={index} className={link.style}>
               {link.title}
             </li>
-            <i className={link.logo}/>
           </Link>
         ))}
       </div>
