@@ -49,6 +49,7 @@
   min-height: 100vh;
 
   padding: 1rem;
+  padding-bottom: 0rem;
   margin: 0 auto;
 
   // Grid Configuraion
@@ -73,10 +74,8 @@
     max-height: 100%;
     max-width: 100%;
 
-    grid-template-columns: repeat(4, 25%);
     grid-template-columns: 10% 40% 30% 20%;
-    grid-template-rows: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(2, auto);
 
     grid-template-areas:
       "sidebar general general month"

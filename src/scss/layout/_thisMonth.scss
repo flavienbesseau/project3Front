@@ -9,15 +9,17 @@
   }
 
   @include breakpoint(tablet) {
-    margin-top: 5rem;
   }
 }
 
 .pMonth {
+  display: flex;
+  justify-content: flex-start;
+
   font-size: $medium;
 
   @include breakpoint(tablet) {
-    font-size: $large;
+    font-size: $medium;
   }
 }
 

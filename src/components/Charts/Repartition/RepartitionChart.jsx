@@ -37,7 +37,7 @@ export default function RepartitionChart() {
               },
             ],
           }}
-          width={600}
+          width={1000}
           height={400}
           options={{
             maintainAspectRatio: false,
