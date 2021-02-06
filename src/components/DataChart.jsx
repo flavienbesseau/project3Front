@@ -13,8 +13,8 @@ class DataChart extends Component {
     this.state = {
       selectedExperience: "all",
       selectedSpecialty: "all",
-      selectedPostDateStart: "all",
-      selectedPostDateEnd: "all",
+      selectedPostDateStart: undefined,
+      selectedPostDateEnd: undefined,
       experiences: [],
       specialties: [],
       labels: ["Q1", "Q2", "Q3", "Q4"],
@@ -72,10 +72,10 @@ class DataChart extends Component {
     if (selectedSpecialty !== ALL) {
       url.searchParams.append("specialtyId", selectedSpecialty);
     }
-    if (selectedPostDateStart !== ALL) {
+    if (selectedPostDateStart) {
       url.searchParams.append("postDateStart", selectedPostDateStart);
     }
-    if (selectedPostDateEnd !== ALL) {
+    if (selectedPostDateEnd) {
       url.searchParams.append("postDateEnd", selectedPostDateEnd);
     }
 
@@ -214,7 +214,7 @@ class DataChart extends Component {
               onChange={this.onClickChangeExperience}
               value={selectedExperience}
             >
-              <option value="all">Tous</option>
+              <option value="all">Toutes les types d'hospit</option>
               {experiences.map((xp) => (
                 <option value={xp.id}>{xp.name}</option>
               ))}
@@ -227,7 +227,7 @@ class DataChart extends Component {
               onChange={this.onClickChangeSpecialties}
               value={selectedSpecialty}
             >
-              <option value="all">Tous</option>
+              <option value="all">Toutes les spécialités</option>
               {specialties.map((specialty) => (
                 <option value={specialty.id}>{specialty.name}</option>
               ))}
@@ -254,7 +254,7 @@ class DataChart extends Component {
             ></input>
           </div>
         </div>
-        <h3 className='datachart-title'>Informations générales</h3>
+        <h3 className="datachart-title">Informations générales</h3>
         <ChartJs data={this.state} />
       </div>
     );

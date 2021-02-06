@@ -8,8 +8,26 @@ import { Formik, Field } from "formik";
 import { formatResponses } from "../utils";
 import { connect } from "react-redux";
 
+// const validate = (values, props /* only available when using withFormik */) => {
+//   const errors = {};
+
+//   if (!values.pseudo) {
+//     errors.pseudo = "Required";
+//   } else if (!values.email) {
+//     errors.email = "Required";
+//   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+//     errors.email = "Invalid email address";
+//   }
+
+//   //...
+
+//   return errors;
+// };
+
 function Survey(props) {
   const [questions, setQuestions] = useState([]);
+  const [valuePseudo, setvaluePseudo] = useState("");
+  const [valueEmail, setValueEmail] = useState("");
   const history = useHistory();
 
   useEffect(() => {
@@ -22,12 +40,17 @@ function Survey(props) {
       });
   }, [props.experienceId]); //pas de re render avec les crochets
 
+  const handleChangePseudo = (e) => setvaluePseudo(e);
+  const handleChangeEmail = (e) => setValueEmail(e);
+
   return (
     <Fragment>
       <Navbar />
       <Formik
+        // validate={validate}
         initialValues={{}}
         onSubmit={(values, { setSubmitting }) => {
+          console.log("ON SUBMIT");
           setTimeout(() => {
             const results = formatResponses(
               values,
@@ -66,6 +89,7 @@ function Survey(props) {
                   name="pseudo"
                   placeholder="Jean Drenod"
                   className="pseudo"
+                  onChange={handleChangePseudo}
                 ></Field>
                 <h3>Adresse e-mail</h3>
                 <Field
@@ -73,6 +97,7 @@ function Survey(props) {
                   name="email"
                   placeholder="jean.drenod@gmail.com"
                   className="email"
+                  onChange={handleChangeEmail}
                 ></Field>
               </div>
               <div className="send-button">

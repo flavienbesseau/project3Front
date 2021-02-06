@@ -44,7 +44,7 @@ npm install
 4. To launch the project in your browser:
 
 ```sh
-npm start
+npm run start:devs
 ```
 
 ## Credits:

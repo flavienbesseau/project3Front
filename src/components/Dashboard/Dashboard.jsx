@@ -32,8 +32,8 @@ export default function Dashboard() {
         <ul className={isTheMenuOpen ? "routes-links-open" : "routes-links"}>
           <img src={hospitalideeLogo} alt="" />
           {sidebarData.map((link, index) => (
-            <Link to={link.path}>
-              <li key={index} className={link.style}>
+            <Link key={index} to={link.path}>
+              <li key={index + 2} className={link.style}>
                 {link.title}
               </li>
             </Link>
@@ -44,11 +44,11 @@ export default function Dashboard() {
       <div className="dashboard-sidebar">
         <img src={logo} alt="" />
         {sidebarData.map((link, index) => (
-          <Link to={link.path}>
-            <li key={index} className={link.style}>
+          <Link key={index} to={link.path}>
+            <li key={index + 2} className={link.style}>
               {link.title}
             </li>
-            <i className={link.logo}/>
+            <i key={index + 3} className={link.logo} />
           </Link>
         ))}
       </div>

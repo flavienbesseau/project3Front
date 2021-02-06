@@ -13,13 +13,13 @@ const ChartJs = (props) => (
       options={{
         plugins: {
           datalabels: {
-            align: 'center',
+            align: "center",
             font: {
-              weight: 'bold', 
-              size: 12
+              weight: "bold",
+              size: 12,
             },
-            color: '#283583',
-          }
+            color: "#283583",
+          },
         },
         maintainAspectRatio: false,
         responsive: true,
@@ -50,8 +50,6 @@ const ChartJs = (props) => (
         scales: {
           yAxes: [
             {
-              categoryPercentage: 1.0,
-              barPercentage: 1,
               gridLines: {
                 display: false,
               },
