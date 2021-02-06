@@ -195,7 +195,9 @@ class DataChart extends Component {
             >
               <option value="all">Toutes les types d'hospit</option>
               {experiences.map((xp) => (
-                <option value={xp.id}>{xp.name}</option>
+                <option key={xp.id} value={xp.id}>
+                  {xp.name}
+                </option>
               ))}
             </select>
           </div>
@@ -208,7 +210,9 @@ class DataChart extends Component {
             >
               <option value="all">Toutes les spécialités</option>
               {specialties.map((specialty) => (
-                <option value={specialty.id}>{specialty.name}</option>
+                <option key={specialty.id} value={specialty.id}>
+                  {specialty.name}
+                </option>
               ))}
             </select>
           </div>
