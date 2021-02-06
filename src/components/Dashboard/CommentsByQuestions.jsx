@@ -26,7 +26,6 @@ export default function CommentsByQuestions({ id, setGetFeedbacks }) {
         }}
       />
       <h2>Verbatims</h2>
-      {console.log(listOfFeedbacks)}
       {listOfFeedbacks &&
         listOfFeedbacks.map((feedback) => (
           <div key={feedback.id} className="comments-by-questions">

@@ -26,18 +26,7 @@ export default function Form() {
   const [userHasAccount, setUserHasAccount] = useState(true);
   const [hospitals, setHospitals] = useState([]);
   const { setUserLogin } = useContext(authContext);
-
-  // useEffect(() => {
-  //   const fetchUserLogin = async () => {
-  //     try {
-  //       const log = await axios(`/api/login`);
-  //       log.data.loggedIn && setUserLogin({ connected: true });
-  //     } catch (error) {
-  //       console.log("fetchUserLogin: ", error);
-  //     }
-  //   };
-  //   fetchUserLogin();
-  // }, [setUserLogin]);
+  const [loginError, setLoginError] = useState(null);
 
   useEffect(() => {
     const getHospitalsScores = async () => {
@@ -86,7 +75,6 @@ export default function Form() {
         password: passwordToLogin,
       })
       .then((res) => {
-        console.log("You are connected: ", res.data.email);
         if (res.status === 200) {
           setUserLogin({
             connected: true,
@@ -95,7 +83,8 @@ export default function Form() {
           });
           history.push(`${match.url}/dashboard/${res.data.id}`);
         }
-      });
+      })
+      .catch(error => { setLoginError(error.response.status) })
   };
 
   return (
@@ -107,6 +96,7 @@ export default function Form() {
           emailToLogin={emailToLogin}
           passwordToLogin={passwordToLogin}
           dispatch={dispatch}
+          loginError={loginError}
         />
       ) : (
         <Registration
