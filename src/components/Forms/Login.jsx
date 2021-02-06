@@ -8,6 +8,7 @@ export default function Registration({
   passwordToLogin,
   dispatch,
 }) {
+  
   return (
     <div className="login-container">
       <img src={logo} alt="" className="logo" />
