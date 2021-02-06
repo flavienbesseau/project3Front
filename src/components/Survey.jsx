@@ -8,26 +8,25 @@ import { Formik, Field } from "formik";
 import { formatResponses } from "../utils";
 import { connect } from "react-redux";
 
-// const validate = (values, props /* only available when using withFormik */) => {
-//   const errors = {};
-
-//   if (!values.pseudo) {
-//     errors.pseudo = "Required";
-//   } else if (!values.email) {
-//     errors.email = "Required";
-//   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-//     errors.email = "Invalid email address";
-//   }
-
-//   //...
-
-//   return errors;
-// };
+const validate = (values) => {
+  const errors = {};
+  console.log(values);
+  if (!values.pseudo) {
+    errors.pseudo = "Required";
+  }
+  if (!values.email) {
+    errors.email = "Required";
+  } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
+    errors.email = "Invalid email address";
+  }
+  if (Object.keys(values).length <= 2) {
+    errors.answers = "Veuillez remplir au moins un champ";
+  }
+  return errors;
+};
 
 function Survey(props) {
   const [questions, setQuestions] = useState([]);
-  const [valuePseudo, setvaluePseudo] = useState("");
-  const [valueEmail, setValueEmail] = useState("");
   const history = useHistory();
 
   useEffect(() => {
@@ -40,17 +39,19 @@ function Survey(props) {
       });
   }, [props.experienceId]); //pas de re render avec les crochets
 
-  const handleChangePseudo = (e) => setvaluePseudo(e);
-  const handleChangeEmail = (e) => setValueEmail(e);
-
   return (
     <Fragment>
       <Navbar />
       <Formik
-        // validate={validate}
-        initialValues={{}}
+        validate={validate}
+        validateOnChange={false}
+        validateOnBlur={false}
+        initialValues={{
+          pseudo: "",
+          email: "",
+        }}
         onSubmit={(values, { setSubmitting }) => {
-          console.log("ON SUBMIT");
+          console.log("ON SUBMIT", values);
           setTimeout(() => {
             const results = formatResponses(
               values,
@@ -66,11 +67,12 @@ function Survey(props) {
             })
               .then(() => setSubmitting(false))
               .then(() => alert("Merci d'avoir répondu à l'enquête!"))
-              .then(() => history.push("/"));
+              .then(() => history.push("/"))
+              .catch(() => setSubmitting(false));
           }, 500);
         }}
       >
-        {({ handleSubmit, isSubmitting }) => (
+        {({ handleSubmit, isSubmitting, errors, touched }) => (
           <form onSubmit={handleSubmit} className="survey-container">
             <h1>Questionnaire</h1>
             {questions.map((item) => (
@@ -89,16 +91,16 @@ function Survey(props) {
                   name="pseudo"
                   placeholder="Jean Drenod"
                   className="pseudo"
-                  onChange={handleChangePseudo}
-                ></Field>
+                />
+                {errors.pseudo && <div>{errors.pseudo}</div>}
                 <h3>Adresse e-mail</h3>
                 <Field
                   type="input"
                   name="email"
                   placeholder="jean.drenod@gmail.com"
                   className="email"
-                  onChange={handleChangeEmail}
-                ></Field>
+                />
+                {errors.email && <div>{errors.email}</div>}
               </div>
               <div className="send-button">
                 <button
@@ -108,6 +110,7 @@ function Survey(props) {
                 >
                   Envoyer les réponses
                 </button>
+                {errors.answers && <div>{errors.answers}</div>}
               </div>
             </div>
           </form>
