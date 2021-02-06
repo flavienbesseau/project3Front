@@ -33,9 +33,7 @@ export default function Dashboard() {
           <img src={hospitalideeLogo} alt="" />
           {sidebarData.map((link, index) => (
             <Link key={index} to={link.path}>
-              <li key={index + 2} className={link.style}>
-                {link.title}
-              </li>
+              <li className={link.style}>{link.title}</li>
             </Link>
           ))}
         </ul>
@@ -45,10 +43,8 @@ export default function Dashboard() {
         <img src={logo} alt="" />
         {sidebarData.map((link, index) => (
           <Link key={index} to={link.path}>
-            <li key={index + 2} className={link.style}>
-              {link.title}
-            </li>
-            <i key={index + 3} className={link.logo} />
+            <li className={link.style}>{link.title}</li>
+            <i className={link.logo} />
           </Link>
         ))}
       </div>
