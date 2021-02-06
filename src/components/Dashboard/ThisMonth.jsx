@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
 import axios from "../../services/axios-config";
 import { authContext } from "../../contexts/ProvideAuth";
 import { ReactComponent as Plus } from "../../ressources/plus.svg";
@@ -149,40 +151,35 @@ export default function ThisMonth() {
       <h3 className="pMonth">Ce mois-ci</h3>
       <p className="review">{totalCount.count} avis</p>
       <p className="review">Note: {average}/5</p>
-      <i
-        class="fas fa-star"
+      <FontAwesomeIcon icon={faStar}
         className={
           average >= 1
             ? "fas fa-star star-rating-yellow"
             : "fas fa-star star-rating-none"
         }
       />
-      <i
-        class="fas fa-star"
+      <FontAwesomeIcon icon={faStar}
         className={
           average >= 1.95
             ? "fas fa-star star-rating-yellow"
             : "fas fa-star star-rating-none"
         }
       />
-      <i
-        class="fas fa-star"
+      <FontAwesomeIcon icon={faStar}
         className={
           average >= 2.95
             ? "fas fa-star star-rating-yellow"
             : "fas fa-star star-rating-none"
         }
       />
-      <i
-        class="fas fa-star"
+      <FontAwesomeIcon icon={faStar}
         className={
           average >= 3.95
             ? "fas fa-star star-rating-yellow"
             : "fas fa-star star-rating-none"
         }
       />
-      <i
-        class="fas fa-star"
+      <FontAwesomeIcon icon={faStar}
         className={
           average >= 4.95
             ? "fas fa-star star-rating-yellow"
