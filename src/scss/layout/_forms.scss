@@ -120,6 +120,11 @@
   }
 }
 
+.password-incorrect,
+.email-incorrect {
+  @include error;
+}
+
 .login-register {
   padding: 1rem;
 
