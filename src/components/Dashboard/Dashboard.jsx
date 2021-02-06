@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from 'axios';
 import { Link } from "react-router-dom";
 import logo from "../../assets/hospitalidee-logo.png";
 import hospitalideeLogo from "../../assets/hospitalidee-transparent.png";
@@ -17,6 +18,15 @@ export default function Dashboard() {
   const escModal = (e) => {
     e.key === "Escape" && setFeedback(false);
   };
+
+  const deleteCookie = async () => {
+    try {
+      await axios.get('/api/logout');
+      console.log('click');
+    } catch(e) {
+      console.log(e.response)
+    }
+  }
 
   return (
     <div className="dashboard">
@@ -42,8 +52,8 @@ export default function Dashboard() {
       <div className="dashboard-sidebar">
         <img src={logo} alt="" />
         {sidebarData.map((link, index) => (
-          <Link to={link.path}>
-            <i className={link.logo} key={index}/>
+          <Link to={link.path} onClick={deleteCookie} key={index}>
+            <i className={link.logo} />
             <li className={link.style}>
               {link.title}
             </li>
