@@ -42,12 +42,9 @@ export default function Dashboard() {
       <div className="dashboard-sidebar">
         <img src={logo} alt="" />
         {sidebarData.map((link, index) => (
-          <Link to={link.path}>
-            <i className={link.logo} key={index}/>
-            <li className={link.style}>
-              {link.title}
-            </li>
-
+          <Link key={index} to={link.path}>
+            <i className={link.logo} />
+            <li className={link.style}>{link.title}</li>
           </Link>
         ))}
       </div>
