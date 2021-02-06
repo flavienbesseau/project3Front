@@ -66,12 +66,13 @@ export default function Form() {
         setCreatedAccount(res.data.createdAccount);
         dispatch({ type: "validate" });
       })
-      .catch((error) =>
+      .catch((error) => {
         dispatch({
           type: "register-errors",
           path: error.response.data.err.params.path,
           message: error.response.data.err.errors,
         })
+      }
       );
   };
 

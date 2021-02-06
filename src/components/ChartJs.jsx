@@ -11,6 +11,16 @@ const ChartJs = (props) => (
       width={1000}
       height={650}
       options={{
+        plugins: {
+          datalabels: {
+            align: 'center',
+            font: {
+              weight: 'bold', 
+              size: 12
+            },
+            color: '#283583',
+          }
+        },
         maintainAspectRatio: false,
         responsive: true,
         tooltips: {
