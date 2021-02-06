@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import axios from "../services/axios-config";
 import ChartJs from "./ChartJs";
-import { Chart } from "react-chartjs-2";
 import { authContext } from "../contexts/ProvideAuth";
 
 const ALL = "all";
@@ -167,26 +166,6 @@ class DataChart extends Component {
     ) {
       this.getResponses();
     }
-  }
-
-  componentWillMount() {
-    // Limit the size of the labels on the x axis
-    Chart.scaleService.updateScaleDefaults("category", {
-      ticks: {
-        callback: function (tick) {
-          var characterLimit = 25;
-          if (tick.length >= characterLimit) {
-            return (
-              tick
-                .slice(0, tick.length)
-                .substring(0, characterLimit - 1)
-                .trim() + "..."
-            );
-          }
-          return tick;
-        },
-      },
-    });
   }
 
   render() {
