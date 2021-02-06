@@ -27,18 +27,6 @@ export default function Form() {
   const [hospitals, setHospitals] = useState([]);
   const { setUserLogin } = useContext(authContext);
 
-  // useEffect(() => {
-  //   const fetchUserLogin = async () => {
-  //     try {
-  //       const log = await axios(`/api/login`);
-  //       log.data.loggedIn && setUserLogin({ connected: true });
-  //     } catch (error) {
-  //       console.log("fetchUserLogin: ", error);
-  //     }
-  //   };
-  //   fetchUserLogin();
-  // }, [setUserLogin]);
-
   useEffect(() => {
     const getHospitalsScores = async () => {
       try {
@@ -87,7 +75,6 @@ export default function Form() {
         password: passwordToLogin,
       })
       .then((res) => {
-        console.log("You are connected: ", res.data.email);
         if (res.status === 200) {
           setUserLogin({
             connected: true,
