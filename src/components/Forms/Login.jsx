@@ -7,6 +7,7 @@ export default function Registration({
   emailToLogin,
   passwordToLogin,
   dispatch,
+  loginError
 }) {
   
   return (
@@ -27,6 +28,7 @@ export default function Registration({
               });
             }}
           />
+          { loginError === 500 && <span className='email-incorrect'>Email invalide</span>}
         </div>
         <div className="password-login">
           <label htmlFor="password">Mot de passe</label>
@@ -42,6 +44,7 @@ export default function Registration({
               });
             }}
           />
+          { loginError === 403 && <span className='password-incorrect'>Mot de passe incorrect</span>}
         </div>
         <div
           className={

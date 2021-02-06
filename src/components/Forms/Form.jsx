@@ -26,6 +26,7 @@ export default function Form() {
   const [userHasAccount, setUserHasAccount] = useState(true);
   const [hospitals, setHospitals] = useState([]);
   const { setUserLogin } = useContext(authContext);
+  const [loginError, setLoginError] = useState(null);
 
   useEffect(() => {
     const getHospitalsScores = async () => {
@@ -83,7 +84,8 @@ export default function Form() {
           });
           history.push(`${match.url}/dashboard/${res.data.id}`);
         }
-      });
+      })
+      .catch(error => { setLoginError(error.response.status) })
   };
 
   return (
@@ -95,6 +97,7 @@ export default function Form() {
           emailToLogin={emailToLogin}
           passwordToLogin={passwordToLogin}
           dispatch={dispatch}
+          loginError={loginError}
         />
       ) : (
         <Registration
