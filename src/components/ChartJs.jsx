@@ -9,7 +9,7 @@ const ChartJs = (props) => (
     <HorizontalBar
       data={props.data}
       width={1000}
-      height={700}
+      height={650}
       options={{
         maintainAspectRatio: false,
         responsive: true,
