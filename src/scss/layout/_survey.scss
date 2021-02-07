@@ -63,6 +63,8 @@
 
 .send-button {
   border: none;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 600px) {
@@ -83,4 +85,21 @@
   .survey-button {
     margin-bottom: 0rem;
   }
+}
+
+.field_missing {
+  text-align: center;
+  color: red;
+  font-size: 14px;
+}
+
+.wrong_email {
+  text-align: center;
+  color: red;
+  font-size: 14px;
+}
+.wrong_pseudo {
+  text-align: center;
+  color: red;
+  font-size: 14px;
 }

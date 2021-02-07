@@ -1,5 +1,6 @@
 import React from "react";
 import logo from "../../assets/hospitalidee-logo.png";
+import { Link } from "react-router-dom";
 
 export default function Registration({
   login,
@@ -7,12 +8,13 @@ export default function Registration({
   emailToLogin,
   passwordToLogin,
   dispatch,
-  loginError
+  loginError,
 }) {
-  
   return (
     <div className="login-container">
-      <img src={logo} alt="" className="logo" />
+      <Link to="/" style={{ textAlign: "center" }}>
+        <img src={logo} alt="" className="logo" />
+      </Link>
       <form onSubmit={login}>
         <div className="email-login">
           <label htmlFor="email-to-login">Email</label>
@@ -28,7 +30,9 @@ export default function Registration({
               });
             }}
           />
-          { loginError === 500 && <span className='email-incorrect'>Email invalide</span>}
+          {loginError === 500 && (
+            <span className="email-incorrect">Email invalide</span>
+          )}
         </div>
         <div className="password-login">
           <label htmlFor="password">Mot de passe</label>
@@ -44,7 +48,9 @@ export default function Registration({
               });
             }}
           />
-          { loginError === 403 && <span className='password-incorrect'>Mot de passe incorrect</span>}
+          {loginError === 403 && (
+            <span className="password-incorrect">Mot de passe incorrect</span>
+          )}
         </div>
         <div
           className={

@@ -92,7 +92,10 @@ function Survey(props) {
                   placeholder="Jean Drenod"
                   className="pseudo"
                 />
-                {errors.pseudo && <div>{errors.pseudo}</div>}
+                <p className="field_missing">
+                  {errors.pseudo && <div>{errors.pseudo}</div>}
+                </p>
+
                 <h3>Adresse e-mail</h3>
                 <Field
                   type="input"
@@ -100,7 +103,9 @@ function Survey(props) {
                   placeholder="jean.drenod@gmail.com"
                   className="email"
                 />
-                {errors.email && <div>{errors.email}</div>}
+                <p className="field_missing">
+                  {errors.email && <div>{errors.email}</div>}
+                </p>
               </div>
               <div className="send-button">
                 <button
@@ -110,7 +115,9 @@ function Survey(props) {
                 >
                   Envoyer les réponses
                 </button>
-                {errors.answers && <div>{errors.answers}</div>}
+                <p className="field_missing">
+                  {errors.answers && <div>{errors.answers}</div>}
+                </p>
               </div>
             </div>
           </form>
