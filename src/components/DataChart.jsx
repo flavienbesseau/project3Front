@@ -174,8 +174,6 @@ class DataChart extends Component {
       selectedSpecialty,
       specialties,
       experiences,
-      selectedPostDateStart,
-      selectedPostDateEnd,
     } = this.state;
     return (
       <div className="general-information">
@@ -223,7 +221,7 @@ class DataChart extends Component {
               name="postDateStart"
               min="1000-01-01"
               onChange={this.onClickChangeStartDate}
-              value={selectedPostDateStart}
+              // value={selectedPostDateStart}
             ></input>
           </div>
           <div className="general-information-filter-date-end">
@@ -233,7 +231,7 @@ class DataChart extends Component {
               name="postDateEnd"
               min="1000-01-01"
               onChange={this.onClickChangeEndDate}
-              value={selectedPostDateEnd}
+              // value={selectedPostDateEnd}
             ></input>
           </div>
         </div>

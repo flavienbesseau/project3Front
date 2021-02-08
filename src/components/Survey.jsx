@@ -10,7 +10,6 @@ import { connect } from "react-redux";
 
 const validate = (values) => {
   const errors = {};
-  console.log(values);
   if (!values.pseudo) {
     errors.pseudo = "Veuillez choisir un pseudo";
   }
@@ -51,7 +50,6 @@ function Survey(props) {
           email: "",
         }}
         onSubmit={(values, { setSubmitting }) => {
-          console.log("ON SUBMIT", values);
           setTimeout(() => {
             const results = formatResponses(
               values,
@@ -95,9 +93,9 @@ function Survey(props) {
                       className="pseudo"
                     />
                   </div>
-                  <p className="field_missing">
+                  <div className="field_missing">
                     {errors.pseudo && <p>{errors.pseudo}</p>}
-                  </p>
+                  </div>
                 </div>
                 <div>
                   <div className="email_input">
@@ -109,9 +107,9 @@ function Survey(props) {
                       className="email"
                     />
                   </div>
-                  <p className="field_missing">
+                  <div className="field_missing">
                     {errors.email && <p>{errors.email}</p>}
-                  </p>
+                  </div>
                 </div>
               </div>
               <div className="send-button">
