@@ -38,35 +38,40 @@ export default function CommentsByQuestions({ id, setGetFeedbacks }) {
             <div className="comments-by-questions-answer">
               <div className="comments-by-questions-answer-rating">
                 <span>{feedback.score}/5</span>
-               <FontAwesomeIcon icon={faStar}
+                <FontAwesomeIcon
+                  icon={faStar}
                   className={
                     feedback.score >= 1
                       ? "fas fa-star star-rating-yellow"
                       : "fas fa-star star-rating-none"
                   }
                 />
-                <FontAwesomeIcon icon={faStar}
+                <FontAwesomeIcon
+                  icon={faStar}
                   className={
                     feedback.score >= 2
                       ? "fas fa-star star-rating-yellow"
                       : "fas fa-star star-rating-none"
                   }
                 />
-              <FontAwesomeIcon icon={faStar}
+                <FontAwesomeIcon
+                  icon={faStar}
                   className={
                     feedback.score >= 3
                       ? "fas fa-star star-rating-yellow"
                       : "fas fa-star star-rating-none"
                   }
                 />
-                <FontAwesomeIcon icon={faStar}
+                <FontAwesomeIcon
+                  icon={faStar}
                   className={
                     feedback.score >= 4
                       ? "fas fa-star star-rating-yellow"
                       : "fas fa-star star-rating-none"
                   }
                 />
-                <FontAwesomeIcon icon={faStar}
+                <FontAwesomeIcon
+                  icon={faStar}
                   className={
                     feedback.score >= 5
                       ? "fas fa-star star-rating-yellow"
