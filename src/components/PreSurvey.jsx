@@ -81,7 +81,7 @@ class PreSurvey extends Component {
             id="hospital-select"
             onChange={this.handleHospital}
           >
-            <option>Choisissez un hopital</option>
+            <option>Choisissez un hôpital</option>
 
             {hospitals.map((hospital) => (
               <option key={hospital.id} value={hospital.id}>

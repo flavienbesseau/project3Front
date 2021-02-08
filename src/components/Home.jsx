@@ -12,7 +12,7 @@ export default function Home() {
       <Navbar />
       <div className="donnetonavis">
         <Hospital />
-        <p>Sur un sejour à l'hôpital ou dans une clinique</p>
+        <p>Sur un séjour à l'hôpital ou dans une clinique</p>
         <Link to={"/PreSurvey"} className="btn-grad">
           Donnez votre avis
         </Link>
@@ -34,7 +34,7 @@ export default function Home() {
             <Bell />
             <p>
               Vous pouvez visualiser vos résultats par rapport à une moyenne,
-              nous poser une question, être mise en relation près de chez vous.
+              nous poser une question, être mis en relation près de chez vous.
             </p>
           </div>
           <div className="box">

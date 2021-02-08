@@ -20,6 +20,7 @@
 
 .sending-form {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-content: center;
   flex-wrap: wrap;
@@ -36,7 +37,7 @@
   border-radius: 0.25rem;
   font-size: 1.4rem;
   text-indent: 1rem;
-  margin: 2rem 0rem 2rem 0rem;
+  margin: 2rem 0rem 1rem 0rem;
   color: rgb(52, 138, 202);
   display: flex;
   align-content: center;
@@ -44,12 +45,16 @@
 
 .identification-form {
   margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
 }
 
 .survey-button {
   cursor: pointer;
   background-color: rgb(52, 138, 202);
   color: #ffff;
+  font-family: "Poppins", sans-serif;
   min-width: 30rem;
   min-height: 4rem;
   border: 1px solid #ced4da;
@@ -89,17 +94,27 @@
 
 .field_missing {
   text-align: center;
-  color: red;
-  font-size: 14px;
+  color: $error;
+  font-size: $small;
 }
 
 .wrong_email {
   text-align: center;
-  color: red;
-  font-size: 14px;
+  color: $error;
+  font-size: $small;
 }
 .wrong_pseudo {
   text-align: center;
-  color: red;
-  font-size: 14px;
+  color: $error;
+  font-size: $small;
+}
+
+.box_input {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.email_input {
+  margin-left: 1rem;
 }

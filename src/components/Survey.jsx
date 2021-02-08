@@ -12,12 +12,12 @@ const validate = (values) => {
   const errors = {};
   console.log(values);
   if (!values.pseudo) {
-    errors.pseudo = "Required";
+    errors.pseudo = "Veuillez choisir un pseudo";
   }
   if (!values.email) {
-    errors.email = "Required";
+    errors.email = "Veuillez choisir une adresse électronique";
   } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-    errors.email = "Invalid email address";
+    errors.email = "Adresse électronique invalide";
   }
   if (Object.keys(values).length <= 2) {
     errors.answers = "Veuillez remplir au moins un champ";
@@ -85,27 +85,34 @@ function Survey(props) {
             ))}
             <div className="sending-form">
               <div className="identification-form">
-                <h3>Pseudonyme</h3>
-                <Field
-                  type="text"
-                  name="pseudo"
-                  placeholder="Jean Drenod"
-                  className="pseudo"
-                />
-                <p className="field_missing">
-                  {errors.pseudo && <div>{errors.pseudo}</div>}
-                </p>
-
-                <h3>Adresse e-mail</h3>
-                <Field
-                  type="input"
-                  name="email"
-                  placeholder="jean.drenod@gmail.com"
-                  className="email"
-                />
-                <p className="field_missing">
-                  {errors.email && <div>{errors.email}</div>}
-                </p>
+                <div>
+                  <div className="pseudo_input">
+                    <h3>Pseudonyme</h3>
+                    <Field
+                      type="text"
+                      name="pseudo"
+                      placeholder="Jean Drenod"
+                      className="pseudo"
+                    />
+                  </div>
+                  <p className="field_missing">
+                    {errors.pseudo && <p>{errors.pseudo}</p>}
+                  </p>
+                </div>
+                <div>
+                  <div className="email_input">
+                    <h3>Adresse e-mail</h3>
+                    <Field
+                      type="input"
+                      name="email"
+                      placeholder="jean.drenod@gmail.com"
+                      className="email"
+                    />
+                  </div>
+                  <p className="field_missing">
+                    {errors.email && <p>{errors.email}</p>}
+                  </p>
+                </div>
               </div>
               <div className="send-button">
                 <button
@@ -116,7 +123,7 @@ function Survey(props) {
                   Envoyer les réponses
                 </button>
                 <p className="field_missing">
-                  {errors.answers && <div>{errors.answers}</div>}
+                  {errors.answers && <p>{errors.answers}</p>}
                 </p>
               </div>
             </div>
