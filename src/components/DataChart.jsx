@@ -193,7 +193,7 @@ class DataChart extends Component {
               onChange={this.onClickChangeExperience}
               value={selectedExperience}
             >
-              <option value="all">Toutes les types d'hospit</option>
+              <option value="all">Types d'hospitalisation</option>
               {experiences.map((xp) => (
                 <option key={xp.id} value={xp.id}>
                   {xp.name}
@@ -208,7 +208,7 @@ class DataChart extends Component {
               onChange={this.onClickChangeSpecialties}
               value={selectedSpecialty}
             >
-              <option value="all">Toutes les spécialités</option>
+              <option value="all">Spécialités</option>
               {specialties.map((specialty) => (
                 <option key={specialty.id} value={specialty.id}>
                   {specialty.name}

@@ -84,7 +84,9 @@ export default function Form() {
           history.push(`${match.url}/dashboard/${res.data.id}`);
         }
       })
-      .catch(error => { setLoginError(error.response.status) })
+      .catch((error) => {
+        setLoginError(error.response.status);
+      });
   };
 
   return (

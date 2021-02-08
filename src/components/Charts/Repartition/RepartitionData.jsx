@@ -4,7 +4,7 @@ const repartitionLabels = [
   "Ambulatoire avec bloc",
   "Ambulatoire sans bloc",
   "Urgences",
-  "Maternités",
+  "Maternité",
 ];
 
 const repartitionColors = [

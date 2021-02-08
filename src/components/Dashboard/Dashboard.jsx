@@ -57,7 +57,6 @@ export default function Dashboard() {
             <li className={link.style}>
               {link.title}
             </li>
-
           </Link>
         ))}
       </div>

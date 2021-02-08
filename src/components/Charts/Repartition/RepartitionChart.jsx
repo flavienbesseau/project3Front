@@ -25,7 +25,7 @@ export default function RepartitionChart() {
 
   return (
     <div className="repartition-chart">
-      <h3>Repartition</h3>
+      <h3>Répartition</h3>
       <div className="repartition-chart-graph">
         <Polar
           data={{
