@@ -1,5 +1,5 @@
 import axios from "../../services/axios-config";
-import React, { useEffect, useState, Fragment } from "react";
+import React, { useEffect, useState } from "react";
 import CommentsByQuestions from "./CommentsByQuestions";
 import useCloseModal from "../../hooks/useCloseModal";
 
@@ -37,9 +37,8 @@ export default function Feedbacks({ feedback, setFeedback }) {
         <h2>Choississez la question pour acceder aux verbatims</h2>
         {listOfQuestions &&
           listOfQuestions.map((question) => (
-            <Fragment>
+            <div key={question.id}>
               <li
-                key={question.id}
                 onClick={() => {
                   setGetFeedbacks({ status: true, id: question.id });
                 }}
@@ -49,9 +48,9 @@ export default function Feedbacks({ feedback, setFeedback }) {
                     : "feedbacks-questions"
                 }
               >
-                <p key={question}>{question.text_rating}</p>
+                <p>{question.text_rating}</p>
               </li>
-            </Fragment>
+            </div>
           ))}
         {getFeedbacks && (
           <CommentsByQuestions
