@@ -22,7 +22,6 @@ export default function Dashboard() {
   const deleteCookie = async () => {
     try {
       await axios.get("/api/logout");
-      console.log("click");
     } catch (e) {
       console.log(e.response);
     }
