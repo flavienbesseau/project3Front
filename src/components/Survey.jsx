@@ -120,9 +120,9 @@ function Survey(props) {
                 >
                   Envoyer les réponses
                 </button>
-                <p className="field_missing">
+                <div className="field_missing">
                   {errors.answers && <p>{errors.answers}</p>}
-                </p>
+                </div>
               </div>
             </div>
           </form>
