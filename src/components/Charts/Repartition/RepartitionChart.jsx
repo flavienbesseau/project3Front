@@ -21,11 +21,11 @@ export default function RepartitionChart() {
           res.data.maternities,
         ])
       );
-  }, []);
+  }, [userLogin.hospital]);
 
   return (
     <div className="repartition-chart">
-      <h3>Repartition</h3>
+      <h3>Répartition</h3>
       <div className="repartition-chart-graph">
         <Polar
           data={{
@@ -37,10 +37,15 @@ export default function RepartitionChart() {
               },
             ],
           }}
-          width={600}
+          width={1000}
           height={400}
           options={{
             maintainAspectRatio: false,
+            scale: {
+              ticks: {
+                showLabelBackdrop: false,
+              },
+            },
             legend: {
               align: "start",
               labels: {

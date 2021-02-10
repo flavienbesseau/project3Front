@@ -4,7 +4,7 @@ import { Radar, defaults } from "react-chartjs-2";
 defaults.global.defaultFontColor = "#fff";
 
 const config = {
-  labels: ["Compétences", "Fiabilité", "Transparence", "Relation"],
+  labels: ["Compétence", "Fiabilité", "Transparence", "Relation"],
   datasets: [
     {
       label: "Mon établissement",
@@ -30,6 +30,11 @@ const config = {
 };
 
 let options = {
+  plugins: {
+    datalabels: {
+      display: false,
+    },
+  },
   scale: {
     pointLabels: {
       fontStyle: "bold",

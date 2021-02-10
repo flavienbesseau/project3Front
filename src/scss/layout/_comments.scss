@@ -60,7 +60,9 @@
 
     .comments-by-questions-answer {
       width: 100%;
-      height: 50%;
+      height: 70%;
+
+      overflow: hidden;
 
       @include flex-column(center);
       flex: 1;
@@ -73,21 +75,20 @@
           margin-right: 0.5rem;
         }
 
-        i {
-          font-size: 1.5rem;
-        }
-
         .star-rating-none {
           color: rgb(214, 213, 205);
+          font-size: 1.5rem;
         }
 
         .star-rating-yellow {
           color: rgb(252, 212, 51);
+          font-size: 1.5rem;
         }
       }
 
       .comments-by-questions-answer-feedback {
-        margin-top: 1rem;
+        overflow-y: scroll;
+        @include little-scroll;
         p {
           font-size: $medium;
         }

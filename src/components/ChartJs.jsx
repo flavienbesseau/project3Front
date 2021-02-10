@@ -4,20 +4,36 @@ import "chartjs-plugin-datalabels";
 
 defaults.global.tooltips.enabled = true;
 
+const tickShortener = (tick) => {
+  const characterLimit = 25;
+  if (tick.length >= characterLimit) {
+    return (
+      tick
+        .slice(0, tick.length)
+        .substring(0, characterLimit - 1)
+        .trim() + "..."
+    );
+  }
+  return tick;
+};
+
 const ChartJs = (props) => (
-  <div
-    style={{
-      // backgroundColor: "#265f87",
-      fontColor: "#dadfe6",
-      width: "100%",
-      height: "80%",
-    }}
-  >
+  <div>
     <HorizontalBar
       data={props.data}
       width={1000}
-      height={500}
+      height={650}
       options={{
+        plugins: {
+          datalabels: {
+            align: "center",
+            font: {
+              weight: "bold",
+              size: 12,
+            },
+            color: "#283583",
+          },
+        },
         maintainAspectRatio: false,
         responsive: true,
         tooltips: {
@@ -28,10 +44,7 @@ const ChartJs = (props) => (
           },
         },
         title: {
-          display: true,
-          text: "Informations générales",
-          fontSize: 15,
-          fontColor: "#dadfe6",
+          display: false,
         },
         legend: {
           display: false,
@@ -50,6 +63,7 @@ const ChartJs = (props) => (
         scales: {
           yAxes: [
             {
+              afterBuildTicks: (axis, ticks) => ticks.map(tickShortener),
               gridLines: {
                 display: false,
               },

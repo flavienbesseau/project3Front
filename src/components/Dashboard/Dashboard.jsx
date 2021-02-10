@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import logo from "../../assets/hospitalidee-logo.png";
 import hospitalideeLogo from "../../assets/hospitalidee-transparent.png";
@@ -18,6 +19,14 @@ export default function Dashboard() {
     e.key === "Escape" && setFeedback(false);
   };
 
+  const deleteCookie = async () => {
+    try {
+      await axios.get("/api/logout");
+    } catch (e) {
+      console.log(e.response);
+    }
+  };
+
   return (
     <div className="dashboard">
       <div className="dashboard-header">
@@ -32,10 +41,8 @@ export default function Dashboard() {
         <ul className={isTheMenuOpen ? "routes-links-open" : "routes-links"}>
           <img src={hospitalideeLogo} alt="" />
           {sidebarData.map((link, index) => (
-            <Link to={link.path}>
-              <li key={index} className={link.style}>
-                {link.title}
-              </li>
+            <Link key={index} to={link.path}>
+              <li className={link.style}>{link.title}</li>
             </Link>
           ))}
         </ul>
@@ -44,10 +51,9 @@ export default function Dashboard() {
       <div className="dashboard-sidebar">
         <img src={logo} alt="" />
         {sidebarData.map((link, index) => (
-          <Link to={link.path}>
-            <li key={index} className={link.style}>
-              {link.title}
-            </li>
+          <Link to={link.path} onClick={deleteCookie} key={index}>
+            <i className={link.logo} />
+            <li className={link.style}>{link.title}</li>
           </Link>
         ))}
       </div>

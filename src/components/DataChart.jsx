@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import axios from "../services/axios-config";
 import ChartJs from "./ChartJs";
-import backPort from "../const";
-import { Chart } from "react-chartjs-2";
 import { authContext } from "../contexts/ProvideAuth";
 
 const ALL = "all";
@@ -14,8 +12,8 @@ class DataChart extends Component {
     this.state = {
       selectedExperience: "all",
       selectedSpecialty: "all",
-      selectedPostDateStart: "all",
-      selectedPostDateEnd: "all",
+      selectedPostDateStart: undefined,
+      selectedPostDateEnd: undefined,
       experiences: [],
       specialties: [],
       labels: ["Q1", "Q2", "Q3", "Q4"],
@@ -27,6 +25,8 @@ class DataChart extends Component {
           backgroundColor: [],
           borderColor: [],
           borderWidth: 1,
+          barThickness: 20,
+          padding: 100,
         },
       ],
     };
@@ -71,10 +71,10 @@ class DataChart extends Component {
     if (selectedSpecialty !== ALL) {
       url.searchParams.append("specialtyId", selectedSpecialty);
     }
-    if (selectedPostDateStart !== ALL) {
+    if (selectedPostDateStart) {
       url.searchParams.append("postDateStart", selectedPostDateStart);
     }
-    if (selectedPostDateEnd !== ALL) {
+    if (selectedPostDateEnd) {
       url.searchParams.append("postDateEnd", selectedPostDateEnd);
     }
 
@@ -168,34 +168,12 @@ class DataChart extends Component {
     }
   }
 
-  componentWillMount() {
-    // Limit the size of the labels on the x axis
-    Chart.scaleService.updateScaleDefaults("category", {
-      ticks: {
-        callback: function (tick) {
-          var characterLimit = 25;
-          if (tick.length >= characterLimit) {
-            return (
-              tick
-                .slice(0, tick.length)
-                .substring(0, characterLimit - 1)
-                .trim() + "..."
-            );
-          }
-          return tick;
-        },
-      },
-    });
-  }
-
   render() {
     const {
       selectedExperience,
       selectedSpecialty,
       specialties,
       experiences,
-      selectedPostDateStart,
-      selectedPostDateEnd,
     } = this.state;
     return (
       <div className="general-information">
@@ -213,9 +191,11 @@ class DataChart extends Component {
               onChange={this.onClickChangeExperience}
               value={selectedExperience}
             >
-              <option value="all">Tous</option>
+              <option value="all">Types d'hospitalisation</option>
               {experiences.map((xp) => (
-                <option value={xp.id}>{xp.name}</option>
+                <option key={xp.id} value={xp.id}>
+                  {xp.name}
+                </option>
               ))}
             </select>
           </div>
@@ -226,9 +206,11 @@ class DataChart extends Component {
               onChange={this.onClickChangeSpecialties}
               value={selectedSpecialty}
             >
-              <option value="all">Tous</option>
+              <option value="all">Spécialités</option>
               {specialties.map((specialty) => (
-                <option value={specialty.id}>{specialty.name}</option>
+                <option key={specialty.id} value={specialty.id}>
+                  {specialty.name}
+                </option>
               ))}
             </select>
           </div>
@@ -239,7 +221,7 @@ class DataChart extends Component {
               name="postDateStart"
               min="1000-01-01"
               onChange={this.onClickChangeStartDate}
-              value={selectedPostDateStart}
+              // value={selectedPostDateStart}
             ></input>
           </div>
           <div className="general-information-filter-date-end">
@@ -249,10 +231,11 @@ class DataChart extends Component {
               name="postDateEnd"
               min="1000-01-01"
               onChange={this.onClickChangeEndDate}
-              value={selectedPostDateEnd}
+              // value={selectedPostDateEnd}
             ></input>
           </div>
         </div>
+        <h3 className="datachart-title">Informations générales</h3>
         <ChartJs data={this.state} />
       </div>
     );

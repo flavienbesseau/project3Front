@@ -6,8 +6,9 @@
     position: relative;
 
     img {
-      width: 50%;
+      width: 80%;
       transform: translateY(-80px);
+      display: none;
     }
 
     a {
@@ -21,24 +22,41 @@
       }
     }
 
-    li {
-      @include flex-center;
-      flex-wrap: wrap;
-      height: 5rem;
-      margin: 1rem;
-      border-radius: 1rem;
-      background: #0f1744;
-      cursor: pointer;
-      &:hover {
-        background: $background-dashboard;
-        color: $white;
+    i {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+      height: 4rem;
+      width: 4rem;
+
+      font-size: 2rem;
+      color: $blue;
+      background: $white;
+      border-radius: 50%;
+      position: relative;
+
+      &:before {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
       }
     }
 
     .dashboard-sidebar-link-deconnexion {
-      bottom: 5rem;
-      background: $white;
-      color: $middle-blue;
+      width: 100%;
+
+      position: absolute;
+      margin-top: 0.5rem;
+
+      left: 0;
+
+      text-align: center;
+      cursor: pointer;
+      color: $white;
+      font-size: $small;
     }
   }
 }

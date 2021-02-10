@@ -1,4 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faStar } from "@fortawesome/free-solid-svg-icons";
 import axios from "../../services/axios-config";
 import { authContext } from "../../contexts/ProvideAuth";
 import { ReactComponent as Plus } from "../../ressources/plus.svg";
@@ -73,7 +75,7 @@ export default function ThisMonth() {
       .get(`/api/averageHospital/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setTotalAverage(data[0]));
-  }, []);
+  }, [userLogin.hospital]);
   let average = totalAverage.score;
   average = parseFloat(average).toFixed(2);
 
@@ -82,35 +84,35 @@ export default function ThisMonth() {
       .get(`/api/countReviews/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setTotalCount(data[0]));
-  }, []);
+  }, [userLogin.hospital]);
 
   useEffect(() => {
     axios
       .get(`/api/averageThisMonth/doctorsRelation/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setDoctorRelation(data[0]));
-  }, []);
+  }, [userLogin.hospital]);
 
   useEffect(() => {
     axios
       .get(`/api/averageThisMonth/doctorsRelationPast/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setDoctorRelationPast(data[0]));
-  }, []);
+  }, [userLogin.hospital]);
 
   useEffect(() => {
     axios
       .get(`/api/averageThisMonth/healthTeam/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setHealthTeam(data[0]));
-  }, []);
+  }, [userLogin.hospital]);
 
   useEffect(() => {
     axios
       .get(`/api/averageThisMonth/healthTeamPast/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setHealthTeamPast(data[0]));
-  }, []);
+  }, [userLogin.hospital]);
 
   useEffect(() => {
     axios
@@ -119,7 +121,7 @@ export default function ThisMonth() {
       )
       .then((res) => res.data)
       .then((data) => setExplanationsInformations(data[0]));
-  }, []);
+  }, [userLogin.hospital]);
 
   useEffect(() => {
     axios
@@ -128,61 +130,61 @@ export default function ThisMonth() {
       )
       .then((res) => res.data)
       .then((data) => setExplanationsInformationsPast(data[0]));
-  }, []);
+  }, [userLogin.hospital]);
 
   useEffect(() => {
     axios
       .get(`/api/averageThisMonth/organisation/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setOrganisation(data[0]));
-  }, []);
+  }, [userLogin.hospital]);
 
   useEffect(() => {
     axios
       .get(`/api/averageThisMonth/organisationPast/${userLogin.hospital}`)
       .then((res) => res.data)
       .then((data) => setOrganisationPast(data[0]));
-  }, []);
+  }, [userLogin.hospital]);
 
   return (
     <div className="thisMonth">
       <h3 className="pMonth">Ce mois-ci</h3>
       <p className="review">{totalCount.count} avis</p>
       <p className="review">Note: {average}/5</p>
-      <i
-        class="fas fa-star"
+      <FontAwesomeIcon
+        icon={faStar}
         className={
           average >= 1
             ? "fas fa-star star-rating-yellow"
             : "fas fa-star star-rating-none"
         }
       />
-      <i
-        class="fas fa-star"
+      <FontAwesomeIcon
+        icon={faStar}
         className={
           average >= 1.95
             ? "fas fa-star star-rating-yellow"
             : "fas fa-star star-rating-none"
         }
       />
-      <i
-        class="fas fa-star"
+      <FontAwesomeIcon
+        icon={faStar}
         className={
           average >= 2.95
             ? "fas fa-star star-rating-yellow"
             : "fas fa-star star-rating-none"
         }
       />
-      <i
-        class="fas fa-star"
+      <FontAwesomeIcon
+        icon={faStar}
         className={
           average >= 3.95
             ? "fas fa-star star-rating-yellow"
             : "fas fa-star star-rating-none"
         }
       />
-      <i
-        class="fas fa-star"
+      <FontAwesomeIcon
+        icon={faStar}
         className={
           average >= 4.95
             ? "fas fa-star star-rating-yellow"

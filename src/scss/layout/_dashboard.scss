@@ -18,8 +18,8 @@
   border-radius: 1rem;
   box-shadow: 5px 5px 5px #0e1644;
 
-  overflow-y: scroll;
-  @include scroll;
+  // overflow-y: scroll;
+  // @include scroll;
 }
 
 .dashboard-confidence-score {
@@ -49,6 +49,7 @@
   min-height: 100vh;
 
   padding: 1rem;
+  padding-bottom: 0rem;
   margin: 0 auto;
 
   // Grid Configuraion
@@ -56,7 +57,7 @@
   row-gap: 1rem;
   place-content: center;
   grid-template-columns: 100%;
-  grid-template-rows: repeat(5, minmax(150px, auto));
+  grid-template-rows: repeat(5, minmax(100px, auto));
   grid-template-areas:
     "header"
     "general"
@@ -70,16 +71,22 @@
 
   // Laptop grid configuration
   @include breakpoint(laptop) {
-    height: 100vh;
-    width: 100vw;
+    max-height: 100%;
+    max-width: 100%;
 
-    grid-template-columns: repeat(4, 25%);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: 10% 40% 30% 20%;
+    grid-template-rows: repeat(2, auto);
+
     grid-template-areas:
       "sidebar general general month"
       "sidebar general general month"
       "sidebar confidence repartition month";
+    grid-template-areas:
+      "sidebar general confidence month"
+      "sidebar general repartition month";
+
     padding-left: 4rem;
+    padding-left: 3rem;
     gap: 1rem;
   }
 
@@ -103,7 +110,7 @@
     }
 
     img {
-      width: 40%;
+      width: 50%;
       justify-self: center;
     }
 

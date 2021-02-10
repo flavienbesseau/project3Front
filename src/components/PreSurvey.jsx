@@ -2,7 +2,6 @@ import axios from "../services/axios-config";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import backPort from "../const";
 import Navbar from "./Header/Navbar";
 
 class PreSurvey extends Component {
@@ -12,6 +11,7 @@ class PreSurvey extends Component {
       hospitals: [],
       specialties: [],
       experiences: [],
+      errorMessage: false,
     };
     this.handleHospital = this.handleHospital.bind(this);
     this.handleSpecialty = this.handleSpecialty.bind(this);
@@ -69,25 +69,28 @@ class PreSurvey extends Component {
 
   render() {
     const { hospitals, specialties, experiences } = this.state;
+    const { hospitalId, specialtyId, experienceId } = this.props;
     return (
       <div className="prequest">
         <Navbar />
         <h1>Pré-questionnaire</h1>
         <div className="prequest-hospital-selection">
-          <label for="hospital-select" />
+          <label htmlFor="hospital-select" />
           <select
             name="hospital"
             id="hospital-select"
             onChange={this.handleHospital}
           >
-            <option>Choisissez un hopital</option>
+            <option>Choisissez un hôpital</option>
 
             {hospitals.map((hospital) => (
-              <option value={hospital.id}>{hospital.name}</option>
+              <option key={hospital.id} value={hospital.id}>
+                {hospital.name}
+              </option>
             ))}
           </select>
 
-          <label for="specialties-select" />
+          <label htmlFor="specialties-select" />
           <select
             name="specialties"
             id="specialties-select"
@@ -95,11 +98,13 @@ class PreSurvey extends Component {
           >
             <option value="specialty">Choisissez une spécialité</option>
             {specialties.map((specialty) => (
-              <option value={specialty.id}>{specialty.name}</option>
+              <option key={specialty.id} value={specialty.id}>
+                {specialty.name}
+              </option>
             ))}
           </select>
 
-          <label for="experiences-select" />
+          <label htmlFor="experiences-select" />
           <select
             name="experiences"
             id="experiences-select"
@@ -109,17 +114,43 @@ class PreSurvey extends Component {
               Choisissez votre type d'hospitalisation
             </option>
             {experiences.map((experience) => (
-              <option value={experience.id}>{experience.name}</option>
+              <option key={experience.id} value={experience.id}>
+                {experience.name}
+              </option>
             ))}
           </select>
-          <Link to={`/survey`} className="btn-grad">
-            Donnez votre avis
-          </Link>
+          {hospitalId && specialtyId && experienceId ? (
+            <Link to={`/survey`} className="btn-grad">
+              Donnez votre avis
+            </Link>
+          ) : (
+            <div className="errorHandler">
+              <button
+                className="btn-grad"
+                onClick={() => this.setState({ errorMessage: true })}
+              >
+                Donnez votre avis
+              </button>
+              {this.state.errorMessage === true ? (
+                <p>Remplissez les 3 champs</p>
+              ) : (
+                ""
+              )}
+            </div>
+          )}
         </div>
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    experienceId: state.experienceId,
+    specialtyId: state.specialtyId,
+    hospitalId: state.hospitalId,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => ({
   updateExperienceId: (id) =>
@@ -128,4 +159,4 @@ const mapDispatchToProps = (dispatch) => ({
   updateSpecialtyId: (id) => dispatch({ type: "UPDATE_SPECIALTY_ID", id: id }),
 });
 
-export default connect(null, mapDispatchToProps)(PreSurvey);
+export default connect(mapStateToProps, mapDispatchToProps)(PreSurvey);
